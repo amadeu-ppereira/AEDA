@@ -91,6 +91,7 @@ void candidato::setData(vector<int> v){
 	this->ano = v[2];
 
 }
+/////////////////////////////////////////
 
 void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
