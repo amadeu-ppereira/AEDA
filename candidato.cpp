@@ -3,8 +3,19 @@
 
 int candidato::numeroInsc = 0;
 
-std::ostream & operator<<(std::ostream &out, const candidatoJaExiste *c)
-{ out << "Candidato numero" << c->numero << ": " << c->nome << "ja existe!\n"; return out; }
+std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c) {
+	out << "Candidato " << c.nome << " ja existe!\n";
+	return out;
+}
+
+std::ostream & operator<<(std::ostream &out, const candidatoNaoExiste &c) {
+	if (c.numero != 0)
+		out << "Candidato numero " << c.numero << " nao existe!\n";
+	else
+		out << "Candidato " << c.nome << " nao existe!\n";
+
+	return out;
+}
 
 candidato::candidato() : numero(++numeroInsc){
 	this-> dia = 0;

@@ -37,12 +37,36 @@ void adicionaCandidato(candidato *c) {
 	}
 	else {
 		candidatosGlobal.push_back(c);
+		cout << "Candidato numero " << c->getNumero() << " (" << c->getNome() << ") adicionado!\n";
+		cin.get();
 	}
 }
 
 
-void removeCandidato() {
+void removeCandidato(int numero) {
 
+	int i;
+	if (i = procuraCandidato(numero) == -1) {
+		throw candidatoNaoExiste(numero);
+	}
+	else {
+		candidatosGlobal.erase(candidatosGlobal.begin() + i);
+		cout << "Candidato numero " << numero << " removido!\n";
+		cin.get();
+	}
+}
+
+void removeCandidato(string nome) {
+
+	int i;
+	if (i = procuraCandidato(nome) == -1) {
+		throw candidatoNaoExiste(nome);
+	}
+	else {
+		candidatosGlobal.erase(candidatosGlobal.begin() + i);
+		cout << "Candidato " << nome << " removido!\n";
+		cin.get();
+	}
 }
 
 
@@ -68,6 +92,26 @@ int procuraCandidato(candidato *c) {
 
 	for (unsigned int i = 0; i < candidatosGlobal.size(); i++)
 		if (candidatosGlobal.at(i)->getNome() == c->getNome() || candidatosGlobal.at(i)->getNumero() == c->getNumero())
+			return i; // encontrou
+
+	return -1;
+
+}
+
+int procuraCandidato(int numero) {
+
+	for (unsigned int i = 0; i < candidatosGlobal.size(); i++)
+		if (candidatosGlobal.at(i)->getNumero() == numero)
+			return i; // encontrou
+
+	return -1;
+
+}
+
+int procuraCandidato(string nome) {
+
+	for (unsigned int i = 0; i < candidatosGlobal.size(); i++)
+		if (candidatosGlobal.at(i)->getNome() == nome)
 			return i; // encontrou
 
 	return -1;
