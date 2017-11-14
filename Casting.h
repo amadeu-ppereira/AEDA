@@ -1,11 +1,10 @@
 #ifndef CASTING_H_
 #define CASTING_H_
 
+#include "sessao.h"
+#include "candidato.h"
+#include "jurado.h"
 
-class sessao;
-class candidato;
-#include <string>
-#include <vector>
 
 
 class Casting {
