@@ -3,11 +3,13 @@
 
 int candidato::numeroInsc = 0;
 
+std::ostream & operator<<(std::ostream &out, const candidatoJaExiste *c)
+{ out << "Candidato numero" << c->numero << ": " << c->nome << "ja existe!\n"; return out; }
 
-candidato::candidato(int dia = 0 , int mes = 0 , int ano = 0) : numero(++numeroInsc){
-	this-> dia = dia;
-	this->mes = mes;
-	this->ano = ano;
+candidato::candidato() : numero(++numeroInsc){
+	this-> dia = 0;
+	this->mes = 0;
+	this->ano = 0;
 
 }
 
