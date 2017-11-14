@@ -26,4 +26,46 @@ candidato::~candidato() {
 }
 
 
+/////////// get functions /////////////
+string candidato::getArte() const {
+
+	return arte;
+}
+
+vector<int> candidato::getDataNascimento() const {
+
+	vector <int> v;
+	v.push_back(dia);
+	v.push_back(mes);
+	v.push_back(ano);
+
+	return v;
+}
+
+string candidato::getNome() const {
+
+	return nome;
+}
+
+string candidato::getMorada() const {
+
+	return morada;
+}
+
+int candidato::getNumero() const {
+	return numero;
+}
+
+vector<sessao*> candidato::getParticipacoes() {
+
+
+}
+
+
+
+
+
+
+
+
 
