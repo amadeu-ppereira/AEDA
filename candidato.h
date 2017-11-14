@@ -6,6 +6,7 @@
 #include "sessao.h"
 using namespace std;
 class Casting;
+
 class candidato {
 	string nome;
 	string morada;
@@ -15,6 +16,14 @@ class candidato {
 	const int numero;
 	vector<sessao*> participacoes;
 public:
+
+	/*
+	 *  @brief constructor da class candidato (pode inicializar dia mes e ano a zero)
+	 *
+	 *
+	 */
+
+	candidato(int dia , int mes ,int ano);
 	/*
 	 * @brief destrutor de um objecto da class candidato
 	 *
@@ -54,6 +63,20 @@ public:
 	 * @return arte performativa do candidato
 	 */
 	string getArte() const;
+
+	/*
+	 * @brief funcao que devolve o numero de inscricao do candidato
+	 *
+	 * @return numero de inscricao do candidato
+	 */
+	int getNumero() const;
+
+	/*
+	 * @brief funcao que devolve um vector com as sessoes em que o candidato participou
+	 *
+	 * @return vector<sessao*> sessoes do candidato
+	 */
+	vector <sessao*> getParticipacoes()  ;
 
 };
 
