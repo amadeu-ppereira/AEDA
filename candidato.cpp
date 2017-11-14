@@ -1,5 +1,5 @@
 #include "candidato.h"
-#include "sstream"
+
 
 int candidato::numeroInsc = 0;
 

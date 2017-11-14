@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "sessao.h"
+#include "sstream"
 using namespace std;
 class Casting;
 
