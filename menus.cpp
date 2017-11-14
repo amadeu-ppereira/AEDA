@@ -33,6 +33,7 @@ void menu() {
 			break;
 		case 9:
 			sair();
+			return;
 			break;
 		default:
 			break;
@@ -67,7 +68,7 @@ void menuCandidatos() {
 			menuAdicionaCandidato();
 			break;
 		case 2:
-			removeCandidato();
+			menuRemoveCandidato();
 			break;
 		case 3:
 			infoCandidato();
@@ -77,6 +78,7 @@ void menuCandidatos() {
 			break;
 		case 9:
 			sair();
+			return;
 			break;
 		default:
 			break;
@@ -122,6 +124,7 @@ void menuJurados() {
 			break;
 		case 9:
 			sair();
+			return;
 			break;
 		default:
 			break;
@@ -144,7 +147,7 @@ void menuSessoes() {
 	cout << "| 9. Sair                                        |\n";
 	cout << "+------------------------------------------------+\n\n";
 
-	int opcao;
+		int opcao;
 
 		cout << "Opcao: ";
 		cin >> opcao;
@@ -166,6 +169,7 @@ void menuSessoes() {
 			break;
 		case 9:
 			sair();
+			return;
 			break;
 		default:
 			break;
@@ -205,11 +209,97 @@ void menuAdicionaCandidato() {
 
 	try {
 		adicionaCandidato(c);
-	} catch (candidatoJaExiste &c) {
-		cerr << c;
+	} catch (candidatoJaExiste &e) {
+		cout << e;
+		delete c;
 		cin.get();
 		return;
 	}
 
+}
 
+void menuRemoveCandidato() {
+	do {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Remover Candidato                             |\n";
+	cout << "+------------------------------------------------+\n";
+	cout << "| 1. Remover por Numero                          |\n";
+	cout << "| 2. Remover por Nome                            |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	int opcao;
+	cout << "Opcao: ";
+	cin >> opcao;
+	if (cinTeste()) {
+		continue;
+	}
+	switch(opcao) {
+	case 1:
+		menuRemoveCandidatoNumero();
+		return;
+		break;
+	case 2:
+		menuRemoveCandidatoNome();
+		return;
+		break;
+	default:
+		break;
+	}
+
+	} while(1);
+
+}
+
+void menuRemoveCandidatoNumero() {
+
+	int numero;
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Remover Candidato                             |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		cout << "Numero do candidato: ";
+		cin >> numero;
+		if (cinTeste()) {
+			continue;
+		}
+		break;
+
+	} while (1);
+
+	try {
+		removeCandidato(numero);
+	} catch (candidatoNaoExiste &c) {
+		cout << c;
+		cin.ignore();
+		cin.get();
+		return;
+	}
+}
+
+void menuRemoveCandidatoNome() {
+
+	string nome;
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Remover Candidato                             |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		cout << "Nome: ";
+		cin.ignore();
+		getline(cin,nome);
+		if (cinTeste()) {
+			continue;
+		}
+		break;
+
+	} while (1);
+
+	try {
+		removeCandidato(nome);
+	} catch (candidatoNaoExiste &c) {
+		cout << c;
+		cin.get();
+		return;
+	}
 }

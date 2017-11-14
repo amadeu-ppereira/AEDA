@@ -56,8 +56,15 @@ void adicionaCandidato(candidato *c);
 
 /*
  * @brief remove um candidato
+ * @param numero numero do candidato a remover
  */
-void removeCandidato();
+void removeCandidato(int numero);
+
+/*
+ * @brief remove um candidato
+ * @param nome nome do candidato a remover
+ */
+void removeCandidato(string nome);
 
 /*
  * @brief dá display da informacao dos candidatos
@@ -82,9 +89,23 @@ void infoJurado();
 /*
  * @brief procura se o candidato se encontra no vetor global
  * @param c candidato a procurar
- * return indice se existir, lanca excepcao candidatoNaoExiste se não existir
+ * return indice se existir, -1 se não existir
  */
 int procuraCandidato(candidato *c);
+
+/*
+ * @brief procura se o candidato se encontra no vetor global
+ * @param numero numero do candidato a procurar
+ * return indice se existir, -1 se não existir
+ */
+int procuraCandidato(int numero);
+
+/*
+ * @brief procura se o candidato se encontra no vetor global
+ * @param nome nome do candidato a procurar
+ * return indice se existir, -1 se não existir
+ */
+int procuraCandidato(string nome);
 
 
 

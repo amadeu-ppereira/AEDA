@@ -141,25 +141,21 @@ public:
 
 };
 
+std::ostream & operator<<(std::ostream &out, const candidatoNaoExiste &c);
+
+
 class candidatoJaExiste {
 
 public:
 	string nome;
-	int numero;
 	/*
-	 *  @brief constructor da excepcao candidatoJaExiste (numero fica a 0)
+	 *  @brief constructor da excepcao candidatoJaExiste
 	 *  @param nome nome do candidato;
 	 */
-	candidatoJaExiste(string nome) {this->nome = nome; this->numero = 0;}
-
-	/*
-	 *  @brief constructor da excepcao candidatoJaExiste (nome fica como uma sting vazia)
-	 *  @param numero numero do candidato;
-	 */
-	candidatoJaExiste(int numero) {this->nome = ""; this->numero = numero;};
-
+	candidatoJaExiste(string nome) {this->nome = nome;}
 
 };
 
+std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c);
 
 #endif /* SRC_CANDIDATO_H_ */

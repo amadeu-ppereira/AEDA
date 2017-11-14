@@ -30,6 +30,23 @@ void menuSessoes();
  */
 void menuAdicionaCandidato();
 
+/*
+ * @brief display do menu para remover um candidato
+ */
+void menuRemoveCandidato();
+
+/*
+ * @brief display do menu para remover um candidato com base no numero
+ */
+void menuRemoveCandidatoNumero();
+
+/*
+ * @brief display do menu para remover um candidato com base no nome
+ */
+void menuRemoveCandidatoNome();
+
+
+
 
 
 #endif /* _MENUS_H_ */
