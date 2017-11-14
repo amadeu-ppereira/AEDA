@@ -13,6 +13,24 @@ jurado::jurado(string nome , string morada , string telemovel , string artePerfo
 	this->arte = arte;
 }
 
+std::ostream & operator<<(std::ostream &out, const JuradoNaoExiste &c){
+
+	out << "Jurado " << c.nome << " não existe !\n";
+
+	return out;
+
+}
+
+std::ostream & operator<<(std::ostream &out, const JuradoJaExiste &c) {
+
+	out << "Jurado " << c.nome << " já existe !\n";
+
+	return out;
+
+}
+
+
+
 
 
 

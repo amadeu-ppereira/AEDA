@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-
+#include "sstream"
 using namespace std;
 
 
@@ -72,5 +72,56 @@ public:
 	*/
 	string getArte() const;
 };
+
+
+
+class JuradoNaoExiste {
+
+
+public :
+	string nome;
+	/*
+	 * @brief constructor da excepcao JuradoNaoExiste
+	 *
+	 * @param nome nome do jurado
+	 */
+	JuradoNaoExiste(string nome) {this->nome = nome;}
+
+};
+
+
+std::ostream & operator<<(std::ostream &out, const JuradoNaoExiste &c);
+
+
+class JuradoJaExiste {
+
+
+public:
+	string nome;
+	/*
+	 * @brief constructor da excepcao JuradoJaExiste
+	 *
+	 * @param nome nome do jurado
+	 */
+	JuradoJaExiste (string nome) {this->nome = nome;}
+};
+
+
+
+
+
+std::ostream & operator<<(std::ostream &out, const JuradoJaExiste &c);
+
+
+
+
+
+
+
+
+
+
+
+
 
 #endif /* SRC_JURADO_H_ */
