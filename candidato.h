@@ -18,12 +18,10 @@ class candidato {
 public:
 
 	/*
-	 *  @brief constructor da class candidato (pode inicializar dia mes e ano a zero)
-	 *
+	 *  @brief constructor da class candidato (inicializa dia mes e ano a zero)
 	 *
 	 */
-
-	candidato(int dia , int mes ,int ano);
+	candidato();
 	/*
 	 * @brief destrutor de um objecto da class candidato
 	 *
@@ -123,5 +121,45 @@ public:
 
 
 };
+
+class candidatoNaoExiste {
+
+public:
+	string nome;
+	int numero;
+	/*
+	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
+	 *  @param nome nome do candidato;
+	 */
+	candidatoNaoExiste(string nome) {this->nome = nome; this->numero = 0;}
+
+	/*
+	 *  @brief constructor da excepcao candidatoNaoExiste (nome fica como uma sting vazia)
+	 *  @param numero numero do candidato;
+	 */
+	candidatoNaoExiste(int numero) {this->nome = ""; this->numero = numero;};
+
+};
+
+class candidatoJaExiste {
+
+public:
+	string nome;
+	int numero;
+	/*
+	 *  @brief constructor da excepcao candidatoJaExiste (numero fica a 0)
+	 *  @param nome nome do candidato;
+	 */
+	candidatoJaExiste(string nome) {this->nome = nome; this->numero = 0;}
+
+	/*
+	 *  @brief constructor da excepcao candidatoJaExiste (nome fica como uma sting vazia)
+	 *  @param numero numero do candidato;
+	 */
+	candidatoJaExiste(int numero) {this->nome = ""; this->numero = numero;};
+
+
+};
+
 
 #endif /* SRC_CANDIDATO_H_ */

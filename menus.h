@@ -2,34 +2,33 @@
 #define _MENUS_H_
 
 #include <iostream>
-#include "Casting.h"
+
 using namespace std;
 
 /*
  * @brief display do menu geral
- * @param c elemento da class casting (por referencia)
- * @return devolve 0 ao sair
  */
-int menu(Casting &c);
+void menu();
 
 /*
  * @brief display do menu sobre os candidatos
- * @param c elemento da class casting (por referencia)
- *
  */
-void menuCandidatos(Casting &c);
+void menuCandidatos();
 
 /*
  * @brief display do menu sobre os jurados
- * @param c elemento da class casting (por referencia)
  */
-void menuJurados(Casting &c);
+void menuJurados();
 
 /*
  * @brief display do menu acerca das varias sessoes
- * @param c elemento da class casting (por referencia)
  */
-void menuSessoes(Casting &c);
+void menuSessoes();
+
+/*
+ * @brief display do menu para adicionar um candidato
+ */
+void menuAdicionaCandidato();
 
 
 
