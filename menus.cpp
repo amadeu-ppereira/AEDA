@@ -71,7 +71,7 @@ void menuCandidatos() {
 			menuRemoveCandidato();
 			break;
 		case 3:
-			infoCandidato();
+			menuInfoCandidato();
 			break;
 		case 8:
 			return;
@@ -201,8 +201,8 @@ void menuAdicionaCandidato() {
 		}
 
 	} while (1);
-	cin.ignore();
 	cout << "Arte: ";
+	cin.ignore();
 	getline(cin, arte);
 
 	candidato *c = new candidato(nome, morada, dia, mes, ano, arte);
@@ -303,3 +303,85 @@ void menuRemoveCandidatoNome() {
 		return;
 	}
 }
+
+void menuInfoCandidato() {
+	do {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Candidato                          |\n";
+	cout << "+------------------------------------------------+\n";
+	cout << "| 1. Procurar candidato por numero               |\n";
+	cout << "| 2. Todos os candidatos                         |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	int opcao;
+	cout << "Opcao: ";
+	cin >> opcao;
+	if (cinTeste()) {
+		continue;
+	}
+	switch(opcao) {
+	case 1:
+		menuInfoCandidatoNumero();
+		return;
+		break;
+	case 2:
+		menuInfoCandidatoTodos();
+		return;
+		break;
+	default:
+		break;
+	}
+
+	} while(1);
+
+}
+
+void menuInfoCandidatoNumero() {
+	int numero;
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Informacao Candidato                          |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		cout << "Numero do candidato: ";
+		cin >> numero;
+		if (cinTeste()) {
+			continue;
+		}
+		break;
+
+	} while (1);
+
+	try {
+		infoCandidato(numero);
+	} catch (candidatoNaoExiste &c) {
+		cout << c;
+		cin.get();
+		return;
+	}
+
+}
+
+void menuInfoCandidatoTodos() {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Candidatos                         |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	if(candidatosGlobal.size() == 0) {
+		cout << "Ainda nao ha nenhum candidato...\n";
+		cin.ignore();
+		cin.get();
+		return;
+	}
+
+	for (unsigned int i = 0; i < candidatosGlobal.size(); i++) {
+		infoCandidato(candidatosGlobal.at(i));
+		cout << " ---- \n";;
+	}
+	cin.ignore();
+	cin.get();
+	return;
+
+}
+
+

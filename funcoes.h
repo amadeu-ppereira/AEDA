@@ -67,9 +67,16 @@ void removeCandidato(int numero);
 void removeCandidato(string nome);
 
 /*
- * @brief dá display da informacao dos candidatos
+ * @brief dá display da informacao do candidato
+ * @param numero numero do candidato
  */
-void infoCandidato();
+void infoCandidato(int numero);
+
+/*
+ * @brief dá display da informacao do candidato
+ * @param c candidato pretendido
+ */
+void infoCandidato(candidato *c);
 
 /*
  * @brief adiciona um jurado

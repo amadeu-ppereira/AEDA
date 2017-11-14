@@ -45,6 +45,22 @@ void menuRemoveCandidatoNumero();
  */
 void menuRemoveCandidatoNome();
 
+/*
+ * @brief display do menu para ver a informacao dos candidatos
+ */
+void menuInfoCandidato();
+
+
+/*
+ * @brief display do menu para procurar e ver a informacao de um candidato;
+ */
+void menuInfoCandidatoNumero();
+
+/*
+ * @brief display do menu para ver a informacao de todos os candidatos
+ */
+void menuInfoCandidatoTodos();
+
 
 
 
