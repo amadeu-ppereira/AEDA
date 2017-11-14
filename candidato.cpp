@@ -110,4 +110,3 @@ void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
 
 }
-
