@@ -41,6 +41,13 @@ public:
 	candidato(string nome , string morada  , int dia , int mes , int ano, string arte);
 
 	/*
+	 * @brief construtor da class candidato que recebe uma string (linha do ficheiro de texto referente a candidatos)
+	 *
+	 * @param info string que contem informacao sobre os membros do candidato
+	 */
+	candidato(string info);
+
+	/*
 	 * @brief funcao que devolve o nome do candidato
 	 * @return nome do candidato
 	 */
@@ -77,6 +84,43 @@ public:
 	 * @return vector<sessao*> sessoes do candidato
 	 */
 	vector <sessao*> getParticipacoes()  ;
+
+	/*
+	 * @brief altera nome do candidato
+	 *
+	 * @param nome string com o nome para alterar
+	 */
+	void setNome(string nome) ;
+	/*
+	 * @brief altera morada do candidato
+	 *
+	 * @param morada string com a morada para alterar
+	 */
+	void setMorada(string morada);
+	/*
+	 * @brief altera data de nascimento ( dia mes ano) do candidato
+	 *
+	 * @param v vector que contem o dia mes e ano (nesta sequencia)
+	 */
+	void setData (vector<int> v);
+	/*
+	 * @brief altera arte do candidato
+	 *
+	 * @param arte string com a arte a alterar
+	 */
+	void setArte(string arte);
+	/*
+	 * @brief adiciona um apontador de um objeto da class sessao ao vector participacoes do candidato
+	 *
+	 * @param sessao nova sessao a adicionar
+	 *
+	 */
+	void adicionaSessao(sessao* sessao);
+
+
+
+
+
 
 };
 
