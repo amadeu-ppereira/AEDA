@@ -3,8 +3,10 @@
 int candidato::numeroInsc = 0;
 
 
-candidato::candidato() : numero(++numeroInsc){
-
+candidato::candidato(int dia = 0 , int mes = 0 , int ano = 0) : numero(++numeroInsc){
+	this-> dia = dia;
+	this->mes = mes;
+	this->ano = ano;
 
 }
 
