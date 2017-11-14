@@ -1,4 +1,5 @@
 #include "candidato.h"
+#include "sstream"
 
 int candidato::numeroInsc = 0;
 
@@ -18,6 +19,14 @@ candidato::candidato(string nome , string morada  , int dia , int mes , int ano,
 	this->mes = mes;
 	this->ano = ano;
 	this->arte = arte;
+
+}
+
+candidato::candidato(string info) :numero(++numeroInsc){
+	stringstream ss(info);
+	char virgula;
+
+	ss >> this->nome >> virgula >> this->morada >> virgula >> this->dia >> virgula >> this->mes >> virgula >> this->ano >> virgula >> this->arte;
 
 }
 
@@ -58,14 +67,34 @@ int candidato::getNumero() const {
 
 vector<sessao*> candidato::getParticipacoes() {
 
-
+	return participacoes;
 }
 
+/////////// set functions ////////////
 
+void candidato::setNome(string nome){
+	this->nome = nome;
+}
 
+void candidato::setMorada(string morada){
+	this->morada = morada;
+}
 
+void candidato::setArte(string arte){
+	this->arte = arte;
+}
 
+void candidato::setData(vector<int> v){
 
+	this->dia = v[0];
+	this->mes = v[1];
+	this->ano = v[2];
 
+}
+/////////////////////////////////////////
 
+void candidato::adicionaSessao(sessao* sessao){
+	participacoes.push_back(sessao);
+
+}
 
