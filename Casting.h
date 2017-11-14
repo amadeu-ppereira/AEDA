@@ -15,6 +15,8 @@ class Casting {
 public:
 	Casting();
 	virtual ~Casting();
+
+	adicionaCandidato(candidato *candidato);
 };
 
 #endif /* CASTING_H_ */
