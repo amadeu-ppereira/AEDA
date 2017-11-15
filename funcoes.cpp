@@ -52,6 +52,7 @@ void removeCandidato(int numero) {
 	else {
 		candidatosGlobal.erase(candidatosGlobal.begin() + i);
 		cout << "Candidato numero " << numero << " removido!\n";
+		cin.ignore();
 		cin.get();
 	}
 }
@@ -77,21 +78,13 @@ void infoCandidato(int numero) {
 		throw candidatoNaoExiste(numero);
 
 	}
-	cout << "Numero : " << candidatosGlobal.at(i)->getNumero() << endl;
-	cout << "Nome : " << candidatosGlobal.at(i)->getNome() << endl;
-	cout << "Morada : " << candidatosGlobal.at(i)->getMorada() << endl;
-	cout << "Data de Nascimento : " << candidatosGlobal.at(i)->getDataNascimento()[0] << "/" << candidatosGlobal.at(i)->getDataNascimento()[1] << "/" << candidatosGlobal.at(i)->getDataNascimento()[2] << endl;
-	cout << "Arte : " << candidatosGlobal.at(i)->getArte() << endl;
+	cout << candidatosGlobal.at(i) << endl;
 
 }
 
 void infoCandidato(candidato *c) {
 
-	cout << "Numero : " << c->getNumero() << endl;
-	cout << "Nome : " << c->getNome() << endl;
-	cout << "Morada : " << c->getMorada() << endl;
-	cout << "Data de Nascimento : " << c->getDataNascimento()[0] << "/" << c->getDataNascimento()[1] << "/" << c->getDataNascimento()[2] << endl;
-	cout << "Arte : " << c->getArte() << endl;
+	cout << c << endl;
 
 }
 
@@ -99,7 +92,7 @@ void infoCandidato(candidato *c) {
 void adicionaJurado(jurado *j) {
 
 	if (procuraJurado(j) != -1) {
-			throw JuradoNaoExiste(j ->getNome());
+			throw JuradoJaExiste(j ->getNome());
 		}
 	else {
 			juradosGlobal.push_back(j);
@@ -123,12 +116,20 @@ void removeJurado(string nome) {
 
 }
 
+void infoJurado(string nome) {
+
+	int i= procuraJurado(nome);
+	if (i == -1) {
+		throw JuradoNaoExiste(nome);
+
+	}
+	cout << juradosGlobal.at(i) << endl;
+
+}
+
 void infoJurado(jurado *j) {
 
-	cout << "Nome         : " << j->getNome() << endl;
-	cout << "Morada       : " << j->getMorada() << endl;
-	cout << "Telemovel    : " << j->getTelemovel() << endl;
-	cout << "Arte Perfor. : " << j->getArte() << endl;
+	cout << j << endl;
 
 }
 

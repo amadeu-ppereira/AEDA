@@ -110,3 +110,18 @@ void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
 
 }
+
+ostream & operator<<(ostream & o, const candidato * c) {
+	o << "Numero : " << c->getNumero() << endl;
+	o << "Nome : " << c->getNome() << endl;
+	o << "Morada : " << c->getMorada() << endl;
+	o << "Data de Nascimento : " << c->getDataNascimento()[0] << "/" << c->getDataNascimento()[1] << "/" << c->getDataNascimento()[2] << endl;
+	o << "Arte : " << c->getArte() << endl;
+
+	return o;
+}
+
+ofstream & operator<<(ofstream & o, const candidato * c) {
+	o << c->getNome() << "," << c->getMorada() << "," << c->getDataNascimento()[0] << "," << c->getDataNascimento()[1] << "," << c->getDataNascimento()[2] << "," << c->getArte();
+	return o;
+}

@@ -10,7 +10,13 @@ jurado::jurado(string nome , string morada , string telemovel , string artePerfo
 	this->nome = nome;
 	this->morada = morada;
 	this->telemovel = telemovel;
-	this->arte = arte;
+	this->arte = artePerformativa;
+}
+
+jurado::jurado(string info) {
+	stringstream ss(info);
+	char virgula;
+	ss >> nome >> virgula >> morada >> virgula >> telemovel >> virgula >> arte;
 }
 
 std::ostream & operator<<(std::ostream &out, const JuradoNaoExiste &c){
@@ -78,4 +84,22 @@ string jurado::getTelemovel() const
 string jurado::getArte() const
 {
 	return arte;
+}
+
+//---------
+
+ostream & operator<<(ostream & o, const jurado * j) {
+
+	o << "Nome         : " << j->getNome() << endl;
+	o << "Morada       : " << j->getMorada() << endl;
+	o << "Telemovel    : " << j->getTelemovel() << endl;
+	o << "Arte Perfor. : " << j->getArte();
+
+	return o;
+}
+fstream & operator<<(fstream & o, const jurado * j) {
+
+	o << j->getNome() << "," << j->getMorada() << "," << j->getTelemovel() << "," << j->getArte();
+
+	return o;
 }
