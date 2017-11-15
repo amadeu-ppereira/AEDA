@@ -38,9 +38,12 @@ candidato::candidato(string nome , string morada  , int dia , int mes , int ano,
 candidato::candidato(string info) :numero(++numeroInsc){
 	stringstream ss(info);
 	char virgula;
-
-	ss >> this->nome >> virgula >> this->morada >> virgula >> this->dia >> virgula >> this->mes >> virgula >> this->ano >> virgula >> this->arte;
-
+	getline(ss, this->nome, ',');
+	this->nome = this->nome.substr(0, this->nome.size()-1);
+	getline(ss, this->morada, ',');
+	this->morada = this->morada.substr(1, this->morada.size()-1);
+	ss >> this->dia>> virgula >> this->mes >> virgula >> this->ano >> virgula >> this->arte;
+	ss.ignore('\n');
 }
 
 candidato::~candidato() {
@@ -122,6 +125,6 @@ ostream & operator<<(ostream & o, const candidato * c) {
 }
 
 ofstream & operator<<(ofstream & o, const candidato * c) {
-	o << c->getNome() << "," << c->getMorada() << "," << c->getDataNascimento()[0] << "," << c->getDataNascimento()[1] << "," << c->getDataNascimento()[2] << "," << c->getArte();
+	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte();
 	return o;
 }
