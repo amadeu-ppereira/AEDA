@@ -90,10 +90,15 @@ public:
 	void passagem2fase();
 
 	/**
-	 * @brief calcula o vencedor da segunda fase
+	 * @brief ordena o vetor de classificacoes da segunda fase
 	 *
 	 */
-	void calculaVencedor();
+	void ordenar2fase();
+	/**
+	 * @brief funcao que da display do vencedor e da sua pontuacao
+	 *
+	 */
+	void displayVencedor();
 };
 
 
