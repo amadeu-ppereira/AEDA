@@ -16,7 +16,13 @@ jurado::jurado(string nome , string morada , string telemovel , string artePerfo
 jurado::jurado(string info) {
 	stringstream ss(info);
 	char virgula;
-	ss >> nome >> virgula >> morada >> virgula >> telemovel >> virgula >> arte;
+	getline(ss, this->nome, ',');
+	this->nome = this->nome.substr(0, this->nome.size() - 1);
+	getline(ss, this->morada, ',');
+	this->morada = this->morada.substr(1, this->morada.size() - 1);
+	ss >> telemovel >> virgula >> arte;
+	ss.ignore('\n');
+
 }
 
 std::ostream & operator<<(std::ostream &out, const JuradoNaoExiste &c){
@@ -99,7 +105,7 @@ ostream & operator<<(ostream & o, const jurado * j) {
 }
 ofstream & operator<<(ofstream & o, const jurado * j) {
 
-	o << j->getNome() << "," << j->getMorada() << "," << j->getTelemovel() << "," << j->getArte();
+	o << j->getNome() << " , " << j->getMorada() << " , " << j->getTelemovel() << " , " << j->getArte();
 
 	return o;
 }
