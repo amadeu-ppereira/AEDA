@@ -111,13 +111,13 @@ void menuJurados() {
 		}
 		switch (opcao) {
 		case 1:
-			adicionaJurado();
+			menuAdicionaJurado();
 			break;
 		case 2:
-			removeJurado();
+			menuRemoveJurado();
 			break;
 		case 3:
-			infoJurado();
+			menuInfoJurado();
 			break;
 		case 8:
 			return;
@@ -356,6 +356,7 @@ void menuInfoCandidatoNumero() {
 		infoCandidato(numero);
 	} catch (candidatoNaoExiste &c) {
 		cout << c;
+		cin.ignore();
 		cin.get();
 		return;
 	}
@@ -384,4 +385,128 @@ void menuInfoCandidatoTodos() {
 
 }
 
+void menuAdicionaJurado() {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Adicionar Jurado                              |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	string nome, morada, arte, telemovel;
+	cin.ignore();
+	cout << "Nome: ";
+	getline(cin, nome);
+	cout << "Morada: ";
+	getline(cin, morada);
+	cout << "Arte: ";
+	getline(cin, arte);
+	cout << "Telemovel: ";
+	getline(cin, telemovel);
+
+	jurado *j = new jurado(nome, morada, telemovel, arte);
+
+	try {
+		adicionaJurado(j);
+	} catch (candidatoJaExiste &e) {
+		cout << e;
+		delete j;
+		cin.get();
+		return;
+	}
+
+}
+
+void menuRemoveJurado() {
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Remover Jurado                                |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	string nome;
+	cout << "Nome do jurado: ";
+	cin.ignore();
+	getline(cin, nome);
+
+	try {
+		removeJurado (nome);
+	} catch (JuradoNaoExiste &e) {
+		cout << e;
+		cin.get();
+		return;
+	}
+}
+
+void menuInfoJurado() {
+
+	do {
+		cout
+				<< "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Informacao Jurado                             |\n";
+		cout << "+------------------------------------------------+\n";
+		cout << "| 1. Procurar jurado por nome                    |\n";
+		cout << "| 2. Todos os jurados                            |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		int opcao;
+		cout << "Opcao: ";
+		cin >> opcao;
+		if (cinTeste()) {
+			continue;
+		}
+		switch (opcao) {
+		case 1:
+			menuInfoJuradoNome();
+			return;
+			break;
+		case 2:
+			menuInfoJuradoTodos();
+			return;
+			break;
+		default:
+			break;
+		}
+
+	} while (1);
+}
+
+void menuInfoJuradoNome() {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Jurado                             |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	string nome;
+	cout << "Nome do jurado: ";
+	cin.ignore();
+	getline(cin,nome);
+
+
+	try {
+		infoJurado(nome);
+	} catch (JuradoNaoExiste &c) {
+		cout << c;
+		cin.ignore();
+		cin.get();
+		return;
+	}
+}
+
+void menuInfoJuradoTodos() {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Jurados                            |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	if(juradosGlobal.size() == 0) {
+		cout << "Ainda nao ha nenhum jurado...\n";
+		cin.ignore();
+		cin.get();
+		return;
+	}
+
+	for (unsigned int i = 0; i < juradosGlobal.size(); i++) {
+		infoJurado(juradosGlobal.at(i));
+		cout << " ---- \n";;
+	}
+	cin.ignore();
+	cin.get();
+	return;
+
+}
 
