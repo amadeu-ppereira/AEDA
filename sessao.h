@@ -26,9 +26,30 @@ class sessao {
 	jurado* responsavel;
 	int dia,mes,ano;
 public:
+	/*
+	*  @brief constructor da class sessao (inicializa dia mes e ano a zero)
+	*
+	*/
 	sessao();
 	 ~sessao();
+	 /*
+	 *  @brief constructor da class sessao
+	 *
+	 *	@param genertoArte genero de arte da sessao
+	 */
 	 sessao( string generoArte);
+	 /*
+	 *  @brief altera o genero de arte da sessao
+	 *
+	 *	@param generoArte generto de arte da sessao
+	 */
+	 void setArte(string generoArte);
+	 /*
+	 *  @brief altera data da sessao
+	 *
+	 *	@param data com dia mes e ano para alterar
+	 */
+	 void setData(vector<int> data);
 };
 
 
