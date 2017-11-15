@@ -84,11 +84,6 @@ void menuInfoJuradoNome();
  * @brief display do menu para ver a informacao de todos os jurados
  */
 void menuInfoJuradoTodos();
-/**
- * @brief dispay do menu para adicionar uma sessao
- *
- */
-void menuAdicionaSessao();
 
 
 

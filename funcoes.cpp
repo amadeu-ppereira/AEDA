@@ -324,17 +324,6 @@ int procuraJurado (string nome){
 }
 
 
-int procuraSessao(sessao *s) {
-
-	for (unsigned int i = 0; i < sessaoGlobal.size(); i++){
-		if (sessaoGlobal.at(i)->getGeneroArte() == s->getGeneroArte() && sessaoGlobal.at(i)->getData() == s->getData())
-			return i; // encontrou
-	}
-	return -1;
-
-}
-
-
 void bubbleSortClassificacoes(vector<Classificacao> &v) {
 	for (unsigned int j = v.size() - 1; j > 0; j--) {
 		bool troca = false;

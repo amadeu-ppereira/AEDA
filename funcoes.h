@@ -165,13 +165,6 @@ int procuraJurado(string nome);
  * @param nome nome do jurado
  */
 void infoJurado(string nome);
-/**
- *@brief procura se a sessao se encontra no vetor global de sessoes
- *@param s sessao a procurar
- *@return indice se existir , -1 caso contrário
- */
-int procuraSessao(sessao *s);
-
 
 
 

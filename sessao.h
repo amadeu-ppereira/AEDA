@@ -25,7 +25,6 @@ class sessao {
 	string generoArte;
 	jurado* responsavel;
 	int dia,mes,ano;
-	bool concluida;
 public:
 	/**
 	*  @brief constructor da class sessao (inicializa dia mes e ano a zero)
@@ -42,9 +41,8 @@ public:
 	 *  @brief constructor da class sessao
 	 *
 	 *	@param genertoArte genero de arte da sessao
-	 *	@param data dia,mes,ano da sessao ,respetivamente
 	 */
-	 sessao( string generoArte,int data[3]);
+	 sessao( string generoArte);
 	 /**
 	 *  @brief altera o genero de arte da sessao
 	 *
@@ -54,21 +52,9 @@ public:
 	 /**
 	 *  @brief altera data da sessao
 	 *
-	 *	@param data[3] com dia mes e ano para alterar
+	 *	@param data com dia mes e ano para alterar
 	 */
-	 void setData(int data[3]);
-	 /**
-	  * @brief funcao que devolve num array a data(dia, mes, ano)
-	  *
-	  * @return data[3] array com a data
-	  */
-	 int *getData();
-	 /**
-	  * @brief funcao que devolve o genero de arte de uma sessao
-	  *
-	  * @return generoArte da sessao
-	  */
-	 string getGeneroArte();
+	 void setData(vector<int> data);
 
 
 
@@ -116,24 +102,5 @@ public:
 };
 
 
-class sessaoJaExiste {
-
-public:
-	string generoArte;
-	int data[3];
-	/**
-	 *  @brief constructor da excepcao sessaoJaExiste
-	 *  @param generoArte genero de arte da sessao;
-	 *  @param data[] array com data(dia,mes,ano) da sessao;
-	 */
-	sessaoJaExiste(string generoArte,int data[])
-	{this->generoArte = generoArte;
-	this->data[0]=data[0];
-	this->data[1]=data[1];
-	this->data[1]=data[1];}
-
-};
-
-std::ostream & operator<<(std::ostream &out, const sessaoJaExiste &s);
 
 #endif /* SRC_SESSAO_H_ */
