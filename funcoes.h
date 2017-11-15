@@ -51,6 +51,7 @@ void sair();
 
 /*
  * @brief adiciona um candidato
+ * @param c objeto de um candidato
  */
 void adicionaCandidato(candidato *c);
 
@@ -80,40 +81,56 @@ void infoCandidato(candidato *c);
 
 /*
  * @brief adiciona um jurado
+ * @param j objeto de um jurado
  */
-void adicionaJurado();
+void adicionaJurado(jurado *j);
 
 /*
  * @brief remove um jurado
+ * @param nome nome do jurado a remover
  */
-void removeJurado();
+void removeJurado(string nome);
 
 /*
  * @brief dá display da informacao dos jurados
+ * @param j objecto de um jurado
  */
-void infoJurado();
+void infoJurado(jurado *j);
 
 /*
  * @brief procura se o candidato se encontra no vetor global
  * @param c candidato a procurar
- * return indice se existir, -1 se não existir
+ * @return indice se existir, -1 se não existir
  */
 int procuraCandidato(candidato *c);
 
 /*
  * @brief procura se o candidato se encontra no vetor global
  * @param numero numero do candidato a procurar
- * return indice se existir, -1 se não existir
+ * @return indice se existir, -1 se não existir
  */
 int procuraCandidato(int numero);
 
 /*
  * @brief procura se o candidato se encontra no vetor global
  * @param nome nome do candidato a procurar
- * return indice se existir, -1 se não existir
+ * @return indice se existir, -1 se não existir
  */
 int procuraCandidato(string nome);
 
+/*
+ * @brief procura se o jurado se encontra no vetor global de jurados
+ * @param j jurado a procurar
+ * @return indice se existir , -1 caso contrário
+ */
+int procuraJurado (jurado *c);
+
+/*
+ *@brief procura se o jurado se encontra no vetor global de jurados
+ *@param nome nome do jurado a procurar
+ *@return indice se existir , -1 caso contrário
+ */
+int procuraJurado(string nome);
 
 
 #endif /* _FUNCOES_H_ */
