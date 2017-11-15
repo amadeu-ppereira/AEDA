@@ -72,8 +72,8 @@ void removeCandidato(string nome) {
 
 void infoCandidato(int numero) {
 
-	int i;
-	if (i = procuraCandidato(numero) == -1) {
+	int i= procuraCandidato(numero);
+	if (i == -1) {
 		throw candidatoNaoExiste(numero);
 
 	}
@@ -96,14 +96,36 @@ void infoCandidato(candidato *c) {
 }
 
 
-void adicionaJurado() {
+void adicionaJurado(jurado *j) {
+
+	if (procuraJurado(j) != -1) {
+			throw JuradoNaoExiste(j ->getNome());
+		}
+	else {
+			juradosGlobal.push_back(j);
+			cout << "Jurado "<< j->getNome() << " adicionado!\n";
+			cin.get();
+		}
+
+}
+
+void removeJurado(string nome) {
+
+	int i= procuraJurado(nome);
+		if (i  == -1) {
+			throw JuradoNaoExiste(nome);
+		}
+		else {
+			candidatosGlobal.erase(candidatosGlobal.begin() + i);
+			cout << "Candidato " << nome << " removido!\n";
+			cin.get();
+		}
+
+
 
 }
 
 
-void removeJurado() {
-
-}
 
 void infoJurado() {
 
@@ -138,3 +160,25 @@ int procuraCandidato(string nome) {
 	return -1;
 
 }
+
+int procuraJurado (jurado *j){
+
+	for (unsigned int i = 0; i < juradosGlobal.size(); i++)
+			if (juradosGlobal.at(i)->getNome() == j->getNome())
+				return i; // encontrou
+	return -1;
+
+}
+
+int procuraJurado (string nome){
+
+	for (unsigned int i = 0; i < juradosGlobal.size(); i++)
+			if (juradosGlobal.at(i)->getNome() == nome)
+				return i; // encontrou
+
+		return -1;
+
+
+}
+
+
