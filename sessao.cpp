@@ -1,4 +1,5 @@
 #include "sessao.h"
+#include "funcoes.h"
 
 sessao::sessao() {
 	this->dia=0;
@@ -51,6 +52,12 @@ void fase2::passagem2fase(){
 
 void fase2::calculaVencedor(){
 
+	for (unsigned int i = 0 ; i < classificacoes2fase.size() ; i++){
+		float m = (classificacoes2fase[i].j1 * 2 + classificacoes2fase[i].j2 + classificacoes2fase[i].j3)/3;
+		classificacoes2fase[i].media = m;
+	}
+
+	bubbleSortClassificacoes(classificacoes2fase);
 
 
 

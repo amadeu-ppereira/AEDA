@@ -118,15 +118,15 @@ int gravarFicheiroSessoes() {
 }
 
 int gravarFicheiros() {
-	if (lerFicheiroCandidatos()) {
+	if (gravarFicheiroCandidatos()) {
 		cerr << "Erro ao carregar o ficheiro 'candidatos.txt'!\n";
 		return 1;
 	}
-	if (lerFicheiroJurados()) {
+	if (gravarFicheiroJurados()) {
 		cerr << "Erro ao carregar o ficheiro 'jurados.txt'!\n";
 		return 1;
 	}
-	if (lerFicheiroSessoes()) {
+	if (gravarFicheiroSessoes()) {
 		cerr << "Erro ao carregar o ficheiro 'sessoes.txt'!\n";
 		return 1;
 	}
@@ -323,4 +323,17 @@ int procuraJurado (string nome){
 
 }
 
+
+void bubbleSortClassificacoes(vector<Classificacao> &v) {
+	for (unsigned int j = v.size() - 1; j > 0; j--) {
+		bool troca = false;
+		for (unsigned int i = 0; i < j; i++)
+			if (v[i + 1].media > v[i].media) {
+				swap(v[i], v[i + 1]);
+				troca = true;
+			}
+		if (!troca)
+			return;
+	}
+}
 

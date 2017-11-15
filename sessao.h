@@ -31,6 +31,11 @@ public:
 	*
 	*/
 	sessao();
+	/**
+	 *
+	 * @brief destrutor da class sessao
+	 *
+	 */
 	 ~sessao();
 	 /**
 	 *  @brief constructor da class sessao
