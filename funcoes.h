@@ -23,26 +23,54 @@ extern vector<sessao*> sessaoGlobal;
  */
 int cinTeste();
 
+/**
+ * @brief grava o vetor global de candidatos no ficheiro
+ * @return 0 se sucesso, 1 se endereço invalido
+ */
+int gravarFicheiroCandidatos();
+
+/**
+ * @brief grava o vetor global de jurados no ficheiro
+ * @return 0 se sucesso, 1 se endereço invalido
+ */
+int gravarFicheiroJurados();
+
+/**
+ * @brief grava o vetor global de sessoes no ficheiro
+ * @return 0 se sucesso, 1 se endereço invalido
+ */
+int gravarFicheiroSessoes();
+
+/**
+ * @brief grava os vetores globais nos ficheiros respetivos
+ * @return 0 se nao houver erro, 1 se houver erro
+ */
+int gravarFicheiros();
+
+
+/**
+ * @brief abre e lê a informacao de todos os ficheiros
+ * @return 0 se nao houver erro, 1 se houve algum erro
+ */
+int lerFicheiros();
+
  /**
   * @brief lê o ficheiro e guarda a informacao dos candidatos no vetor global
-  * @param file endereço do ficheiro
   * @return 0 se sucesso, 1 se endereço invalido
   */
-int lerFicheiroCandidatos(string file);
+int lerFicheiroCandidatos();
 
 /**
  * @brief lê o ficheiro e guarda a informacao dos jurados no vetor global
- * @param file endereço do ficheiro
  * @return 0 se sucesso, 1 se endereço invalido
  */
-int lerFicheiroJurados(string file);
+int lerFicheiroJurados();
 
 /**
  * @brief lê o ficheiro e guarda a informacao das sessoes no vetor global
- * @param file endereço do ficheiro
  * @return 0 se sucesso, 1 se endereço invalido
  */
-int lerFicheiroSessoes(string file);
+int lerFicheiroSessoes();
 
 /**
  * @brief guarda informacao nos ficheiros e sair do programa

@@ -14,20 +14,160 @@ int cinTeste() {
 	return 0;
 }
 
-int lerFicheiroCandidatos(string file) {
+int lerFicheiroCandidatos(){
+	ifstream f;
+	f.open("candidatos.txt");
+	if(!f.is_open()) {
+		return 1;
+	}
+
+	string info;
+	while(getline(f, info)) {
+		candidato *c = new candidato(info);
+		candidatosGlobal.push_back(c);
+	}
+
+	f.close();
+
 	return 0;
 }
 
-int lerFicheiroJurados(string file) {
+int lerFicheiroJurados() {
+	ifstream f;
+	f.open("jurados.txt");
+	if (!f.is_open()) {
+		return 1;
+	}
+
+	string info;
+	while (getline(f, info)) {
+		jurado *j = new jurado(info);
+		juradosGlobal.push_back(j);
+	}
+
+	f.close();
+
 	return 0;
 }
 
-int lerFicheiroSessoes(string file) {
+int lerFicheiroSessoes() {
+	return 0;
+}
+
+int lerFicheiros() {
+	if(lerFicheiroCandidatos()) {
+		cerr << "Erro ao carregar o ficheiro 'candidatos.txt'!\n";
+		return 1;
+	}
+	if (lerFicheiroJurados()) {
+		cerr << "Erro ao carregar o ficheiro 'jurados.txt'!\n";
+		return 1;
+	}
+	if(lerFicheiroSessoes()) {
+		cerr << "Erro ao carregar o ficheiro 'sessoes.txt'!\n";
+		return 1;
+	}
+
+	cout << "Ficheiros carregados com sucesso!\n";
+
+	return 0;
+}
+
+int gravarFicheiroCandidatos() {
+	ofstream f;
+	f.open("candidatos.txt");
+	if (!f.is_open()) {
+		return 1;
+	}
+
+	for(unsigned int i = 0; i < candidatosGlobal.size(); i++) {
+		if(i == (candidatosGlobal.size() - 1)) {
+			f << candidatosGlobal.at(i);
+		}
+		else {
+			f << candidatosGlobal.at(i) << endl;
+		}
+	}
+
+	f.close();
+	return 0;
+}
+
+int gravarFicheiroJurados() {
+	ofstream f;
+	f.open("jurados.txt");
+	if (!f.is_open()) {
+		return 1;
+	}
+
+	for(unsigned int i = 0; i < juradosGlobal.size(); i++) {
+		if(i == (juradosGlobal.size() - 1)) {
+			f << juradosGlobal.at(i);
+		}
+		else {
+			f << juradosGlobal.at(i) << endl;
+		}
+	}
+
+	f.close();
+	return 0;
+}
+
+int gravarFicheiroSessoes() {
+	return 0;
+}
+
+int gravarFicheiros() {
+	if (lerFicheiroCandidatos()) {
+		cerr << "Erro ao carregar o ficheiro 'candidatos.txt'!\n";
+		return 1;
+	}
+	if (lerFicheiroJurados()) {
+		cerr << "Erro ao carregar o ficheiro 'jurados.txt'!\n";
+		return 1;
+	}
+	if (lerFicheiroSessoes()) {
+		cerr << "Erro ao carregar o ficheiro 'sessoes.txt'!\n";
+		return 1;
+	}
+
+	cout << "Ficheiros atualizados com sucesso!\n";
+
 	return 0;
 }
 
 void sair() {
 
+	do {
+		cout <<"___________________________________________________________________________\n";
+		cout <<"            __   ____  _____ ______  ____  ___     ____  _____       \n";
+		cout <<"	   /  ] /    |/ ___/|      ||    ||    \\  /    |/ ___/       \n";
+		cout <<"	  /  / |  o  (   \\_ |      | |  | |  _  ||   __(   \\_        \n";
+		cout <<"	 /  /  |     |\\__  ||_|  |_| |  | |  |  ||  |  |\\__  \|       \n";
+		cout <<"	/   \\_ |  _  |/  \\ |  |  |   |  | |  |  ||  |_ |/  \\ |       \n";
+		cout <<"	\\     ||  |  |\\    |  |  |   |  | |  |  ||     |\\    |       \n";
+		cout <<"	 \\____||__|__| \\___|  |__|  |____||__|__||___,_| \\___|       \n";
+		cout <<"___________________________________________________________________________\n\n";
+
+		char opcao;
+		cout << "Atualizar ficheiros ? (S/N) ";
+		cin >> opcao;
+		if(cinTeste())
+			continue;
+
+		switch(opcao) {
+		case 'S':
+			gravarFicheiros();
+			cin.get();
+			return;
+			break;
+		case 'N':
+			return;
+			break;
+		default:
+			break;
+		}
+	}while(1);
 }
 
 void adicionaCandidato(candidato *c) {
@@ -92,13 +232,13 @@ void infoCandidato(candidato *c) {
 void adicionaJurado(jurado *j) {
 
 	if (procuraJurado(j) != -1) {
-			throw JuradoJaExiste(j ->getNome());
-		}
+		throw JuradoJaExiste(j ->getNome());
+	}
 	else {
-			juradosGlobal.push_back(j);
-			cout << "Jurado "<< j->getNome() << " adicionado!\n";
-			cin.get();
-		}
+		juradosGlobal.push_back(j);
+		cout << "Jurado "<< j->getNome() << " adicionado!\n";
+		cin.get();
+	}
 
 }
 

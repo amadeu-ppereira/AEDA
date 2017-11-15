@@ -15,32 +15,13 @@ int main()
 	cout <<"	 \\____||__|__| \\___|  |__|  |____||__|__||___,_| \\___|       \n";
 	cout <<"___________________________________________________________________________\n\n";
 
-	string candidatos;
-	string jurados;
-	string sessoes;
 
-	cout << "Ficheiro com a informacao dos candidatos: " ; getline(cin, candidatos);
-
-	if(lerFicheiroCandidatos(candidatos)) {
-		cerr << "\nEndereco invalido!";
+	if(lerFicheiros()) {
 		cin.get();
 		return 1;
 	}
-
-	cout << "Ficheiro com a informacao dos jurados   : " ; getline(cin, jurados);
-
-	if (lerFicheiroJurados(jurados)) {
-		cerr << "\nEndereco invalido!";
+	else {
 		cin.get();
-		return 1;
-	}
-
-	cout << "Ficheiro com a informacao das sessoes   : " ; getline(cin, sessoes);
-
-	if (lerFicheiroSessoes(sessoes)) {
-		cerr << "\nEndereco invalido!";
-		cin.get();
-		return 1;
 	}
 
 	menu();
