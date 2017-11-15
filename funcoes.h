@@ -93,8 +93,9 @@ void removeJurado(string nome);
 
 /*
  * @brief dá display da informacao dos jurados
+ * @param j objecto de um jurado
  */
-void infoJurado();
+void infoJurado(jurado *j);
 
 /*
  * @brief procura se o candidato se encontra no vetor global
