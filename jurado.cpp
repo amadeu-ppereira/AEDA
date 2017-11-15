@@ -97,7 +97,7 @@ ostream & operator<<(ostream & o, const jurado * j) {
 
 	return o;
 }
-fstream & operator<<(fstream & o, const jurado * j) {
+ofstream & operator<<(ofstream & o, const jurado * j) {
 
 	o << j->getNome() << "," << j->getMorada() << "," << j->getTelemovel() << "," << j->getArte();
 

@@ -53,7 +53,6 @@ void menuCandidatos() {
 	cout << "| 3. Infomacao dos Candidatos                    |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
-	cout << "| 9. Sair                                        |\n";
 	cout << "+------------------------------------------------+\n\n";
 
 	int opcao;
@@ -76,10 +75,6 @@ void menuCandidatos() {
 		case 8:
 			return;
 			break;
-		case 9:
-			sair();
-			return;
-			break;
 		default:
 			break;
 
@@ -92,14 +87,13 @@ void menuJurados() {
 
 	do {
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
-	cout << "|  Candidatos                                    |\n";
+	cout << "|  Jurados                                       |\n";
 	cout << "+------------------------------------------------+\n";
 	cout << "| 1. Adicionar Jurado                            |\n";
 	cout << "| 2. Remover Jurado                              |\n";
 	cout << "| 3. Infomacao dos Jurados                       |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
-	cout << "| 9. Sair                                        |\n";
 	cout << "+------------------------------------------------+\n\n";
 
 	int opcao;
@@ -122,10 +116,6 @@ void menuJurados() {
 		case 8:
 			return;
 			break;
-		case 9:
-			sair();
-			return;
-			break;
 		default:
 			break;
 		}
@@ -144,7 +134,6 @@ void menuSessoes() {
 	cout << "| 3.                                             |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
-	cout << "| 9. Sair                                        |\n";
 	cout << "+------------------------------------------------+\n\n";
 
 		int opcao;
@@ -165,10 +154,6 @@ void menuSessoes() {
 
 			break;
 		case 8:
-			return;
-			break;
-		case 9:
-			sair();
 			return;
 			break;
 		default:
@@ -405,7 +390,7 @@ void menuAdicionaJurado() {
 
 	try {
 		adicionaJurado(j);
-	} catch (candidatoJaExiste &e) {
+	} catch (JuradoJaExiste &e) {
 		cout << e;
 		delete j;
 		cin.get();
