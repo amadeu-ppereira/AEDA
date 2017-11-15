@@ -116,18 +116,19 @@ void removeJurado(string nome) {
 			throw JuradoNaoExiste(nome);
 		}
 		else {
-			candidatosGlobal.erase(candidatosGlobal.begin() + i);
-			cout << "Candidato " << nome << " removido!\n";
+			juradosGlobal.erase(juradosGlobal.begin() + i);
+			cout << "Jurado " << nome << " removido!\n";
 			cin.get();
 		}
 
-
-
 }
 
+void infoJurado(jurado *j) {
 
-
-void infoJurado() {
+	cout << "Nome         : " << j->getNome() << endl;
+	cout << "Morada       : " << j->getMorada() << endl;
+	cout << "Telemovel    : " << j->getTelemovel() << endl;
+	cout << "Arte Perfor. : " << j->getArte() << endl;
 
 }
 
