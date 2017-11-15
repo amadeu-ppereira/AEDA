@@ -167,4 +167,13 @@ int procuraJurado(string nome);
 void infoJurado(string nome);
 
 
+
+
+void bubbleSortClassificacoes(vector<Classificacao> &v);
+
+
+
+
+
+
 #endif /* _FUNCOES_H_ */
