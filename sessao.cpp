@@ -8,7 +8,7 @@ sessao::sessao() {
 }
 
 
-sessao::sessao(string generoArte) {
+sessao::sessao(string generoArte,int data[3]) {
 	this->generoArte = generoArte;
 
 }
@@ -22,11 +22,25 @@ void sessao::setArte(string generoArte)
 	this->generoArte=generoArte;
 }
 
-void sessao::setData(vector<int> data)
+void sessao::setData(int data[3])
 {
 	this->dia=data[0];
 	this->mes=data[1];
 	this->ano=data[2];
+}
+
+vector<int> sessao::getData()
+{
+	vector<int> data;
+	data.push_back(dia);
+	data.push_back(mes);
+	data.push_back(ano);
+	return data;
+}
+
+string sessao::getGeneroArte()
+{
+	return generoArte;
 }
 
 void fase1::atribuiPontuacoes(candidato *c , float classjurados[3]){
@@ -74,6 +88,13 @@ void fase2::displayVencedor(){
 	cout << "  L\n";
 
 
+}
+
+ostream & operator<<(std::ostream &out, const sessaoJaExiste &s)
+{
+	out << "Ja existe uma sessao de " << s.generoArte << " no dia " << s.data[0]
+		<< '/' << s.data[1] << '/' << s.data[2] << " !\n";
+	return out;
 }
 
 

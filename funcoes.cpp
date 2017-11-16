@@ -186,7 +186,7 @@ void adicionaCandidato(candidato *c) {
 void removeCandidato(int numero) {
 
 	int i;
-	if (i = procuraCandidato(numero) == -1) {
+	if ((i = procuraCandidato(numero)) == -1) {
 		throw candidatoNaoExiste(numero);
 	}
 	else {
@@ -200,7 +200,7 @@ void removeCandidato(int numero) {
 void removeCandidato(string nome) {
 
 	int i;
-	if (i = procuraCandidato(nome) == -1) {
+	if ((i = procuraCandidato(nome)) == -1) {
 		throw candidatoNaoExiste(nome);
 	}
 	else {
@@ -320,6 +320,17 @@ int procuraJurado (string nome){
 
 		return -1;
 
+
+}
+
+
+int procuraSessao(sessao *s) {
+
+	for (unsigned int i = 0; i < sessaoGlobal.size(); i++){
+		if (sessaoGlobal.at(i)->getGeneroArte() == s->getGeneroArte() && sessaoGlobal.at(i)->getData() == s->getData())
+			return i; // encontrou
+	}
+	return -1;
 
 }
 
