@@ -171,11 +171,28 @@ void infoJurado(string nome);
  *@return indice se existir , -1 caso contrário
  */
 int procuraSessao(sessao *s);
+int procuraSessao(string generoArte,vector<int> data);
+/**
+ * @brief adiciona uma nova sessao ao vetor global sessoes
+ *
+ * @param s sessao a adicionar
+ */
+void adicionaSessao(sessao *s);
+/**
+ * @brief remove uma sessao do vetor global de sessoes
+ *
+ * @param generoArte generto de arte da sessao a remover
+ * @param data vetor com a data (dia,mes,ano) a remover
+ */
+void removeSessao(string generoArte,vector<int> data);
 
 
 
 
-
+/**
+ * @brief ordena o vetor de classificaoes por media(maior para menor)
+ * @param v vetor a ordenar
+ */
 void bubbleSortClassificacoes(vector<Classificacao> &v);
 
 

@@ -323,6 +323,15 @@ int procuraJurado (string nome){
 
 }
 
+int procuraSessao(string generoArte,vector<int> data) {
+
+	for (unsigned int i = 0; i < sessaoGlobal.size(); i++){
+		if (sessaoGlobal.at(i)->getGeneroArte() == generoArte && sessaoGlobal.at(i)->getData() == data)
+			return i; // encontrou
+	}
+	return -1;
+
+}
 
 int procuraSessao(sessao *s) {
 
@@ -331,6 +340,32 @@ int procuraSessao(sessao *s) {
 			return i; // encontrou
 	}
 	return -1;
+
+}
+
+void adicionaSessao(sessao *s)
+{
+	if (procuraSessao(s) != -1) {
+			throw sessaoJaExiste(s->getGeneroArte(),s->getData());
+		}
+	else {
+			sessaoGlobal.push_back(s);
+			cout << "Sessao adicionada com sucesso!\n";
+			cin.get();
+		}
+}
+
+void removeSessao(string generoArte,vector<int> data) {
+
+	int i= procuraSessao(generoArte,data);
+		if (i  == -1) {
+			throw sessaoNaoExiste(generoArte,data);
+		}
+		else {
+			sessaoGlobal.erase(sessaoGlobal.begin() + i);
+			cout << "Sessao removida com sucesso!\n";
+			cin.get();
+		}
 
 }
 

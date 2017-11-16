@@ -115,18 +115,35 @@ public:
 	void displayVencedor();
 };
 
+class sessaoNaoExiste {
+
+public:
+	string generoArte;
+	vector<int> data;
+	/**
+	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
+	 *  @param nome nome do candidato;
+	 */
+	sessaoNaoExiste(string generoArte,vector<int> data)
+	{this->generoArte = generoArte;
+	this->data = data;}
+
+};
+
+std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s);
+
 
 class sessaoJaExiste {
 
 public:
 	string generoArte;
-	int data[3];
+	vector<int> data;
 	/**
 	 *  @brief constructor da excepcao sessaoJaExiste
 	 *  @param generoArte genero de arte da sessao;
 	 *  @param data[] array com data(dia,mes,ano) da sessao;
 	 */
-	sessaoJaExiste(string generoArte,int data[])
+	sessaoJaExiste(string generoArte,vector<int> data)
 	{this->generoArte = generoArte;
 	this->data[0]=data[0];
 	this->data[1]=data[1];
