@@ -62,7 +62,7 @@ public:
 	  *
 	  * @return data[3] array com a data
 	  */
-	 int *getData();
+	 vector<int> getData();
 	 /**
 	  * @brief funcao que devolve o genero de arte de uma sessao
 	  *

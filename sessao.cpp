@@ -29,9 +29,12 @@ void sessao::setData(int data[3])
 	this->ano=data[2];
 }
 
-int *sessao::getData()
+vector<int> sessao::getData()
 {
-	int data[3]={dia,mes,ano};
+	vector<int> data;
+	data.push_back(dia);
+	data.push_back(mes);
+	data.push_back(ano);
 	return data;
 }
 
