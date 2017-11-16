@@ -97,6 +97,14 @@ ostream & operator<<(std::ostream &out, const sessaoJaExiste &s)
 	return out;
 }
 
+std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s)
+{
+			out << "Sessao do genero: " << s.generoArte
+					<< " no dia " << s.data[0] << '/' << s.data[1]
+					<< '/' << s.data[2] << " nao existe!\n";
+			return out;
+}
+
 
 
 

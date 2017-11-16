@@ -513,9 +513,9 @@ void menuAdicionaSessao()
 
 		try {
 				//adicionaSessao(j);
-			} catch (sessaoJaExiste &s) {
-				cout << s;
-				//delete s;
+			} catch (sessaoJaExiste &sessao) {
+				cout << sessao;
+				delete s;
 				cin.get();
 				return;
 			}
