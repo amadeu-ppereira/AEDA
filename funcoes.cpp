@@ -343,30 +343,27 @@ int procuraSessao(sessao *s) {
 
 }
 
-void adicionaSessao(sessao *s)
-{
+void adicionaSessao(sessao *s) {
+
 	if (procuraSessao(s) != -1) {
-			throw sessaoJaExiste(s->getGeneroArte(),s->getData());
-		}
-	else {
-			sessaoGlobal.push_back(s);
-			cout << "Sessao adicionada com sucesso!\n";
-			cin.get();
-		}
+		throw sessaoJaExiste(s->getGeneroArte(), s->getData());
+	} else {
+		sessaoGlobal.push_back(s);
+		cout << "Sessao adicionada com sucesso!\n";
+		cin.get();
+	}
 }
 
 void removeSessao(string generoArte,vector<int> data) {
 
-	int i= procuraSessao(generoArte,data);
-		if (i  == -1) {
-			throw sessaoNaoExiste(generoArte,data);
-		}
-		else {
-			sessaoGlobal.erase(sessaoGlobal.begin() + i);
-			cout << "Sessao removida com sucesso!\n";
-			cin.get();
-		}
-
+	int i = procuraSessao(generoArte, data);
+	if (i == -1) {
+		throw sessaoNaoExiste(generoArte, data);
+	} else {
+		sessaoGlobal.erase(sessaoGlobal.begin() + i);
+		cout << "Sessao removida com sucesso!\n";
+		cin.get();
+	}
 }
 
 
@@ -381,5 +378,32 @@ void bubbleSortClassificacoes(vector<Classificacao> &v) {
 		if (!troca)
 			return;
 	}
+}
+
+vector<int> candidatosDisponiveis(sessao* s) {
+
+	vector<int> numeros;
+	for(unsigned int i = 0;  i < candidatosGlobal.size(); i++) {
+		if(candidatosGlobal.at(i)->getArte() == s->getGeneroArte() && !candidatosGlobal.at(i)->candidatoOcupado(s->getData())) {
+			cout << candidatosGlobal.at(i) << endl;
+			numeros.push_back(candidatosGlobal.at(i)->getNumero());
+		}
+	}
+
+	return numeros;
+}
+
+int adicionaCandidatoSessao(int n, sessao* s) {
+
+	int i = procuraCandidato(n);
+	if(candidatosGlobal.at(i)->candidatoOcupado(s->getData())) {
+		throw candidatoOcupado(n);
+	}
+
+	s->adicionaCandidato(candidatosGlobal.at(i));
+	candidatosGlobal.at(i)->adicionaSessao(s);
+	cout << "Candidato Adicionado!\n";
+
+
 }
 

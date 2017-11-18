@@ -17,6 +17,11 @@ std::ostream & operator<<(std::ostream &out, const candidatoNaoExiste &c) {
 	return out;
 }
 
+std::ostream & operator<<(std::ostream &out, const candidatoOcupado &c) {
+	out << "Candidato ja tem uma sessao nesse dia!\n";
+	return out;
+}
+
 candidato::candidato() : numero(++numeroInsc){
 	this-> dia = 0;
 	this->mes = 0;
@@ -112,6 +117,15 @@ void candidato::setData(vector<int> v){
 void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
 
+}
+
+bool candidato::candidatoOcupado(vector<int> data) {
+	for(unsigned int i = 0; i < participacoes.size() ; i++) {
+		if(participacoes.at(i)->getData() == data) {
+			return true;
+		}
+	}
+	return false;
 }
 
 ostream & operator<<(ostream & o, const candidato * c) {
