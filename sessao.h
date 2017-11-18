@@ -25,19 +25,26 @@ class sessao {
 	string generoArte;
 	jurado* responsavel;
 	int dia,mes,ano;
+	bool concluida;
 public:
 	/**
 	*  @brief constructor da class sessao (inicializa dia mes e ano a zero)
 	*
 	*/
 	sessao();
+	/**
+	 *
+	 * @brief destrutor da class sessao
+	 *
+	 */
 	 ~sessao();
 	 /**
 	 *  @brief constructor da class sessao
 	 *
 	 *	@param genertoArte genero de arte da sessao
+	 *	@param data dia,mes,ano da sessao ,respetivamente
 	 */
-	 sessao( string generoArte);
+	 sessao( string generoArte,int data[3]);
 	 /**
 	 *  @brief altera o genero de arte da sessao
 	 *
@@ -47,9 +54,21 @@ public:
 	 /**
 	 *  @brief altera data da sessao
 	 *
-	 *	@param data com dia mes e ano para alterar
+	 *	@param data[3] com dia mes e ano para alterar
 	 */
-	 void setData(vector<int> data);
+	 void setData(int data[3]);
+	 /**
+	  * @brief funcao que devolve num array a data(dia, mes, ano)
+	  *
+	  * @return data[3] array com a data
+	  */
+	 vector<int> getData();
+	 /**
+	  * @brief funcao que devolve o genero de arte de uma sessao
+	  *
+	  * @return generoArte da sessao
+	  */
+	 string getGeneroArte();
 
 
 
@@ -85,12 +104,53 @@ public:
 	void passagem2fase();
 
 	/**
-	 * @brief calcula o vencedor da segunda fase
+	 * @brief ordena o vetor de classificacoes da segunda fase
 	 *
 	 */
-	void calculaVencedor();
+	void ordenar2fase();
+	/**
+	 * @brief funcao que da display do vencedor e da sua pontuacao
+	 *
+	 */
+	void displayVencedor();
 };
 
+class sessaoNaoExiste {
 
+public:
+	string generoArte;
+	vector<int> data;
+	/**
+	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
+	 *  @param nome nome do candidato;
+	 */
+	sessaoNaoExiste(string generoArte,vector<int> data)
+	{this->generoArte = generoArte;
+	this->data = data;}
+
+};
+
+std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s);
+
+
+class sessaoJaExiste {
+
+public:
+	string generoArte;
+	vector<int> data;
+	/**
+	 *  @brief constructor da excepcao sessaoJaExiste
+	 *  @param generoArte genero de arte da sessao;
+	 *  @param data[] array com data(dia,mes,ano) da sessao;
+	 */
+	sessaoJaExiste(string generoArte,vector<int> data)
+	{this->generoArte = generoArte;
+	this->data[0]=data[0];
+	this->data[1]=data[1];
+	this->data[1]=data[1];}
+
+};
+
+std::ostream & operator<<(std::ostream &out, const sessaoJaExiste &s);
 
 #endif /* SRC_SESSAO_H_ */

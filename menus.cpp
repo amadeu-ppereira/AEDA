@@ -495,3 +495,30 @@ void menuInfoJuradoTodos() {
 
 }
 
+void menuAdicionaSessao()
+{
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Adicionar Sessao                              |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		string arte;
+		int data[3];
+		cin.ignore();
+		cout << "Arte da sessao: ";
+		getline(cin, arte);
+		cout << "Data (dia, mes, ano): ";
+		cin >> data[0] >> data[1] >> data[2];
+
+		sessao *s = new sessao(arte,data);
+
+		try {
+				//adicionaSessao(j);
+			} catch (sessaoJaExiste &sessao) {
+				cout << sessao;
+				delete s;
+				cin.get();
+				return;
+			}
+
+}
+

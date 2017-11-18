@@ -118,15 +118,15 @@ int gravarFicheiroSessoes() {
 }
 
 int gravarFicheiros() {
-	if (lerFicheiroCandidatos()) {
+	if (gravarFicheiroCandidatos()) {
 		cerr << "Erro ao carregar o ficheiro 'candidatos.txt'!\n";
 		return 1;
 	}
-	if (lerFicheiroJurados()) {
+	if (gravarFicheiroJurados()) {
 		cerr << "Erro ao carregar o ficheiro 'jurados.txt'!\n";
 		return 1;
 	}
-	if (lerFicheiroSessoes()) {
+	if (gravarFicheiroSessoes()) {
 		cerr << "Erro ao carregar o ficheiro 'sessoes.txt'!\n";
 		return 1;
 	}
@@ -139,7 +139,7 @@ int gravarFicheiros() {
 void sair() {
 
 	do {
-		cout <<"___________________________________________________________________________\n";
+		cout <<"\n\n\n\n\n___________________________________________________________________________\n";
 		cout <<"            __   ____  _____ ______  ____  ___     ____  _____       \n";
 		cout <<"	   /  ] /    |/ ___/|      ||    ||    \\  /    |/ ___/       \n";
 		cout <<"	  /  / |  o  (   \\_ |      | |  | |  _  ||   __(   \\_        \n";
@@ -186,7 +186,7 @@ void adicionaCandidato(candidato *c) {
 void removeCandidato(int numero) {
 
 	int i;
-	if (i = procuraCandidato(numero) == -1) {
+	if ((i = procuraCandidato(numero)) == -1) {
 		throw candidatoNaoExiste(numero);
 	}
 	else {
@@ -200,7 +200,7 @@ void removeCandidato(int numero) {
 void removeCandidato(string nome) {
 
 	int i;
-	if (i = procuraCandidato(nome) == -1) {
+	if ((i = procuraCandidato(nome)) == -1) {
 		throw candidatoNaoExiste(nome);
 	}
 	else {
@@ -323,4 +323,63 @@ int procuraJurado (string nome){
 
 }
 
+int procuraSessao(string generoArte,vector<int> data) {
+
+	for (unsigned int i = 0; i < sessaoGlobal.size(); i++){
+		if (sessaoGlobal.at(i)->getGeneroArte() == generoArte && sessaoGlobal.at(i)->getData() == data)
+			return i; // encontrou
+	}
+	return -1;
+
+}
+
+int procuraSessao(sessao *s) {
+
+	for (unsigned int i = 0; i < sessaoGlobal.size(); i++){
+		if (sessaoGlobal.at(i)->getGeneroArte() == s->getGeneroArte() && sessaoGlobal.at(i)->getData() == s->getData())
+			return i; // encontrou
+	}
+	return -1;
+
+}
+
+void adicionaSessao(sessao *s)
+{
+	if (procuraSessao(s) != -1) {
+			throw sessaoJaExiste(s->getGeneroArte(),s->getData());
+		}
+	else {
+			sessaoGlobal.push_back(s);
+			cout << "Sessao adicionada com sucesso!\n";
+			cin.get();
+		}
+}
+
+void removeSessao(string generoArte,vector<int> data) {
+
+	int i= procuraSessao(generoArte,data);
+		if (i  == -1) {
+			throw sessaoNaoExiste(generoArte,data);
+		}
+		else {
+			sessaoGlobal.erase(sessaoGlobal.begin() + i);
+			cout << "Sessao removida com sucesso!\n";
+			cin.get();
+		}
+
+}
+
+
+void bubbleSortClassificacoes(vector<Classificacao> &v) {
+	for (unsigned int j = v.size() - 1; j > 0; j--) {
+		bool troca = false;
+		for (unsigned int i = 0; i < j; i++)
+			if (v[i + 1].media > v[i].media) {
+				swap(v[i], v[i + 1]);
+				troca = true;
+			}
+		if (!troca)
+			return;
+	}
+}
 
