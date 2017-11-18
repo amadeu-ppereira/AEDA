@@ -2,6 +2,7 @@
 #define _MENUS_H_
 
 #include <iostream>
+#include <sessao.h>
 
 using namespace std;
 
@@ -84,11 +85,23 @@ void menuInfoJuradoNome();
  * @brief display do menu para ver a informacao de todos os jurados
  */
 void menuInfoJuradoTodos();
+
 /**
  * @brief dispay do menu para adicionar uma sessao
  *
  */
 void menuAdicionaSessao();
+
+/**
+ * @brief dispay do menu para remover uma sessao
+ */
+void menuRemoveSessao();
+
+/**
+ * @brief dispay do menu para adicionar candidatos a uma sessao
+ * @param s sessao a que se pretende adicionar candidatos
+ */
+void menuAdicionaCandidatosSessao(sessao* s);
 
 
 

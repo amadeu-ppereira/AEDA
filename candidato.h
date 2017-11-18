@@ -127,6 +127,12 @@ public:
 	 */
 	friend ofstream & operator<<(ofstream & o, const candidato * c);
 
+	/**
+	 * @brief verifica se o candidato ja tem alguma sessao naquele dia
+	 * @return true se sim, false se nao;
+	 */
+	bool candidatoOcupado(vector<int> data);
+
 
 
 
@@ -140,13 +146,13 @@ public:
 	int numero;
 	/**
 	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
-	 *  @param nome nome do candidato;
+	 *  @param nome nome do candidato
 	 */
 	candidatoNaoExiste(string nome) {this->nome = nome; this->numero = 0;}
 
 	/**
 	 *  @brief constructor da excepcao candidatoNaoExiste (nome fica como uma sting vazia)
-	 *  @param numero numero do candidato;
+	 *  @param numero numero do candidato
 	 */
 	candidatoNaoExiste(int numero) {this->nome = ""; this->numero = numero;};
 
@@ -161,12 +167,28 @@ public:
 	string nome;
 	/**
 	 *  @brief constructor da excepcao candidatoJaExiste
-	 *  @param nome nome do candidato;
+	 *  @param nome nome do candidato
 	 */
 	candidatoJaExiste(string nome) {this->nome = nome;}
 
 };
 
 std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c);
+
+class candidatoOcupado {
+
+public:
+	int numero;
+	vector<int> data;
+	/**
+	 *  @brief constructor da excepcao candidatoOcupado
+	 *  @param numero numero do candidato
+	 *  @param data data em que esta ocupado
+	 */
+	candidatoOcupado(int numero, vector<int> data) {this->numero = numero; this->data = data}
+
+};
+
+std::ostream & operator<<(std::ostream &out, const candidatoOcupado &c);
 
 #endif /* SRC_CANDIDATO_H_ */

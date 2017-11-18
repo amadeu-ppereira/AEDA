@@ -129,9 +129,9 @@ void menuSessoes() {
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
 	cout << "|  Sessoes                                       |\n";
 	cout << "+------------------------------------------------+\n";
-	cout << "| 1.                                             |\n";
-	cout << "| 2.                                             |\n";
-	cout << "| 3.                                             |\n";
+	cout << "| 1. Adicionar Sessao                            |\n";
+	cout << "| 2. Remover Sessao                              |\n";
+	cout << "| 3. Informacao das Sessoes                      |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
 	cout << "+------------------------------------------------+\n\n";
@@ -145,10 +145,10 @@ void menuSessoes() {
 		}
 		switch (opcao) {
 		case 1:
-
+			menuAdicionaSessao();
 			break;
 		case 2:
-
+			menuRemoveSessao();
 			break;
 		case 3:
 
@@ -495,30 +495,130 @@ void menuInfoJuradoTodos() {
 
 }
 
-void menuAdicionaSessao()
-{
+void menuAdicionaSessao() {
+
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
-		cout << "|  Adicionar Sessao                              |\n";
-		cout << "+------------------------------------------------+\n\n";
+	cout << "|  Adicionar Sessao                              |\n";
+	cout << "+------------------------------------------------+\n\n";
 
-		string arte;
-		int data[3];
-		cin.ignore();
-		cout << "Arte da sessao: ";
-		getline(cin, arte);
-		cout << "Data (dia, mes, ano): ";
+	string arte;
+	int data[3];
+	cin.ignore();
+	cout << "Arte da sessao: ";
+	getline(cin, arte);
+
+	do {
+		cout << "Data: ";
 		cin >> data[0] >> data[1] >> data[2];
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+			continue;
+		} else {
+			break;
+		}
 
-		sessao *s = new sessao(arte,data);
+	} while (1);
 
-		try {
-				//adicionaSessao(j);
-			} catch (sessaoJaExiste &sessao) {
-				cout << sessao;
-				delete s;
-				cin.get();
-				return;
-			}
+	sessao *s = new sessao(arte,data);
+
+	try {
+		adicionaSessao(s);
+	} catch (sessaoJaExiste &sessao) {
+		cout << sessao;
+		delete s;
+		cin.get();
+		return;
+	}
 
 }
 
+void menuRemoveSessao() {
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Remover Sessao                                |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	string arte;
+	vector<int> data(3);
+	cin.ignore();
+	cout << "Arte da sessao: ";
+	getline(cin, arte);
+
+	do {
+		cout << "Data: ";
+		cin >> data[0] >> data[1] >> data[2];
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+			continue;
+		} else {
+			break;
+		}
+
+	} while (1);
+
+	try {
+		removeSessao(arte, data);
+	} catch (sessaoNaoExiste &sessao) {
+		cout << sessao;
+		cin.get();
+		return;
+	}
+}
+
+void menuAdicionaCandidatosSessao(sessao* s) {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Adicionar Candidatos a Sessao                 |\n";
+	cout << "+------------------------------------------------+\n\n";
+	cout << "Candidatos disponiveis para a sessao:\n";
+
+	vector<int> candidatos = candidatosDisponiveis(s);
+
+	int n;
+	do {
+		cout << "Adicionar quantos candidatos? \n";
+		cin >> n;
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+
+		} else {
+			break;
+		}
+	} while(1);
+
+	for(unsigned int i = 1; i < n; i++) {
+		int numero;
+		bool flag = false;
+		do {
+			cout << "Numero do candidato " << i << "? ";
+			cin >> numero;
+			if (cinTeste()) {
+				cout << "Valor Invalido!\n";
+
+			} else {
+				break;
+			}
+		} while (1);
+
+		for(unsigned int j = 0; j < candidatos.size(); j++) {
+			if(candidatos.at(i) == numero) {
+				flag = true;
+				break;
+			}
+		}
+
+		if(flag) {
+			try {
+				adicionaCandidatoSessao(n, s);
+			} catch (candidatoOcupado &c){
+				cout << c;
+				cin.get();
+			}
+
+		}
+
+	}
+
+	cin.get();
+	return;
+
+}

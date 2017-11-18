@@ -43,6 +43,10 @@ string sessao::getGeneroArte()
 	return generoArte;
 }
 
+void sessao::adicionaCandidato(candidato *c) {
+	candidatos.push_back(c);
+}
+
 void fase1::atribuiPontuacoes(candidato *c , float classjurados[3]){
 
 	float m = (classjurados[0] + classjurados[1] + classjurados[2])/3;
@@ -81,7 +85,7 @@ void fase2::displayVencedor(){
 
 	cout << " _\\|/^              " << classificacoes2fase[0].c->getNome() << endl;
     cout << "  (_oo /\n";
-	cout << " /-|--/              Parabéns Ganhou !!!" << endl;
+	cout << " /-|--/              Parabéns!! Ganhou !!!" << endl;
 	cout << " \\ |\n";
 	cout << "   /--i              PONTUACAO :"<< classificacoes2fase[0].media << " P" << endl;
 	cout << "  /   L\n";
@@ -99,10 +103,9 @@ ostream & operator<<(std::ostream &out, const sessaoJaExiste &s)
 
 std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s)
 {
-			out << "Sessao do genero: " << s.generoArte
-					<< " no dia " << s.data[0] << '/' << s.data[1]
-					<< '/' << s.data[2] << " nao existe!\n";
-			return out;
+	out << "Sessao do genero " << s.generoArte << " no dia " << s.data[0] << '/'
+			<< s.data[1] << '/' << s.data[2] << " nao existe!\n";
+	return out;
 }
 
 

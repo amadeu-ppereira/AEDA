@@ -60,7 +60,7 @@ public:
 	 /**
 	  * @brief funcao que devolve num array a data(dia, mes, ano)
 	  *
-	  * @return data[3] array com a data
+	  * @return vetor de int's com a data
 	  */
 	 vector<int> getData();
 	 /**
@@ -69,6 +69,8 @@ public:
 	  * @return generoArte da sessao
 	  */
 	 string getGeneroArte();
+
+	 void adicionaCandidato(candidato *c);
 
 
 
@@ -145,9 +147,7 @@ public:
 	 */
 	sessaoJaExiste(string generoArte,vector<int> data)
 	{this->generoArte = generoArte;
-	this->data[0]=data[0];
-	this->data[1]=data[1];
-	this->data[1]=data[1];}
+	this->data = data;}
 
 };
 
