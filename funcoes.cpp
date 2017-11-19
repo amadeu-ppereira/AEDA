@@ -393,16 +393,55 @@ vector<int> candidatosDisponiveis(sessao* s) {
 	return numeros;
 }
 
-int adicionaCandidatoSessao(int n, sessao* s) {
+vector<string> juradosDisponiveis(sessao* s) {
+
+	vector<string> nomes;
+	for(unsigned int i = 0;  i < juradosGlobal.size(); i++) {
+		if(juradosGlobal.at(i)->getArte() == s->getGeneroArte() && !juradosGlobal.at(i)->juradoOcupado(s->getData())) {
+			cout << candidatosGlobal.at(i) << endl;
+			nomes.push_back(juradosGlobal.at(i)->getNome());
+		}
+	}
+
+	return nomes;
+}
+
+void adicionaCandidatoSessao(int n, sessao* s) {
 
 	int i = procuraCandidato(n);
 	if(candidatosGlobal.at(i)->candidatoOcupado(s->getData())) {
-		throw candidatoOcupado(n);
+		throw candidatoOcupado(n, s->getData());
 	}
 
 	s->adicionaCandidato(candidatosGlobal.at(i));
 	candidatosGlobal.at(i)->adicionaSessao(s);
 	cout << "Candidato Adicionado!\n";
+
+
+}
+
+void adicionaJuradoSessao(string nome, sessao* s) {
+
+	int i = procuraJurado(nome);
+	if(juradosGlobal.at(i)->juradoOcupado(s->getData())) {
+		throw juradoOcupado(nome, s->getData());
+	}
+
+	s->adicionaJurado(juradosGlobal.at(i));
+	juradosGlobal.at(i)->adicionaSessao(s);
+	cout << "Jurado Adicionado!\n";
+}
+
+void displayInfoSessao(string arte, vector<int> data) {
+
+	int i = procuraSessao(arte, data);
+	if (i == -1) {
+		throw sessaoNaoExiste(arte, data);
+	}
+
+	cout << sessaoGlobal.at(i) << endl;
+
+	cin.get();
 
 
 }

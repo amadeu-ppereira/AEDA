@@ -3,11 +3,10 @@
 
 #include <string>
 #include <vector>
+#include <sstream>
+#include <fstream>
 #include "sessao.h"
-#include "sstream"
-#include "fstream"
 using namespace std;
-class Casting;
 
 class candidato {
 	string nome;
@@ -185,7 +184,7 @@ public:
 	 *  @param numero numero do candidato
 	 *  @param data data em que esta ocupado
 	 */
-	candidatoOcupado(int numero, vector<int> data) {this->numero = numero; this->data = data}
+	candidatoOcupado(int numero, vector<int> data) {this->numero = numero; this->data = data;}
 
 };
 
