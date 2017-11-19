@@ -44,34 +44,82 @@ public:
 	 *	@param genertoArte genero de arte da sessao
 	 *	@param data dia,mes,ano da sessao ,respetivamente
 	 */
-	 sessao( string generoArte,int data[3]);
+	 sessao( string generoArte,vector<int> data);
 	 /**
 	 *  @brief altera o genero de arte da sessao
 	 *
 	 *	@param generoArte generto de arte da sessao
 	 */
 	 void setArte(string generoArte);
+	/**
+	 *  @brief altera se a sessao ja foi concluida
+	 *
+	 *	@param c valor para alterar
+	 */
+	 void setConcluida(bool c);
 	 /**
 	 *  @brief altera data da sessao
 	 *
-	 *	@param data[3] com dia mes e ano para alterar
+	 *	@param data vetor com dia mes e ano para alterar
 	 */
-	 void setData(int data[3]);
+	 void setData(vector<int> data);
 	 /**
 	  * @brief funcao que devolve num array a data(dia, mes, ano)
 	  *
 	  * @return vetor de int's com a data
 	  */
-	 vector<int> getData();
+	 vector<int> getData() const;
 	 /**
 	  * @brief funcao que devolve o genero de arte de uma sessao
 	  *
 	  * @return generoArte da sessao
 	  */
-	 string getGeneroArte();
+	 string getGeneroArte() const;
 
+	/**
+	 * @brief funcao que devolve os candidatos de uma sessao
+	 *
+	 * @return candidatos da sessao
+	 */
+	 vector<candidato*> getCandidatos() const;
+
+	/**
+	 * @brief funcao que devolve os jurados de uma sessao
+	 *
+	 * @return jurados da sessao
+	 */
+	vector<jurado*> getJurados() const;
+
+	 /**
+	  * @brief adiciona um candidato a sessao
+	  * @param c candidato a adicionar
+	  */
 	 void adicionaCandidato(candidato *c);
 
+	 /**
+	  * @brief adiciona um jurado a sessao
+	  * @param j jurado a adicionar
+	  */
+	 void adicionaJurado(jurado *j);
+
+	 /**
+	  * @brief diz quantos jurados tem a sessao
+	  * @return numero de jurados
+	  */
+	 int getNumeroJurados() const;
+
+	/**
+	 * @brief overload do operador << para a classe sessao (ostream)
+	 */
+	friend ostream & operator<<(ostream & o, const sessao * s);
+
+	/**
+	 * @brief diz se a sessao ja for concluida
+	 * @return valor da variavel concluida
+	 */
+	bool sessaoConcluida() const;
+
+	virtual void atribuiPontuacoes(candidato *c, vector<float> classjurados) = 0;
 
 
 
@@ -80,25 +128,40 @@ public:
 
 
 class fase1: public sessao {
-	protected:
-		vector<Classificacao> classificacoes1fase;
+protected:
+	vector<Classificacao> classificacoes1fase;
 
-	public:
+public:
+	/**
+	 * @brief construtor da class fase1
+	 */
+	fase1();
 	/**
 	 *  @brief funcao para atribuir as pontuacoes de um candidato
 	 *
 	 *  @param c candidato a atribuir as pontuacoes
-	 *  @param classjurados[3] array com as pontuacoes dos 3 jurados
+	 *  @param classjurados vetor com as pontuacoes dos 3 jurados
 	 */
-	void atribuiPontuacoes(candidato *c, float classjurados[3]);
+	void atribuiPontuacoes(candidato *c, vector<float> classjurados);
+
+	/**
+	 * @brief devolve o candidatos da primeira fase
+	 * @return vetor com os candidatos
+	 */
+	vector<candidato*> getCandidatos() const;
 
 
 };
 
 class fase2: public fase1 {
 	vector<Classificacao> classificacoes2fase;
+	vector<candidato*> candidatos2fase;
 
 public:
+	/**
+	 * @brief construtor da class fase2
+	 */
+	fase2();
 	/**
 	 *  @brief funcao que passa a segunda fase os 5 melhores classificados da primeiara fase
 	 *
@@ -115,6 +178,14 @@ public:
 	 *
 	 */
 	void displayVencedor();
+
+	/**
+	 *  @brief funcao para atribuir as pontuacoes de um candidato
+	 *
+	 *  @param c candidato a atribuir as pontuacoes
+	 *  @param classjurados vetor com as pontuacoes dos 3 jurados
+	 */
+	void atribuiPontuacoes(candidato *c, vector<float> classjurados);
 };
 
 class sessaoNaoExiste {

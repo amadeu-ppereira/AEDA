@@ -1,15 +1,16 @@
 #ifndef _FUNCOES_H_
 #define _FUNCOES_H_
 
-#include "candidato.h"
-#include "jurado.h"
-#include "sessao.h"
-
 #include <iostream>
 #include <fstream>
 #include <sstream>
 #include <vector>
 #include <string>
+
+
+#include "candidato.h"
+#include "jurado.h"
+#include "sessao.h"
 
 
 extern vector<candidato*> candidatosGlobal;
@@ -201,12 +202,31 @@ void bubbleSortClassificacoes(vector<Classificacao> &v);
 vector<int> candidatosDisponiveis(sessao* s);
 
 /**
+ * @brief da display de todos os jurados disponiveis para uma sessao
+ * @param s sessao a analisar
+ * @return vector com os nomes de todos os jurados disponiveis
+ */
+vector<string> juradosDisponiveis(sessao* s);
+
+/**
  * @brief adiciona um candidato a uma sessao
  * @param n numero do candidato
  * @param s sessao a adicionar
- * @return 0 se o candidato foi adicionado com sucesso, 1 se nao
  */
-int adicionaCandidatoSessao(int n, sessao* s);
+void adicionaCandidatoSessao(int n, sessao* s);
+
+/**
+ * @brief adiciona um jurado a uma sessao
+ * @param nome nome do jurado
+ * @param s sessao a adicionar
+ */
+void adicionaJuradoSessao(string nome, sessao* s);
+
+/**@brief dá display das informacoes de uma sessao
+ * @param arte arte da sessao
+ * @param data data da sessao
+ */
+void displayInfoSessao(string arte, vector<int> data);
 
 
 

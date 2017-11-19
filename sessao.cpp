@@ -1,15 +1,23 @@
 #include "sessao.h"
 #include "funcoes.h"
 
+
+
 sessao::sessao() {
 	this->dia=0;
 	this->mes=0;
 	this->ano=0;
+	this->concluida = false;
 }
 
 
-sessao::sessao(string generoArte,int data[3]) {
+sessao::sessao(string generoArte,vector<int> data) {
 	this->generoArte = generoArte;
+	this->dia = data[0];
+	this->mes = data[1];
+	this->ano = data[2];
+	this->concluida = false;
+
 
 }
 
@@ -22,14 +30,18 @@ void sessao::setArte(string generoArte)
 	this->generoArte=generoArte;
 }
 
-void sessao::setData(int data[3])
+void sessao::setData(vector<int> data)
 {
 	this->dia=data[0];
 	this->mes=data[1];
 	this->ano=data[2];
 }
 
-vector<int> sessao::getData()
+void sessao::setConcluida(bool c) {
+	this->concluida = c;
+}
+
+vector<int> sessao::getData() const
 {
 	vector<int> data;
 	data.push_back(dia);
@@ -38,37 +50,69 @@ vector<int> sessao::getData()
 	return data;
 }
 
-string sessao::getGeneroArte()
+string sessao::getGeneroArte() const
 {
 	return generoArte;
+}
+
+int sessao::getNumeroJurados() const {
+	return jurados.size();
+}
+
+vector<candidato*> sessao::getCandidatos() const {
+	return candidatos;
+}
+
+vector<jurado*> sessao::getJurados() const {
+	return jurados;
 }
 
 void sessao::adicionaCandidato(candidato *c) {
 	candidatos.push_back(c);
 }
 
-void fase1::atribuiPontuacoes(candidato *c , float classjurados[3]){
+void sessao::adicionaJurado(jurado* j) {
+	jurados.push_back(j);
+}
+
+fase1::fase1() {
+
+}
+
+void fase1::atribuiPontuacoes(candidato *c , vector<float> classjurados){
 
 	float m = (classjurados[0] + classjurados[1] + classjurados[2])/3;
 	Classificacao cf = {c , classjurados[0] , classjurados[1] , classjurados[2], m};
 	classificacoes1fase.push_back(cf);
 }
 
+vector<candidato*> fase1::getCandidatos() const {
+	vector<candidato*> candidatos1fase;
+	for(unsigned int i = 0; i < classificacoes1fase.size(); i++) {
+		candidatos1fase.push_back(classificacoes1fase.at(i).c);
+	}
+	return candidatos1fase;
+}
+
+fase2::fase2() {
+
+}
 
 void fase2::passagem2fase(){
 
 
 	if (classificacoes1fase.size() >= 5){
 		for (unsigned int i = 0 ; i < 5 ; i++){
-			classificacoes2fase.push_back(classificacoes1fase[i]);
+			candidatos2fase.push_back(classificacoes1fase.at(i).c);
 		}
 	}
 
-	else classificacoes2fase = classificacoes1fase;
+	else candidatos2fase = getCandidatos();
 
 }
 
 void fase2::ordenar2fase(){
+
 
 	for (unsigned int i = 0 ; i < classificacoes2fase.size() ; i++){
 		float m = (classificacoes2fase[i].j1 * 2 + classificacoes2fase[i].j2 + classificacoes2fase[i].j3)/3;
@@ -77,8 +121,13 @@ void fase2::ordenar2fase(){
 
 	bubbleSortClassificacoes(classificacoes2fase);
 
+}
 
+void fase2::atribuiPontuacoes(candidato *c , vector<float> classjurados){
 
+	float m = (classjurados[0]*2 + (classjurados[1] + classjurados[2])/2)/3;
+	Classificacao cf = {c , classjurados[0] , classjurados[1] , classjurados[2], m};
+	classificacoes1fase.push_back(cf);
 }
 
 void fase2::displayVencedor(){
@@ -108,6 +157,40 @@ std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s)
 	return out;
 }
 
+ostream & operator<<(ostream & o, const sessao * s) {
+
+
+	o << "Arte: " << s->getGeneroArte() << endl;
+	o << "Data: " << s->getData()[0] << "/" << s->getData()[1] << "/"  << s->getData()[2] << endl;
+	o << "Candidatos (numeros): ";
+	for(unsigned int i = 0;  i < s->getCandidatos().size(); i++) {
+		if(i == s->getCandidatos().size() - 1) {
+			cout << s->getCandidatos().at(i)->getNumero() << endl;
+		}
+		else {
+			cout << s->getCandidatos().at(i)->getNumero() << ", ";
+		}
+	}
+	o << "Jurados: ";
+	for (unsigned int i = 0; i < s->getJurados().size(); i++) {
+		if(i == 0) {
+			cout << s->getJurados().at(i)->getNome() << "(principal), ";
+		}
+		else if (i == s->getJurados().size() - 1) {
+			cout << s->getJurados().at(i)->getNome() << endl;
+		}
+
+		else {cout << s->getJurados().at(i)->getNome() << ", ";
+
+		}
+	}
+
+	return o;
+}
+
+bool sessao::sessaoConcluida() const {
+	return concluida;
+}
 
 
 

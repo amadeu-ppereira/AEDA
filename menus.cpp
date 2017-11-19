@@ -151,7 +151,7 @@ void menuSessoes() {
 			menuRemoveSessao();
 			break;
 		case 3:
-
+			menuInfoSessoes();
 			break;
 		case 8:
 			return;
@@ -530,6 +530,9 @@ void menuAdicionaSessao() {
 		return;
 	}
 
+	menuAdicionaCandidatosSessao(s);
+	menuAdicionaJuradosSessao(s);
+
 }
 
 void menuRemoveSessao() {
@@ -620,5 +623,90 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 
 	cin.get();
 	return;
+
+}
+
+void menuAdicionaJuradosSessao(sessao* s) {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Adicionar Jurados a Sessao                    |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	int nJurados = s->getNumeroJurados();
+	if(nJurados == 3) {
+		cout << "A sessao ja tem 3 jurados!\n";
+		cin.get();
+		return;
+	}
+	cout << "Jurados disponiveis para a sessao:\n";
+
+	vector<string> jurados = juradosDisponiveis(s);
+
+	for(unsigned int i = nJurados+1; i <= 3; i++) {
+		string nome;
+		bool flag = false;
+
+		if(i == 1)
+			cout << "Nome do jurado principal ? ";
+		else
+			cout << "Nome do jurado " << i << " ? ";
+		getline(cin, nome);
+
+		for(unsigned int j = 0; j < jurados.size(); j++) {
+			if(jurados.at(i) == nome) {
+				flag = true;
+				break;
+			}
+		}
+
+		if(flag) {
+			try {
+				adicionaJuradoSessao(nome, s);
+			} catch (juradoOcupado &j){
+				cout << j;
+				cin.get();
+			}
+
+		}
+
+	}
+
+	cin.get();
+	return;
+
+}
+
+void menuInfoSessoes() {
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Sessao                             |\n";
+	cout << "+------------------------------------------------+\n";
+
+	string arte;
+	vector<int> data(3);
+	cin.ignore();
+	cout << "Arte da sessao: ";
+	getline(cin, arte);
+
+	do {
+		cout << "Data: ";
+		cin >> data[0] >> data[1] >> data[2];
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+			continue;
+		} else {
+			break;
+		}
+
+	} while (1);
+
+	try {
+		displayInfoSessao(arte, data);
+	} catch (sessaoNaoExiste &s) {
+		cout << s;
+		cin.get();
+	}
+
+
+
 
 }

@@ -3,16 +3,18 @@
 
 #include <string>
 #include <vector>
-#include "sstream"
-#include "fstream"
+#include <sstream>
+#include <fstream>
 using namespace std;
 
+class sessao;
 
 class jurado {
 	string nome;
 	string morada;
 	string telemovel;
 	string arte;
+	vector<sessao*> sessoes;
 
 public:
 	/**
@@ -80,6 +82,24 @@ public:
 	string getArte() const;
 
 	/**
+	 * @brief funcao que devolve as sessoes do jurado
+	 * @return sessoes do jurado
+	 */
+	vector<sessao*> getSessoes() const;
+
+	/**
+	 * @brief funcao que adiciona as sessoes ao jurado
+	 * @param s vetor de sessoes a adicionar
+	 */
+	void setSessoes(vector<sessao*> s);
+
+	/**
+	 * @brief funcao que adiciona uma sessao às sessoes ao jurado
+	 * @param s sessao a adicionar
+	 */
+	void adicionaSessao(sessao* s);
+
+	/**
 	 * @brief overload do operador << para a classe jurado (ostream)
 	 */
 	friend ostream & operator<<(ostream & o, const jurado * j);
@@ -88,6 +108,12 @@ public:
 	 * @brief overload do operador << para a classe jurado (fstream)
 	 */
 	friend ofstream & operator<<(ofstream & o, const jurado * j);
+
+	/**
+	 * @brief verifica se o jurado ja tem alguma sessao naquele dia
+	 * @return true se sim, false se nao;
+	 */
+	bool juradoOcupado(vector<int> data);
 };
 
 
@@ -124,12 +150,23 @@ public:
 };
 
 
-
-
-
 std::ostream & operator<<(std::ostream &out, const JuradoJaExiste &c);
 
+class juradoOcupado {
 
+public:
+	string nome;
+	vector<int> data;
+	/**
+	 *  @brief constructor da excepcao juradoOcupado
+	 *  @param nome nome do jurado
+	 *  @param data data em que esta ocupado
+	 */
+	juradoOcupado(string nome, vector<int> data) {this->nome = nome; this->data = data;}
+
+};
+
+std::ostream & operator<<(std::ostream &out, const juradoOcupado &c);
 
 
 
