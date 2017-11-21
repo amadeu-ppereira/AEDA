@@ -169,7 +169,7 @@ void menuAdicionaCandidato() {
 
 	string nome, morada, arte;
 	int dia, mes, ano;
-	cin.ignore();
+	cin.ignore(1000, '\n');;
 	cout << "Nome: ";
 	getline(cin, nome);
 	cout << "Morada: ";
@@ -187,7 +187,7 @@ void menuAdicionaCandidato() {
 
 	} while (1);
 	cout << "Arte: ";
-	cin.ignore();
+	cin.ignore(1000, '\n');;
 	getline(cin, arte);
 
 	candidato *c = new candidato(nome, morada, dia, mes, ano, arte);
@@ -256,7 +256,7 @@ void menuRemoveCandidatoNumero() {
 		removeCandidato(numero);
 	} catch (candidatoNaoExiste &c) {
 		cout << c;
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
@@ -271,7 +271,7 @@ void menuRemoveCandidatoNome() {
 		cout << "+------------------------------------------------+\n\n";
 
 		cout << "Nome: ";
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		getline(cin,nome);
 		if (cinTeste()) {
 			continue;
@@ -341,7 +341,7 @@ void menuInfoCandidatoNumero() {
 		infoCandidato(numero);
 	} catch (candidatoNaoExiste &c) {
 		cout << c;
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
@@ -355,7 +355,7 @@ void menuInfoCandidatoTodos() {
 
 	if(candidatosGlobal.size() == 0) {
 		cout << "Ainda nao ha nenhum candidato...\n";
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
@@ -364,7 +364,7 @@ void menuInfoCandidatoTodos() {
 		infoCandidato(candidatosGlobal.at(i));
 		cout << " ---- \n";;
 	}
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	cin.get();
 	return;
 
@@ -376,7 +376,7 @@ void menuAdicionaJurado() {
 	cout << "+------------------------------------------------+\n\n";
 
 	string nome, morada, arte, telemovel;
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	cout << "Nome: ";
 	getline(cin, nome);
 	cout << "Morada: ";
@@ -407,7 +407,7 @@ void menuRemoveJurado() {
 
 	string nome;
 	cout << "Nome do jurado: ";
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	getline(cin, nome);
 
 	try {
@@ -459,7 +459,7 @@ void menuInfoJuradoNome() {
 
 	string nome;
 	cout << "Nome do jurado: ";
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	getline(cin,nome);
 
 
@@ -467,7 +467,7 @@ void menuInfoJuradoNome() {
 		infoJurado(nome);
 	} catch (JuradoNaoExiste &c) {
 		cout << c;
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
@@ -480,7 +480,7 @@ void menuInfoJuradoTodos() {
 
 	if(juradosGlobal.size() == 0) {
 		cout << "Ainda nao ha nenhum jurado...\n";
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
@@ -489,7 +489,7 @@ void menuInfoJuradoTodos() {
 		infoJurado(juradosGlobal.at(i));
 		cout << " ---- \n";;
 	}
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	cin.get();
 	return;
 
@@ -503,7 +503,7 @@ void menuAdicionaSessao() {
 
 	string arte;
 	vector<int> data(3);
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	cout << "Arte da sessao: ";
 	getline(cin, arte);
 
@@ -543,7 +543,7 @@ void menuRemoveSessao() {
 
 	string arte;
 	vector<int> data(3);
-	cin.ignore();
+	cin.ignore(1000, '\n');
 	cout << "Arte da sessao: ";
 	getline(cin, arte);
 
@@ -591,8 +591,9 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 	for(unsigned int i = 0; i < n; i++) {
 		int numero;
 		bool flag = false;
+		int temp = i + 1;
 		do {
-			cout << "Numero do candidato " << i + 1 << "? ";
+			cout << "Numero do candidato " << temp << "? ";
 			cin >> numero;
 			if (cinTeste()) {
 				cout << "Valor Invalido!\n";
@@ -683,7 +684,7 @@ void menuInfoSessoes() {
 
 	string arte;
 	vector<int> data(3);
-	cin.ignore();
+	cin.ignore(1000, '\n');;
 	cout << "Arte da sessao: ";
 	getline(cin, arte);
 
