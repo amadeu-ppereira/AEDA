@@ -192,5 +192,7 @@ bool sessao::sessaoConcluida() const {
 	return concluida;
 }
 
-
+void sessao::atribuiPontuacoes(){
+	return ;
+}
 
