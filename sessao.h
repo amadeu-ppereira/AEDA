@@ -1,22 +1,13 @@
 #ifndef SRC_SESSAO_H_
 #define SRC_SESSAO_H_
 
-#include "jurado.h"
 #include <string>
 #include <vector>
+#include "jurado.h"
+#include "fase.h"
 
 
 class candidato;
-
-
-struct Classificacao {
-
-	candidato* c;
-	float j1;
-	float j2;
-	float j3;
-	float media;
-};
 
 
 class sessao {
@@ -118,11 +109,6 @@ public:
 	 */
 	bool sessaoConcluida() const;
 
-	/**
-	 * @brief funcao virtual para atribui pontuacoes aos candidatos
-	 *
-	 */
-	virtual void atribuiPontuacoes();
 
 
 
@@ -130,66 +116,7 @@ public:
 };
 
 
-class fase1: public sessao {
-protected:
-	vector<Classificacao> classificacoes1fase;
 
-public:
-	/**
-	 * @brief construtor da class fase1
-	 */
-	fase1();
-	/**
-	 *  @brief funcao para atribuir as pontuacoes de um candidato
-	 *
-	 *  @param c candidato a atribuir as pontuacoes
-	 *  @param classjurados vetor com as pontuacoes dos 3 jurados
-	 */
-	void atribuiPontuacoes(candidato *c, vector<float> classjurados);
-
-	/**
-	 * @brief devolve o candidatos da primeira fase
-	 * @return vetor com os candidatos
-	 */
-	vector<candidato*> getCandidatos() const;
-
-
-};
-
-class fase2: public fase1 {
-	vector<Classificacao> classificacoes2fase;
-	vector<candidato*> candidatos2fase;
-
-public:
-	/**
-	 * @brief construtor da class fase2
-	 */
-	fase2();
-	/**
-	 *  @brief funcao que passa a segunda fase os 5 melhores classificados da primeiara fase
-	 *
-	 */
-	void passagem2fase();
-
-	/**
-	 * @brief ordena o vetor de classificacoes da segunda fase
-	 *
-	 */
-	void ordenar2fase();
-	/**
-	 * @brief funcao que da display do vencedor e da sua pontuacao
-	 *
-	 */
-	void displayVencedor();
-
-	/**
-	 *  @brief funcao para atribuir as pontuacoes de um candidato
-	 *
-	 *  @param c candidato a atribuir as pontuacoes
-	 *  @param classjurados vetor com as pontuacoes dos 3 jurados
-	 */
-	void atribuiPontuacoes(candidato *c, vector<float> classjurados);
-};
 
 class sessaoNaoExiste {
 

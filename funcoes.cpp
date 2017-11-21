@@ -8,7 +8,7 @@ vector<sessao*> sessaoGlobal;
 int cinTeste() {
 	if (cin.fail()) {
 		cin.clear();
-		cin.ignore();
+		cin.ignore(1000, '\n');
 		return 1;
 	}
 	return 0;
@@ -192,7 +192,7 @@ void removeCandidato(int numero) {
 	else {
 		candidatosGlobal.erase(candidatosGlobal.begin() + i);
 		cout << "Candidato numero " << numero << " removido!\n";
-		cin.ignore();
+		cin.ignore(1000, '\n');;
 		cin.get();
 	}
 }
@@ -367,18 +367,6 @@ void removeSessao(string generoArte,vector<int> data) {
 }
 
 
-void bubbleSortClassificacoes(vector<Classificacao> &v) {
-	for (unsigned int j = v.size() - 1; j > 0; j--) {
-		bool troca = false;
-		for (unsigned int i = 0; i < j; i++)
-			if (v[i + 1].media > v[i].media) {
-				swap(v[i], v[i + 1]);
-				troca = true;
-			}
-		if (!troca)
-			return;
-	}
-}
 
 vector<int> candidatosDisponiveis(sessao* s) {
 

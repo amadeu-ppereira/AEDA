@@ -187,13 +187,6 @@ void adicionaSessao(sessao *s);
  */
 void removeSessao(string generoArte,vector<int> data);
 
-
-/**
- * @brief ordena o vetor de classificaoes por media(maior para menor)
- * @param v vetor a ordenar
- */
-void bubbleSortClassificacoes(vector<Classificacao> &v);
-
 /**
  * @brief da display de todos os candidatos disponiveis para uma sessao
  * @param s sessao a analisar
