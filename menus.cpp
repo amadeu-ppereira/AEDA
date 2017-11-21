@@ -502,7 +502,7 @@ void menuAdicionaSessao() {
 	cout << "+------------------------------------------------+\n\n";
 
 	string arte;
-	int data[3];
+	vector<int> data(3);
 	cin.ignore();
 	cout << "Arte da sessao: ";
 	getline(cin, arte);
@@ -588,11 +588,11 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 		}
 	} while(1);
 
-	for(unsigned int i = 1; i < n; i++) {
+	for(unsigned int i = 0; i < n; i++) {
 		int numero;
 		bool flag = false;
 		do {
-			cout << "Numero do candidato " << i << "? ";
+			cout << "Numero do candidato " << i + 1 << "? ";
 			cin >> numero;
 			if (cinTeste()) {
 				cout << "Valor Invalido!\n";
@@ -611,7 +611,7 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 
 		if(flag) {
 			try {
-				adicionaCandidatoSessao(n, s);
+				adicionaCandidatoSessao(numero, s);
 			} catch (candidatoOcupado &c){
 				cout << c;
 				cin.get();

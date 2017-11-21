@@ -23,7 +23,6 @@ class sessao {
 	vector <jurado*> jurados ;
 	vector <candidato*> candidatos;
 	string generoArte;
-	jurado* responsavel;
 	int dia,mes,ano;
 	bool concluida;
 public:
@@ -119,7 +118,11 @@ public:
 	 */
 	bool sessaoConcluida() const;
 
-	virtual void atribuiPontuacoes(candidato *c, vector<float> classjurados) = 0;
+	/**
+	 * @brief funcao virtual para atribui pontuacoes aos candidatos
+	 *
+	 */
+	virtual void atribuiPontuacoes();
 
 
 
