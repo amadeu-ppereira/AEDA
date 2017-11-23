@@ -1,8 +1,67 @@
 #include "fase.h"
 #include "candidato.h"
+#include "funcoes.h"
 
-fase1::fase1(sessao* s) : fase(s){
+
+sessao* fase1::getSessao() {
+	return s;
+}
+
+sessao* fase2::getSessao() {
+	return s;
+}
+
+
+fase::fase() {
+
+}
+
+fase::~fase() {
+
+}
+
+fase1::fase1(sessao* s) : fase(){
 	this->s = s;
+}
+
+fase1::fase1(string info) : fase() {
+
+	stringstream ss(info);
+	char virgula;
+	string arte;
+	vector<int> data(3);
+	string nome;
+	int c1, c2, c3;
+
+	getline(ss, arte, ',');
+	arte = arte.substr(0, arte.size() - 1);
+	ss >> data[0] >> virgula >> data[1] >> virgula >> data[2] >> virgula;
+
+	int i = procuraSessao(arte, data);
+	this->s = sessaoGlobal.at(i);
+
+	vector<Classificacao> classificacoes;
+	Classificacao classif;
+	string newInfo;
+	while(getline(ss, newInfo, ';')) {
+		stringstream newss(newInfo);
+		getline(newss, nome, ',');
+		nome = nome.substr(0, nome.size() - 1);
+		newss >> c1 >> virgula >> c2 >> virgula >> c3;
+
+		i = procuraCandidato(nome);
+
+		classif.c = candidatosGlobal.at(i);
+		classif.j1 = c1;
+		classif.j2 = c2;
+		classif.j3 = c3;
+		classif.media = (c1+c2+c3)/3;
+
+		classificacoes.push_back(classif);
+	}
+
+	classificacoes1fase = classificacoes;
+
 }
 
 
@@ -57,7 +116,8 @@ vector<Classificacao> fase1::getClassificacoes() const {
 	return classificacoes1fase;
 }
 
-fase2::fase2(fase1 f , sessao* s) : fase(s){
+fase2::fase2(fase1 f , sessao* s) : fase(){
+	this->s = s;
 
 	vector<candidato*> candidatos;
 	if (f.getClassificacoes().size() >= 5){
@@ -72,6 +132,48 @@ fase2::fase2(fase1 f , sessao* s) : fase(s){
 		}
 	}
 
+	candidatos2fase = candidatos;
+}
+
+fase2::fase2(string info) : fase() {
+
+	stringstream ss(info);
+	char virgula;
+	string arte;
+	vector<int> data(3);
+	string nome;
+	int c1, c2, c3;
+
+	getline(ss, arte, ',');
+	arte = arte.substr(0, arte.size() - 1);
+	ss >> data[0] >> virgula >> data[1] >> virgula >> data[2] >> virgula;
+
+	int i = procuraSessao(arte, data);
+	this->s = sessaoGlobal.at(i);
+
+	vector<candidato*> candidatos;
+	vector<Classificacao> classificacoes;
+	Classificacao classif;
+	string newInfo;
+	while (getline(ss, newInfo, ';')) {
+		stringstream newss(newInfo);
+		getline(newss, nome, ',');
+		nome = nome.substr(0, nome.size() - 1);
+		newss >> c1 >> virgula >> c2 >> virgula >> c3;
+
+		i = procuraCandidato(nome);
+		candidatos.push_back(candidatosGlobal.at(i));
+
+		classif.c = candidatosGlobal.at(i);
+		classif.j1 = c1;
+		classif.j2 = c2;
+		classif.j3 = c3;
+		classif.media = (c1 + c2 + c3) / 3;
+
+		classificacoes.push_back(classif);
+	}
+
+	classificacoes2fase = classificacoes;
 	candidatos2fase = candidatos;
 }
 
@@ -135,5 +237,43 @@ void fase2::displayVencedor(){
 	cout << "  /   L\n";
 	cout << "  L\n";
 
+}
+
+vector<Classificacao> fase2::getClassificacoes() const {
+	return classificacoes2fase;
+}
+
+
+ostream & operator<<(ostream & o, fase1 f) {
+
+	sessao* s = f.getSessao();
+	vector<int> data = s->getData();
+
+	o << s->getGeneroArte();
+	o << " , " << data[0] << " , " << data[1] << " , " << data[2] << " , ";
+
+	for(unsigned int i = 0; i < f.getClassificacoes().size(); i++) {
+		o << f.getClassificacoes().at(i).c->getNome();
+		o << " , " << f.getClassificacoes().at(i).j1 << " , " << f.getClassificacoes().at(i).j2 << " , " << f.getClassificacoes().at(i).j3 << " ; ";
+	}
+
+	return o;
 
 }
+
+ostream & operator<<(ostream & o, fase2 f) {
+
+	sessao* s = f.getSessao();
+	vector<int> data = s->getData();
+
+	o << s->getGeneroArte();
+	o << " , " << data[0] << " , " << data[1]	<< " , " << data[2] << " , ";
+
+	for (unsigned int i = 0; i < f.getClassificacoes().size(); i++) {
+		o << f.getClassificacoes().at(i).c->getNome();
+		o << " , "<< f.getClassificacoes().at(i).j1 << " , "<< f.getClassificacoes().at(i).j2 << " , "<< f.getClassificacoes().at(i).j3 << " ; ";
+	}
+
+	return o;
+}
+

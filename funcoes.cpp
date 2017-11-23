@@ -3,6 +3,8 @@
 vector<candidato*> candidatosGlobal;
 vector<jurado*> juradosGlobal;
 vector<sessao*> sessaoGlobal;
+vector<fase1> fases1;
+vector<fase2> fases2;
 
 
 int cinTeste() {
@@ -51,6 +53,25 @@ int lerFicheiroJurados() {
 }
 
 int lerFicheiroSessoes() {
+
+	ifstream f;
+	f.open("sessoes.txt");
+	if (!f.is_open()) {
+		return 1;
+	}
+
+	string info;
+	while (getline(f, info)) {
+		sessao *s = new sessao(info);
+		sessaoGlobal.push_back(s);
+
+		if(s->sessaoConcluida()) {
+
+		}
+	}
+
+	f.close();
+
 	return 0;
 }
 
@@ -360,12 +381,27 @@ void removeSessao(string generoArte,vector<int> data) {
 	if (i == -1) {
 		throw sessaoNaoExiste(generoArte, data);
 	} else {
+
+		if(sessaoGlobal.at(i)->sessaoConcluida()) {
+			removeFases(sessaoGlobal.at(i));
+		}
+
 		sessaoGlobal.erase(sessaoGlobal.begin() + i);
 		cout << "Sessao removida com sucesso!\n";
 		cin.get();
 	}
 }
 
+void removeFases(sessao* s) {
+
+	int i;
+	if((i = procuraFase1(s)) != -1) {
+		fases1.erase(fases1.begin()+ i);
+	}
+	if((i = procuraFase2(s)) != -1) {
+		fases2.erase(fases2.begin()+ i);
+	}
+}
 
 
 vector<int> candidatosDisponiveis(sessao* s) {
@@ -443,6 +479,9 @@ void comecarSessao(string arte, vector<int> data) {
 
 	if(sessaoGlobal.at(i)->sessaoConcluida() == true) {
 		cout << "Esta sessao já foi concluida!\n";
+
+
+
 		return;
 	}
 
@@ -453,20 +492,38 @@ void comecarSessao(string arte, vector<int> data) {
 	fase1 novafase1(sessaoGlobal.at(i));
 	novafase1.atribuiPontuacoes();
 	novafase1.ordenaPontuacoes();
+	fases1.push_back(novafase1);
 
 
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
 	cout << "|  Vamos comecar a 2 fase                        |\n";
 	cout << "+------------------------------------------------+\n\n";
-	fase2 novafase2(novafase1, sessaoGlobal.at(i));
 
+	fase2 novafase2(novafase1, sessaoGlobal.at(i));
 	novafase2.atribuiPontuacoes();
 	novafase2.displayVencedor();
 
+	fases2.push_back(novafase2);
+
 	sessaoGlobal.at(i)->setConcluida(true);
 
+}
 
+int procuraFase1 (sessao *s){
 
+	for (unsigned int i = 0; i < fases1.size(); i++)
+			if (fases1.at(i).getSessao() == s)
+				return i; // encontrou
+	return -1;
+
+}
+
+int procuraFase2 (sessao *s){
+
+	for (unsigned int i = 0; i < fases2.size(); i++)
+			if (fases2.at(i).getSessao() == s)
+				return i; // encontrou
+	return -1;
 
 }
 

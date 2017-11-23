@@ -21,18 +21,19 @@ struct Classificacao {
 };
 
 class fase {
-protected :
-	sessao* s;
 public:
-	fase(sessao * s) {this->s = s;};
-	~fase() {};
+	fase();
+	~fase();
 	virtual void atribuiPontuacoes()= 0;
 	virtual void ordenaPontuacoes() = 0;
+	virtual vector<Classificacao> getClassificacoes() const;
+	virtual sessao* getSessao() = 0;
 
 };
 
 
 class fase1: public fase {
+	sessao* s;
 	vector<Classificacao> classificacoes1fase;
 public:
 	/**
@@ -40,6 +41,12 @@ public:
 	 * @param s apontador para a sessao a que se pretende adicionar a primeira fase
 	 */
 	fase1(sessao* s);
+
+	/**
+	 * @brief construtor da class fase1
+	 * @param info string com a informacao relativa à fase1
+	 */
+	fase1(string info);
 
 	/**
 	 *  @brief funcao para atribuir as pontuacoes de um candidato
@@ -57,9 +64,18 @@ public:
 	 */
 	vector<Classificacao> getClassificacoes() const;
 
+	/**
+	 * @brief overload do operador << para a classe fase1 (ostream)
+	 */
+	friend ostream & operator<<(ostream & o, fase1 f);
+
+	sessao* getSessao();
+
+
 };
 
 class fase2: public fase {
+	sessao* s;
 	vector<candidato*> candidatos2fase;
 	vector<Classificacao> classificacoes2fase;
 public:
@@ -70,6 +86,12 @@ public:
 	 */
 
 	fase2(fase1 f, sessao *s);
+
+	/**
+	 * @brief construtor da class fase1
+	 * @param info string com a informacao relativa à fase1
+	 */
+	fase2(string info);
 
 	/**
 	 * @brief ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media
@@ -85,6 +107,20 @@ public:
 	 *  @brief funcao para atribuir as pontuacoes de um candidato
 	 */
 	void atribuiPontuacoes();
+
+	/**
+	 * @brief devolve o vetor com as classificacoes
+	 * @return vetor com classificacoes
+	 */
+	vector<Classificacao> getClassificacoes() const;
+
+
+	/**
+	 * @brief overload do operador << para a classe fase2 (ostream)
+	 */
+	friend ostream & operator<<(ostream & o, fase2 f);
+
+	sessao* getSessao();
 };
 
 
