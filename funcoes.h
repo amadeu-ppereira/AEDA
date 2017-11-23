@@ -11,6 +11,7 @@
 #include "candidato.h"
 #include "jurado.h"
 #include "sessao.h"
+#include "fase.h"
 
 
 extern vector<candidato*> candidatosGlobal;
@@ -220,7 +221,12 @@ void adicionaJuradoSessao(string nome, sessao* s);
  * @param data data da sessao
  */
 void displayInfoSessao(string arte, vector<int> data);
-
-
+/**
+ *
+ *
+ *
+ *
+ */
+void comecarSessao(string arte,vector<int> data);
 
 #endif /* _FUNCOES_H_ */

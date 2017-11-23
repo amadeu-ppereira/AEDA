@@ -125,7 +125,7 @@ ostream & operator<<(ostream & o, const jurado * j) {
 	o << "Nome         : " << j->getNome() << endl;
 	o << "Morada       : " << j->getMorada() << endl;
 	o << "Telemovel    : " << j->getTelemovel() << endl;
-	o << "Arte Perfor. : " << j->getArte();
+	o << "Arte Perfor. : " << j->getArte() << endl;
 
 	return o;
 }

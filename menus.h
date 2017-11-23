@@ -106,14 +106,20 @@ void menuAdicionaCandidatosSessao(sessao* s);
 /**
  * @brief display do menu para adicionar jurados a uma sessao
  * @param s sessao a que se pretende adicionar jurados
+ * @return devolve 1 se nao existirem jurados suficientes para criar uma sessao
  */
-void menuAdicionaJuradosSessao(sessao* s);
+int menuAdicionaJuradosSessao(sessao* s);
 
 /**
  * @brief display do menu para obter informacao de uma sessao
  */
 void menuInfoSessoes();
-
+/**
+ *
+ *
+ *
+ */
+void menuIniciarSessao();
 
 
 

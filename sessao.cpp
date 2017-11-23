@@ -107,17 +107,14 @@ ostream & operator<<(ostream & o, const sessao * s) {
 	o << "Jurados: ";
 	for (unsigned int i = 0; i < s->getJurados().size(); i++) {
 		if(i == 0) {
-			o << s->getJurados().at(i)->getNome() << "(principal), ";
+			o << s->getJurados().at(i)->getNome() << "(principal)";
 		}
-		else if (i == s->getJurados().size() - 1) {
-			o << s->getJurados().at(i)->getNome() << endl;
-		}
-
-		else {o << s->getJurados().at(i)->getNome() << ", ";
+		else {
+			o << " , " << s->getJurados().at(i)->getNome();
 
 		}
 	}
-
+		o << endl;
 	return o;
 }
 
