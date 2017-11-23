@@ -386,7 +386,7 @@ vector<string> juradosDisponiveis(sessao* s) {
 	vector<string> nomes;
 	for(unsigned int i = 0;  i < juradosGlobal.size(); i++) {
 		if(juradosGlobal.at(i)->getArte() == s->getGeneroArte() && !juradosGlobal.at(i)->juradoOcupado(s->getData())) {
-			cout << candidatosGlobal.at(i) << endl;
+			cout << juradosGlobal.at(i) << endl;
 			nomes.push_back(juradosGlobal.at(i)->getNome());
 		}
 	}
@@ -430,6 +430,42 @@ void displayInfoSessao(string arte, vector<int> data) {
 	cout << sessaoGlobal.at(i) << endl;
 
 	cin.get();
+
+
+}
+
+void comecarSessao(string arte, vector<int> data) {
+
+	int i = procuraSessao(arte, data);
+	if (i == -1) {
+		throw sessaoNaoExiste(arte, data);
+	}
+
+	if(sessaoGlobal.at(i)->sessaoConcluida() == true) {
+		cout << "Esta sessao já foi concluida!\n";
+		return;
+	}
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Vamos comecar a 1 fase                        |\n";
+	cout << "+------------------------------------------------+\n\n";
+
+	fase1 novafase1(sessaoGlobal.at(i));
+	novafase1.atribuiPontuacoes();
+	novafase1.ordenaPontuacoes();
+
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Vamos comecar a 2 fase                        |\n";
+	cout << "+------------------------------------------------+\n\n";
+	fase2 novafase2(novafase1, sessaoGlobal.at(i));
+
+	novafase2.atribuiPontuacoes();
+	novafase2.displayVencedor();
+
+	sessaoGlobal.at(i)->setConcluida(true);
+
+
 
 
 }

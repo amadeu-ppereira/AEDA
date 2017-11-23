@@ -132,6 +132,7 @@ void menuSessoes() {
 	cout << "| 1. Adicionar Sessao                            |\n";
 	cout << "| 2. Remover Sessao                              |\n";
 	cout << "| 3. Informacao das Sessoes                      |\n";
+	cout << "| 4. Iniciar sessao                              |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
 	cout << "+------------------------------------------------+\n\n";
@@ -152,6 +153,9 @@ void menuSessoes() {
 			break;
 		case 3:
 			menuInfoSessoes();
+			break;
+		case 4 :
+			menuIniciarSessao();
 			break;
 		case 8:
 			return;
@@ -530,8 +534,13 @@ void menuAdicionaSessao() {
 		return;
 	}
 
+	if(menuAdicionaJuradosSessao(s)){
+		removeSessao(s->getGeneroArte(), s->getData());
+		delete s;
+		return;
+	}
 	menuAdicionaCandidatosSessao(s);
-	menuAdicionaJuradosSessao(s);
+
 
 }
 
@@ -627,20 +636,24 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 
 }
 
-void menuAdicionaJuradosSessao(sessao* s) {
+int menuAdicionaJuradosSessao(sessao* s) {
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
 	cout << "|  Adicionar Jurados a Sessao                    |\n";
 	cout << "+------------------------------------------------+\n\n";
 
 	int nJurados = s->getNumeroJurados();
-	if(nJurados == 3) {
-		cout << "A sessao ja tem 3 jurados!\n";
-		cin.get();
-		return;
-	}
+
 	cout << "Jurados disponiveis para a sessao:\n";
 
 	vector<string> jurados = juradosDisponiveis(s);
+
+	cout << jurados[0];
+
+	if(jurados.size() < 3) {
+		cout << "\nNão existem jurados suficientes para criar uma sessao (sao necessarios 3)!\n";
+		cin.get();
+		return 1;
+	}
 
 	for(unsigned int i = nJurados+1; i <= 3; i++) {
 		string nome;
@@ -654,6 +667,7 @@ void menuAdicionaJuradosSessao(sessao* s) {
 
 		for(unsigned int j = 0; j < jurados.size(); j++) {
 			if(jurados.at(i) == nome) {
+				cout << "1";
 				flag = true;
 				break;
 			}
@@ -661,6 +675,7 @@ void menuAdicionaJuradosSessao(sessao* s) {
 
 		if(flag) {
 			try {
+				cout << "2";
 				adicionaJuradoSessao(nome, s);
 			} catch (juradoOcupado &j){
 				cout << j;
@@ -672,7 +687,7 @@ void menuAdicionaJuradosSessao(sessao* s) {
 	}
 
 	cin.get();
-	return;
+	return 0;
 
 }
 
@@ -709,5 +724,41 @@ void menuInfoSessoes() {
 
 
 
+
+}
+
+
+
+void menuIniciarSessao() {
+
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Iniciar Sessao                                |\n";
+	cout << "+------------------------------------------------+\n";
+
+	string arte;
+	vector<int> data(3);
+	cin.ignore(1000, '\n');
+	;
+	cout << "Arte da sessao: ";
+	getline(cin, arte);
+
+	do {
+		cout << "Data: ";
+		cin >> data[0] >> data[1] >> data[2];
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+			continue;
+		} else {
+			break;
+		}
+
+	} while (1);
+
+	try {
+		comecarSessao(arte, data);
+	} catch (sessaoNaoExiste &s) {
+		cout << s;
+		cin.get();
+	}
 
 }

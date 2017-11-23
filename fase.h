@@ -21,9 +21,10 @@ struct Classificacao {
 };
 
 class fase {
-
+protected :
+	sessao* s;
 public:
-	fase() {};
+	fase(sessao * s) {this->s = s;};
 	~fase() {};
 	virtual void atribuiPontuacoes()= 0;
 	virtual void ordenaPontuacoes() = 0;
@@ -32,10 +33,7 @@ public:
 
 
 class fase1: public fase {
-protected:
 	vector<Classificacao> classificacoes1fase;
-	sessao* s;
-
 public:
 	/**
 	 * @brief construtor da class fase1
@@ -53,19 +51,25 @@ public:
 	 */
 	void ordenaPontuacoes();
 
+	/**
+	 * @brief devolve o vetor com as classificacoes
+	 * @return vetor com classificacoes
+	 */
+	vector<Classificacao> getClassificacoes() const;
+
 };
 
-class fase2: public fase1 {
-	vector<Classificacao> classificacoes2fase;
+class fase2: public fase {
 	vector<candidato*> candidatos2fase;
-
+	vector<Classificacao> classificacoes2fase;
 public:
 	/**
 	 * @brief construtor da class fase2 que passa a segunda fase os 5 melhores classificados da primeiara fase
+	 * @param f primeirafase correspondente
 	 * @param s apontador para a sessao  a que se pretende adicionar a segunda fase
 	 */
 
-	fase2(sessao *s);
+	fase2(fase1 f, sessao *s);
 
 	/**
 	 * @brief ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media

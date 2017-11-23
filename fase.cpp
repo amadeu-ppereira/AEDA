@@ -1,7 +1,7 @@
 #include "fase.h"
 #include "candidato.h"
 
-fase1::fase1(sessao* s) : fase(){
+fase1::fase1(sessao* s) : fase(s){
 	this->s = s;
 }
 
@@ -12,6 +12,13 @@ void fase1::atribuiPontuacoes(){
 		Classificacao cl;
 		cl.c = s->getCandidatos().at(i);
 		float pontuacao;
+
+		cout << "\n _\\|/^      " << endl;
+		cout << "  (_oo \n";
+		cout << "   | " << endl;
+		cout << "  /|\\ \n";
+		cout << "   |\n" ;
+		cout << "   LL\n";
 		cout << "\nCandidato n "<< s->getCandidatos()[i]->getNumero() << endl;
 		cout << "-------------------\n";
 		cout << "Pontuacao do jurado 1 (principal): ";
@@ -46,18 +53,22 @@ void fase1::ordenaPontuacoes(){
 
 }
 
-fase2::fase2(sessao* s) : fase1(s){
+vector<Classificacao> fase1::getClassificacoes() const {
+	return classificacoes1fase;
+}
+
+fase2::fase2(fase1 f , sessao* s) : fase(s){
 
 	vector<candidato*> candidatos;
-	if (classificacoes1fase.size() >= 5){
+	if (f.getClassificacoes().size() >= 5){
 		for (unsigned int i = 0 ; i < 5 ; i++){
-			candidatos.push_back(classificacoes1fase.at(i).c);
+			candidatos.push_back(f.getClassificacoes().at(i).c);
 		}
 	}
 
 	else {
-		for (unsigned int i = 0; i < classificacoes1fase.size(); i++) {
-			candidatos.push_back(classificacoes1fase.at(i).c);
+		for (unsigned int i = 0; i < f.getClassificacoes().size(); i++) {
+			candidatos.push_back(f.getClassificacoes().at(i).c);
 		}
 	}
 
@@ -80,13 +91,20 @@ void fase2::ordenaPontuacoes(){
 
 }
 
-void fase2::atribuiPontuacoes(){
+void fase2::atribuiPontuacoes() {
 
-	for(unsigned int i = 0;i < candidatos2fase.size(); i++) {
+	for (unsigned int i = 0; i < candidatos2fase.size(); i++) {
 		Classificacao cl;
 		cl.c = candidatos2fase.at(i);
 		float pontuacao;
-		cout << "\nCandidato n "<< candidatos2fase[i]->getNumero() << endl;
+
+		cout << "\n _\\|/^      " << endl;
+		cout << "  (_oo \n";
+		cout << "   | " << endl;
+		cout << "  /|\\ \n";
+		cout << "   |\n";
+		cout << "   LL\n";
+		cout << "\nCandidato n " << candidatos2fase[i]->getNumero() << endl;
 		cout << "-------------------\n";
 		cout << "Pontuacao do jurado 1 (principal): ";
 		cin >> pontuacao;
@@ -98,20 +116,22 @@ void fase2::atribuiPontuacoes(){
 		cin >> pontuacao;
 		cl.j3 = pontuacao;
 
-		cl.media = (cl.j1*2 + (cl.j2 + cl.j3)/2)/3;
+		cl.media = (cl.j1 * 2 + cl.j2 + cl.j3) / 4;
 
-		classificacoes1fase.push_back(cl);
+		classificacoes2fase.push_back(cl);
 
 	}
 }
 
+
 void fase2::displayVencedor(){
 
-	cout << " _\\|/^              " << classificacoes2fase[0].c->getNome() << endl;
+	ordenaPontuacoes();
+	cout << "\n\n _\\|/^                    " << classificacoes2fase[0].c->getNome() << endl;
     cout << "  (_oo /\n";
 	cout << " /-|--/              Parabéns!! Ganhou !!!" << endl;
 	cout << " \\ |\n";
-	cout << "   /--i              PONTUACAO :"<< classificacoes2fase[0].media << " P" << endl;
+	cout << "   /--i              PONTUACAO : "<< classificacoes2fase[0].media << endl;
 	cout << "  /   L\n";
 	cout << "  L\n";
 
