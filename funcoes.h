@@ -222,11 +222,31 @@ void adicionaJuradoSessao(string nome, sessao* s);
  */
 void displayInfoSessao(string arte, vector<int> data);
 /**
- *
- *
- *
- *
+ * @brief esta funcao permite a atribuicao de pontos a cada candidato de uma sessao (para ambas as fases) mostrando no fim o vencedor
+ * tambem adiciona aos vetores globais as novas fases
+ * @param arte a arte da sessao
+ * @param data a data da sessao
  */
 void comecarSessao(string arte,vector<int> data);
+
+/**
+ *@brief procura se a sessao ja tem uma fase1
+ *@param s sessao a procurar
+ *@return indice da fase se existir , -1 caso contrário
+ */
+int procuraFase1 (sessao *s);
+
+/**
+ *@brief procura se a sessao ja tem uma fase2
+ *@param s sessao a procurar
+ *@return indice da fase se existir , -1 caso contrário
+ */
+int procuraFase2 (sessao *s);
+
+/**
+ * @brief remove as fases de uma sessao
+ * @param s sessao
+ */
+void removeFases(sessao* s);
 
 #endif /* _FUNCOES_H_ */

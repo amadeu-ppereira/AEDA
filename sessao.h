@@ -3,8 +3,11 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
+#include <sstream>
 #include "jurado.h"
 #include "fase.h"
+
 
 
 class candidato;
@@ -28,6 +31,13 @@ public:
 	 *
 	 */
 	 ~sessao();
+
+	 /**
+	  * @brief construtor da class sessao
+	  * @param info string com toda a informacao acerca de uma sessao
+	  */
+	 sessao(string info);
+
 	 /**
 	 *  @brief constructor da class sessao
 	 *
@@ -108,6 +118,13 @@ public:
 	 * @return valor da variavel concluida
 	 */
 	bool sessaoConcluida() const;
+
+	/**
+	 * @brief overload do operador << para a classe sessao (fstream)
+	 */
+	friend ofstream & operator<<(ofstream & o, const sessao * s);
+
+
 
 
 
