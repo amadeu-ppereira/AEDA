@@ -60,17 +60,29 @@ int lerFicheiroSessoes() {
 		return 1;
 	}
 
+	ifstream g;
+	g.open("fases.txt");
+	if (!g.is_open()) {
+		return 1;
+	}
+
+
 	string info;
 	while (getline(f, info)) {
 		sessao *s = new sessao(info);
 		sessaoGlobal.push_back(s);
-
 		if(s->sessaoConcluida()) {
-
+			getline(g, info);
+			fase1 f1(info);
+			fases1.push_back(f1);
+			getline(g, info);
+			fase2 f2(info);
+			fases2.push_back(f2);
 		}
 	}
 
 	f.close();
+	g.close();
 
 	return 0;
 }
@@ -134,7 +146,42 @@ int gravarFicheiroJurados() {
 	return 0;
 }
 
+
 int gravarFicheiroSessoes() {
+
+	ofstream f;
+	f.open("sessoes.txt");
+	if(!f.is_open()) {
+		return 1;
+	}
+	ofstream g;
+	g.open("fases.txt");
+	if(!g.is_open()) {
+		return 1;
+	}
+
+	int cnt = 0;
+	for(unsigned int i = 0; i < sessaoGlobal.size(); i++) {
+		if(i == (sessaoGlobal.size() - 1)) {
+			f << sessaoGlobal.at(i);
+			if(sessaoGlobal.at(i)->sessaoConcluida()) {
+				f << fases1.at(cnt) << endl;
+				f << fases2.at(cnt) << endl;
+			}
+		}
+		else {
+			f << sessaoGlobal.at(i) << endl;
+			if(sessaoGlobal.at(i)->sessaoConcluida()) {
+				f << fases1.at(cnt) << endl;
+				f << fases2.at(cnt) << endl;
+			}
+		}
+		cnt++;
+	}
+
+	f.close();
+	g.close();
+
 	return 0;
 }
 
@@ -164,7 +211,7 @@ void sair() {
 		cout <<"            __   ____  _____ ______  ____  ___     ____  _____       \n";
 		cout <<"	   /  ] /    |/ ___/|      ||    ||    \\  /    |/ ___/       \n";
 		cout <<"	  /  / |  o  (   \\_ |      | |  | |  _  ||   __(   \\_        \n";
-		cout <<"	 /  /  |     |\\__  ||_|  |_| |  | |  |  ||  |  |\\__  \|       \n";
+		cout <<"	 /  /  |     |\\__  ||_|  |_| |  | |  |  ||  |  |\\__  \\|       \n";
 		cout <<"	/   \\_ |  _  |/  \\ |  |  |   |  | |  |  ||  |_ |/  \\ |       \n";
 		cout <<"	\\     ||  |  |\\    |  |  |   |  | |  |  ||     |\\    |       \n";
 		cout <<"	 \\____||__|__| \\___|  |__|  |____||__|__||___,_| \\___|       \n";
@@ -478,9 +525,10 @@ void comecarSessao(string arte, vector<int> data) {
 	}
 
 	if(sessaoGlobal.at(i)->sessaoConcluida() == true) {
-		cout << "Esta sessao já foi concluida!\n";
+		cout << "Esta sessao já foi concluida!\n\n";
 
-
+		int j = procuraFase2(sessaoGlobal.at(i));
+		fases2.at(j).displayVencedor();
 
 		return;
 	}

@@ -36,7 +36,6 @@ fase1::fase1(string info) : fase() {
 	getline(ss, arte, ',');
 	arte = arte.substr(0, arte.size() - 1);
 	ss >> data[0] >> virgula >> data[1] >> virgula >> data[2] >> virgula;
-
 	int i = procuraSessao(arte, data);
 	this->s = sessaoGlobal.at(i);
 
@@ -44,13 +43,15 @@ fase1::fase1(string info) : fase() {
 	Classificacao classif;
 	string newInfo;
 	while(getline(ss, newInfo, ';')) {
+		newInfo = newInfo.substr(1, newInfo.size() - 1);
 		stringstream newss(newInfo);
 		getline(newss, nome, ',');
 		nome = nome.substr(0, nome.size() - 1);
 		newss >> c1 >> virgula >> c2 >> virgula >> c3;
-
 		i = procuraCandidato(nome);
-
+		if(i == -1) {
+			break;
+		}
 		classif.c = candidatosGlobal.at(i);
 		classif.j1 = c1;
 		classif.j2 = c2;
@@ -78,7 +79,7 @@ void fase1::atribuiPontuacoes(){
 		cout << "  /|\\ \n";
 		cout << "   |\n" ;
 		cout << "   LL\n";
-		cout << "\nCandidato n "<< s->getCandidatos()[i]->getNumero() << endl;
+		cout << "\nCandidato n "<< s->getCandidatos()[i]->getNumero() << "(" << s->getCandidatos()[i]->getNome() << ")" << endl;
 		cout << "-------------------\n";
 		cout << "Pontuacao do jurado 1 (principal): ";
 		cin >> pontuacao;
@@ -156,12 +157,16 @@ fase2::fase2(string info) : fase() {
 	Classificacao classif;
 	string newInfo;
 	while (getline(ss, newInfo, ';')) {
+		newInfo = newInfo.substr(1, newInfo.size() - 1);
 		stringstream newss(newInfo);
 		getline(newss, nome, ',');
 		nome = nome.substr(0, nome.size() - 1);
 		newss >> c1 >> virgula >> c2 >> virgula >> c3;
 
 		i = procuraCandidato(nome);
+		if(i == -1) {
+			break;
+		}
 		candidatos.push_back(candidatosGlobal.at(i));
 
 		classif.c = candidatosGlobal.at(i);
@@ -206,7 +211,7 @@ void fase2::atribuiPontuacoes() {
 		cout << "  /|\\ \n";
 		cout << "   |\n";
 		cout << "   LL\n";
-		cout << "\nCandidato n " << candidatos2fase[i]->getNumero() << endl;
+		cout << "\nCandidato n " << candidatos2fase[i]->getNumero() << "(" << candidatos2fase[i]->getNome() << ")" << endl;
 		cout << "-------------------\n";
 		cout << "Pontuacao do jurado 1 (principal): ";
 		cin >> pontuacao;
