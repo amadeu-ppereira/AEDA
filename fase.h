@@ -9,31 +9,59 @@
 #include "sessao.h"
 
 
+
 class candidato;
 
+/**
+ * @struct Classificacao
+ * @brief contem a informacao das classificacoes obtidas por um candidato
+ */
 struct Classificacao {
 
-	candidato* c;
-	float j1;
-	float j2;
-	float j3;
-	float media;
+	candidato* c; ///< candidato
+	float j1; ///< pontuacao do jurado 1
+	float j2; ///< pontuacao do jurado 2
+	float j3; ///< pontuacao do jurado 3
+	float media; ///< resultado final
 };
 
+/**
+ * @class fase
+ * @brief classe abstrata relativa as varia fases de uma sessao
+ */
 class fase {
 public:
+	/**
+	 * @brief construtor da classe fase
+	 */
 	fase();
+	/**
+	 * @brief destrutor da classe fase
+	 */
 	virtual ~fase();
+	/**
+	 * @brief metodo virtual para a atribuicao das pontuacoes numa fase
+	 */
 	virtual void atribuiPontuacoes()= 0;
+	/**
+	 * @brief metodo virtual para ordenar as classificacoes dos candidatos (da maior para a menor)
+	 */
 	virtual void ordenaPontuacoes() = 0;
+	/**
+	 * @brief metodo virtual que devolve as classificacoes dos candidatos duma certa fase
+	 * @return vetor com as classificacoes
+	 */
 	virtual vector<Classificacao> getClassificacoes() const = 0;
 
 };
 
-
+/**
+ * @class fase1
+ * @brief subclasse da classe fase relativa a primeira fase
+ */
 class fase1: public fase {
-	sessao* s;
-	vector<Classificacao> classificacoes1fase;
+	sessao* s; ///< sessao correspondente a fase
+	vector<Classificacao> classificacoes1fase; ///< vetor com as classificacoes da fase
 public:
 	/**
 	 * @brief construtor da class fase1
@@ -68,15 +96,23 @@ public:
 	 */
 	friend ostream & operator<<(ostream & o, fase1 f);
 
+	/**
+	 * @brief devolve a sessao correspondente a esta fase
+	 * @return apontador para a sessa
+	 */
 	sessao* getSessao();
 
 
 };
 
+/**
+ * @class fase2
+ * @brief subclasse da classe fase relativa a segunda fase
+ */
 class fase2: public fase {
-	sessao* s;
-	vector<candidato*> candidatos2fase;
-	vector<Classificacao> classificacoes2fase;
+	sessao* s; ///< sessao correspondente a fase
+	vector<candidato*> candidatos2fase; ///< vetor com os candidatos que passaram a segunda fase
+	vector<Classificacao> classificacoes2fase; ///< vetor com as classificacoes dos candidatos
 public:
 	/**
 	 * @brief construtor da class fase2 que passa a segunda fase os 5 melhores classificados da primeiara fase
@@ -119,6 +155,10 @@ public:
 	 */
 	friend ostream & operator<<(ostream & o, fase2 f);
 
+	/**
+	 * @brief devolve a sessao correspondente a esta fase
+	 * @return apontador para a sessa
+	*/
 	sessao* getSessao();
 };
 

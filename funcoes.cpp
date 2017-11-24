@@ -1,5 +1,6 @@
 #include "funcoes.h"
 
+
 vector<candidato*> candidatosGlobal;
 vector<jurado*> juradosGlobal;
 vector<sessao*> sessaoGlobal;

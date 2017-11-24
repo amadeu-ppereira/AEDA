@@ -9,16 +9,19 @@
 #include "fase.h"
 
 
-
 class candidato;
 
 
+/**
+ * @class sessao
+ * @brief classe com as informacoes relativas a uma sessao
+ */
 class sessao {
-	vector <jurado*> jurados ;
-	vector <candidato*> candidatos;
-	string generoArte;
-	int dia,mes,ano;
-	bool concluida;
+	vector <jurado*> jurados ; ///< vetor com todos os jurados desta sessao
+	vector <candidato*> candidatos; ///< vetor com todos os candidatos desta sessao
+	string generoArte; ///< genero de arte perfomativa da sessao
+	int dia,mes,ano; ///< data da sessao
+	bool concluida; ///< indica se a sessao ja foi concluida (true se sim, false se nao)
 public:
 	/**
 	*  @brief constructor da class sessao (inicializa dia mes e ano a zero)
@@ -41,7 +44,7 @@ public:
 	 /**
 	 *  @brief constructor da class sessao
 	 *
-	 *	@param genertoArte genero de arte da sessao
+	 *	@param generoArte genero de arte da sessao
 	 *	@param data dia,mes,ano da sessao ,respetivamente
 	 */
 	 sessao( string generoArte,vector<int> data);
@@ -134,15 +137,19 @@ public:
 
 
 
-
+/**
+ * @class sessaoNaoExiste
+ * @brief excepcao para quando um objeto da classe sessao nao existe
+ */
 class sessaoNaoExiste {
 
 public:
-	string generoArte;
-	vector<int> data;
+	string generoArte; ///< genero de arte da sessao
+	vector<int> data; ///< data da sessao
 	/**
-	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
-	 *  @param nome nome do candidato;
+	 *  @brief constructor da classe sessao nao existe
+	 *  @param generoArte genero de arte;
+	 *  @param data vetor com a data da sessao
 	 */
 	sessaoNaoExiste(string generoArte,vector<int> data)
 	{this->generoArte = generoArte;
@@ -152,16 +159,19 @@ public:
 
 std::ostream & operator<<(std::ostream &out, const sessaoNaoExiste &s);
 
-
+/**
+ * @class sessaoJaExiste
+ * @brief excepcao para quando um objeto da classe sessao ja existe
+ */
 class sessaoJaExiste {
 
 public:
-	string generoArte;
-	vector<int> data;
+	string generoArte; ///< genero de arte da sessao
+	vector<int> data; ///< data da sessao
 	/**
 	 *  @brief constructor da excepcao sessaoJaExiste
 	 *  @param generoArte genero de arte da sessao;
-	 *  @param data[] array com data(dia,mes,ano) da sessao;
+	 *  @param data vetor com data(dia,mes,ano) da sessao;
 	 */
 	sessaoJaExiste(string generoArte,vector<int> data)
 	{this->generoArte = generoArte;

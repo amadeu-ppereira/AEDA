@@ -7,14 +7,20 @@
 #include <fstream>
 using namespace std;
 
+
 class sessao;
 
+/**
+ * @class jurado
+ * @brief classe com as informacoes relativas a um jurado
+ */
+
 class jurado {
-	string nome;
-	string morada;
-	string telemovel;
-	string arte;
-	vector<sessao*> sessoes;
+	string nome; ///< nome do jurado
+	string morada; ///< morada do jurado
+	string telemovel; ///< telemovel do jurado
+	string arte; ///< arte perfomativa do jurado
+	vector<sessao*> sessoes; ///< vetor com as sessoes em que o jurado esta
 
 public:
 	/**
@@ -26,6 +32,7 @@ public:
 	* @brief construtor de um objecto da class jurado
 	* @param nome nome do jurado
 	* @param morada morada do jurado
+	* @param telemovel telemovel do jurado
 	* @param arte arte em que o jurado e especialista
 	*/
 	jurado (string nome , string morada , string telemovel , string arte);
@@ -117,12 +124,15 @@ public:
 };
 
 
-
+/**
+ * @class JuradoNaoExiste
+ * @brief excepcao para quando um objeto da classe jurado nao existe
+ */
 class JuradoNaoExiste {
 
 
 public :
-	string nome;
+	string nome; ///< nome do jurado
 	/**
 	 * @brief constructor da excepcao JuradoNaoExiste
 	 *
@@ -135,12 +145,15 @@ public :
 
 std::ostream & operator<<(std::ostream &out, const JuradoNaoExiste &c);
 
-
+/**
+ * @class JuradoJaExiste
+ * @brief excepcao para quando um objeto da classe jurado ja existe
+ */
 class JuradoJaExiste {
 
 
 public:
-	string nome;
+	string nome; ///< nome do jurado
 	/**
 	 * @brief constructor da excepcao JuradoJaExiste
 	 *
@@ -152,11 +165,15 @@ public:
 
 std::ostream & operator<<(std::ostream &out, const JuradoJaExiste &c);
 
+/**
+ * @class juradoOcupado
+ * @brief excepcao para quando um objeto da classe jurado ja se encontra ocupado num determinado dia
+ */
 class juradoOcupado {
 
 public:
-	string nome;
-	vector<int> data;
+	string nome; ///< nome do jurado
+	vector<int> data; ///< data em que este esta ocupado
 	/**
 	 *  @brief constructor da excepcao juradoOcupado
 	 *  @param nome nome do jurado

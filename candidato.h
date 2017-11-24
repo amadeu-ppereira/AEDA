@@ -8,14 +8,19 @@
 #include "sessao.h"
 using namespace std;
 
+
+/**
+ * @class candidato
+ * @brief classe com as informacoes relativas a um candidato
+ */
 class candidato {
-	string nome;
-	string morada;
-	int dia, mes ,ano;// 1 -> dia 2 -> mes 3 -> ano ;;
-	string arte;
-	static int numeroInsc ;
-	const int numero;
-	vector<sessao*> participacoes;
+	string nome; ///< nome do candidato
+	string morada; ///< morada do candidato
+	int dia, mes ,ano; ///< dia de nascimento do candidato
+	string arte; ///< arte perfomativa do candidato
+	static int numeroInsc ; ///< variavel do tipo static para se atribuir um numero novo a cada candidato
+	const int numero; ///< numero do candidato
+	vector<sessao*> participacoes; ///< vetor com as sessoes em que o candidato participa
 public:
 
 	/**
@@ -132,17 +137,17 @@ public:
 	 */
 	bool candidatoOcupado(vector<int> data);
 
-
-
-
-
 };
 
+/**
+ * @class candidatoNaoExiste
+ * @brief excepcao para quando um objeto da classe candidato nao existe
+ */
 class candidatoNaoExiste {
 
 public:
-	string nome;
-	int numero;
+	string nome;///< nome do candidato
+	int numero; ///< numero do candidato
 	/**
 	 *  @brief constructor da excepcao candidatoNaoExiste (numero fica a 0)
 	 *  @param nome nome do candidato
@@ -159,11 +164,14 @@ public:
 
 std::ostream & operator<<(std::ostream &out, const candidatoNaoExiste &c);
 
-
+/**
+ * @class candidatoJaExiste
+ * @brief excepcao para quando um objeto da classe candidato ja existe
+ */
 class candidatoJaExiste {
 
 public:
-	string nome;
+	string nome; ///< nome do candidato
 	/**
 	 *  @brief constructor da excepcao candidatoJaExiste
 	 *  @param nome nome do candidato
@@ -174,11 +182,15 @@ public:
 
 std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c);
 
+/**
+ * @class candidatoOcupado
+ * @brief excepcao para quando um objeto da classe candidato ja ja se encontra ocupado num determinado dia
+ */
 class candidatoOcupado {
 
 public:
-	int numero;
-	vector<int> data;
+	int numero; ///< numero do candidato
+	vector<int> data; ///< data em que se encontra ocupado
 	/**
 	 *  @brief constructor da excepcao candidatoOcupado
 	 *  @param numero numero do candidato
