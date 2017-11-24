@@ -23,7 +23,7 @@ struct Classificacao {
 class fase {
 public:
 	fase();
-	~fase();
+	virtual ~fase();
 	virtual void atribuiPontuacoes()= 0;
 	virtual void ordenaPontuacoes() = 0;
 	virtual vector<Classificacao> getClassificacoes() const;
