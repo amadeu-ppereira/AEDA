@@ -1,0 +1,4 @@
+cantar , 1 , 2 , 3 , Carlos , 9 , 8 , 7 ; Rui , 8 , 9 , 7 ; Pedro , 8 , 7 , 8 ; Joao , 7 , 8 , 7 ; Helena , 7 , 8 , 6 ; Ricardo , 6 , 5 , 7 ; 
+cantar , 1 , 2 , 3 , Rui , 8 , 9 , 8 ; Carlos , 7 , 8 , 7 ; Pedro , 7 , 6 , 7 ; Helena , 6 , 7 , 8 ; Joao , 4 , 5 , 4 ; 
+dancar , 1 , 2 , 3 , Antonio , 7 , 8 , 9 ; Maria Joao , 6 , 8 , 8 ; Raquel , 6 , 5 , 7 ; 
+dancar , 1 , 2 , 3 , Maria Joao , 9 , 9 , 9 ; Antonio , 9 , 8 , 9 ; Raquel , 7 , 8 , 7 ; 
