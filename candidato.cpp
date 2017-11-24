@@ -46,7 +46,7 @@ candidato::candidato(string info) :numero(++numeroInsc){
 	getline(ss, this->nome, ',');
 	this->nome = this->nome.substr(0, this->nome.size()-1);
 	getline(ss, this->morada, ',');
-	this->morada = this->morada.substr(1, this->morada.size()-1);
+	this->morada = this->morada.substr(1, this->morada.size()-2);
 	ss >> this->dia>> virgula >> this->mes >> virgula >> this->ano >> virgula >> this->arte;
 	ss.ignore('\n');
 }

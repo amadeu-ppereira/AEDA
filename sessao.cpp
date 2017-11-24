@@ -27,50 +27,46 @@ sessao::sessao(string info) {
 	vector<jurado*> j;
 	string nome;
 	int i, concluida;
-
 	stringstream ss(info);
 	char virgula;
 
 	ss >> concluida >> virgula;
-
 	this->concluida = (concluida == 1) ? true : false;
-
 	getline(ss, this->generoArte, ',');
-	this->generoArte = this->generoArte.substr(0, this->generoArte.size()-1);
+	this->generoArte = this->generoArte.substr(1, this->generoArte.size()-2);
 	ss >> this->dia >> virgula >> this->mes >> virgula >> this->ano >> virgula;
 
 	getline(ss, nome, ',');
-	nome = nome.substr(0, nome.size() - 1);
+	nome = nome.substr(1, nome.size() - 2);
 	i = procuraJurado(nome);
 	j.push_back(juradosGlobal.at(i));
 	juradosGlobal.at(i)->adicionaSessao(this);
 
 	getline(ss, nome, ',');
-	nome = nome.substr(0, nome.size() - 1);
+	nome = nome.substr(1, nome.size() - 2);
 	i = procuraJurado(nome);
 	j.push_back(juradosGlobal.at(i));
 	juradosGlobal.at(i)->adicionaSessao(this);
 
 	getline(ss, nome, ',');
-	nome = nome.substr(0, nome.size() - 1);
+	nome = nome.substr(1, nome.size() - 2);
 	i = procuraJurado(nome);
 	j.push_back(juradosGlobal.at(i));
 	juradosGlobal.at(i)->adicionaSessao(this);
 
 	jurados = j;
-
 	vector<candidato*> c;
-
 	while(getline(ss, nome, ',')) {
-		nome = nome.substr(0, nome.size() - 1);
-		i = procuraJurado(nome);
+		nome = nome.substr(1, nome.size() - 2);
+		i = procuraCandidato(nome);
+		if(i == -1) {
+			break;
+		}
 		c.push_back(candidatosGlobal.at(i));
 		candidatosGlobal.at(i)->adicionaSessao(this);
 	}
 
 	candidatos = c;
-
-
 
 
 }

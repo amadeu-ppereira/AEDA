@@ -26,8 +26,7 @@ public:
 	virtual ~fase();
 	virtual void atribuiPontuacoes()= 0;
 	virtual void ordenaPontuacoes() = 0;
-	virtual vector<Classificacao> getClassificacoes() const;
-	virtual sessao* getSessao() = 0;
+	virtual vector<Classificacao> getClassificacoes() const = 0;
 
 };
 

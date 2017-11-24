@@ -173,6 +173,12 @@ void infoJurado(string nome);
  *@return indice se existir , -1 caso contrário
  */
 int procuraSessao(sessao *s);
+/**
+ *@brief procura se a sessao se encontra no vetor global de sessoes
+ *@param s generoArte é o genero de arte da sessao pretendida
+ *@param data é da data da sessao
+ *@return indice se existir , -1 caso contrário
+ */
 int procuraSessao(string generoArte,vector<int> data);
 /**
  * @brief adiciona uma nova sessao ao vetor global sessoes

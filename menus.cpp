@@ -613,7 +613,7 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 		} while (1);
 
 		for(unsigned int j = 0; j < candidatos.size(); j++) {
-			if(candidatos.at(i) == numero) {
+			if(candidatos.at(j) == numero) {
 				flag = true;
 				break;
 			}
@@ -624,9 +624,13 @@ void menuAdicionaCandidatosSessao(sessao* s) {
 				adicionaCandidatoSessao(numero, s);
 			} catch (candidatoOcupado &c){
 				cout << c;
-				cin.get();
+				i--;
 			}
 
+		}
+		else {
+			cout << "Nao podes adicionar esse candidato!\n";
+			i--;
 		}
 
 	}
@@ -647,14 +651,14 @@ int menuAdicionaJuradosSessao(sessao* s) {
 
 	vector<string> jurados = juradosDisponiveis(s);
 
-
 	if(jurados.size() < 3) {
 		cout << "\nNão existem jurados suficientes para criar uma sessao (sao necessarios 3)!\n";
 		cin.get();
 		return 1;
 	}
 
-	for(unsigned int i = 0; i <= 3; i++) {
+
+	for(unsigned int i = 1; i <= 3; i++) {
 		string nome;
 		bool flag = false;
 
@@ -665,22 +669,23 @@ int menuAdicionaJuradosSessao(sessao* s) {
 		getline(cin, nome);
 
 		for(unsigned int j = 0; j < jurados.size(); j++) {
-			if(jurados.at(i) == nome) {
-				cout << "1";
+			if(nome == jurados.at(j)) {
 				flag = true;
 				break;
 			}
 		}
-
 		if(flag) {
 			try {
-				cout << "2";
 				adicionaJuradoSessao(nome, s);
 			} catch (juradoOcupado &j){
 				cout << j;
-				cin.get();
+				i--;
 			}
 
+		}
+		else {
+			cout << "Nao podes adicionar esse jurado!\n";
+			i--;
 		}
 
 	}
