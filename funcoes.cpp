@@ -160,24 +160,26 @@ int gravarFicheiroSessoes() {
 	if(!g.is_open()) {
 		return 1;
 	}
-
-	int cnt = 0;
+	int h;
 	for(unsigned int i = 0; i < sessaoGlobal.size(); i++) {
 		if(i == (sessaoGlobal.size() - 1)) {
 			f << sessaoGlobal.at(i);
 			if(sessaoGlobal.at(i)->sessaoConcluida()) {
-				f << fases1.at(cnt) << endl;
-				f << fases2.at(cnt) << endl;
+				h = procuraFase1(sessaoGlobal.at(i));
+				g << fases1.at(h) << endl;
+				h = procuraFase2(sessaoGlobal.at(i));
+				g << fases2.at(h) << endl;
 			}
 		}
 		else {
 			f << sessaoGlobal.at(i) << endl;
 			if(sessaoGlobal.at(i)->sessaoConcluida()) {
-				f << fases1.at(cnt) << endl;
-				f << fases2.at(cnt) << endl;
+				h = procuraFase1(sessaoGlobal.at(i));
+				g << fases1.at(h) << endl;
+				h = procuraFase2(sessaoGlobal.at(i));
+				g << fases2.at(h) << endl;
 			}
 		}
-		cnt++;
 	}
 
 	f.close();
@@ -513,6 +515,13 @@ void displayInfoSessao(string arte, vector<int> data) {
 
 	cout << sessaoGlobal.at(i) << endl;
 
+	if(sessaoGlobal.at(i)->sessaoConcluida() == true) {
+		cout << "\nEsta sessao já foi concluida!\n\n";
+
+		int j = procuraFase2(sessaoGlobal.at(i));
+		fases2.at(j).displayVencedor();
+	}
+
 	cin.get();
 
 
@@ -527,9 +536,6 @@ void comecarSessao(string arte, vector<int> data) {
 
 	if(sessaoGlobal.at(i)->sessaoConcluida() == true) {
 		cout << "Esta sessao já foi concluida!\n\n";
-
-		int j = procuraFase2(sessaoGlobal.at(i));
-		fases2.at(j).displayVencedor();
 
 		return;
 	}

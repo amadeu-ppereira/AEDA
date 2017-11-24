@@ -1,0 +1,12 @@
+Rui , porto , 962124654 , dancar
+Raquel , lisboa , 912453567 , dancar
+Marta , braga , 939466535 , cantar
+Pedro , braga , 961345211 , cantar
+Jose , lisboa , 911343455 , magia
+Maria , vila real , 933434543 , dancar
+Bruno , viseu , 911343453 , dancar
+Rui , viseu , 923434532 , cantar
+Mario , porto , 921345432 , cantar
+Alexandra , coimbra , 912343213 , magia
+Tiago , lisboa , 965456543 , dancar
+Miguel , coimbra , 912123445 , magia
