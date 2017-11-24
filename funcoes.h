@@ -7,11 +7,11 @@
 #include <vector>
 #include <string>
 
-
 #include "candidato.h"
 #include "jurado.h"
 #include "sessao.h"
 #include "fase.h"
+
 
 
 extern vector<candidato*> candidatosGlobal;

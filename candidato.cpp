@@ -1,6 +1,9 @@
 #include "candidato.h"
 
 
+
+
+
 int candidato::numeroInsc = 0;
 
 std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c) {

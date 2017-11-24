@@ -1,6 +1,7 @@
 #include "jurado.h"
 #include "sessao.h"
 
+
 jurado::jurado() {
 	// TODO Auto-generated constructor stub
 

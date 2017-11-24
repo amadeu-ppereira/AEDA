@@ -3,9 +3,11 @@
 #include "funcoes.h"
 
 
+
 sessao* fase1::getSessao() {
 	return s;
 }
+
 
 sessao* fase2::getSessao() {
 	return s;

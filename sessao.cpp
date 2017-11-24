@@ -12,6 +12,7 @@ sessao::sessao() {
 }
 
 
+
 sessao::sessao(string generoArte,vector<int> data) {
 	this->generoArte = generoArte;
 	this->dia = data[0];
