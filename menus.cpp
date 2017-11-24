@@ -647,7 +647,6 @@ int menuAdicionaJuradosSessao(sessao* s) {
 
 	vector<string> jurados = juradosDisponiveis(s);
 
-	cout << jurados[0];
 
 	if(jurados.size() < 3) {
 		cout << "\nNão existem jurados suficientes para criar uma sessao (sao necessarios 3)!\n";
@@ -655,7 +654,7 @@ int menuAdicionaJuradosSessao(sessao* s) {
 		return 1;
 	}
 
-	for(unsigned int i = nJurados+1; i <= 3; i++) {
+	for(unsigned int i = 0; i <= 3; i++) {
 		string nome;
 		bool flag = false;
 
