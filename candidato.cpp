@@ -145,3 +145,31 @@ ofstream & operator<<(ofstream & o, const candidato * c) {
 	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte();
 	return o;
 }
+
+bool candidato::operator < (const candidato* &c) const {
+	if(arte < c->getArte()) {
+		return true;
+	}
+
+	else if (arte == c->getArte()) {
+		if(ano > c->getDataNascimento()[2]) {
+			return true;
+		}
+		else if(ano == c->getDataNascimento()[2]) {
+			if(mes > c->getDataNascimento()[1]) {
+				return true;
+			}
+			else if(mes == c->getDataNascimento()[1])
+				return dia > c->getDataNascimento()[0];
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+
+	return false;
+}
+

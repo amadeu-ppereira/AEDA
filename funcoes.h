@@ -7,16 +7,20 @@
 #include <vector>
 #include <string>
 
+#include "BST.h"
 #include "candidato.h"
 #include "jurado.h"
 #include "sessao.h"
 #include "fase.h"
 
 
-
-extern vector<candidato*> candidatosGlobal;
+extern candidato* notF;
+extern BST<candidato*> candidatosGlobal;
 extern vector<jurado*> juradosGlobal;
 extern vector<sessao*> sessaoGlobal;
+extern vector<fase1> fases1;
+extern vector<fase2> fases2;
+
 
 
 /**
@@ -98,6 +102,18 @@ void removeCandidato(int numero);
 void removeCandidato(string nome);
 
 /**
+ * @brief altera as informacoes de um candidato
+ * @param numero numero do candidato a alterar
+ */
+void alterarCandidato(int numero);
+
+/**
+ * @brief altera as informacoes de um candidato
+ * @param nome nome do candidato a alterar
+ */
+void alterarCandidato(string nome);
+
+/**
  * @brief dá display da informacao do candidato
  * @param numero numero do candidato
  */
@@ -130,23 +146,23 @@ void infoJurado(jurado *j);
 /**
  * @brief procura se o candidato se encontra no vetor global
  * @param c candidato a procurar
- * @return indice se existir, -1 se não existir
+ * @return iterador
  */
-int procuraCandidato(candidato *c);
+BSTItrIn<candidato*> procuraCandidato(candidato *c);
 
 /**
  * @brief procura se o candidato se encontra no vetor global
  * @param numero numero do candidato a procurar
- * @return indice se existir, -1 se não existir
+ * @return iterador
  */
-int procuraCandidato(int numero);
+BSTItrIn<candidato*> procuraCandidato(int numero);
 
 /**
  * @brief procura se o candidato se encontra no vetor global
  * @param nome nome do candidato a procurar
- * @return indice se existir, -1 se não existir
+ * @return iterador
  */
-int procuraCandidato(string nome);
+BSTItrIn<candidato*> procuraCandidato(string nome);
 
 /**
  * @brief procura se o jurado se encontra no vetor global de jurados

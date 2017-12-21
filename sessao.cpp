@@ -59,12 +59,13 @@ sessao::sessao(string info) {
 	vector<candidato*> c;
 	while(getline(ss, nome, ',')) {
 		nome = nome.substr(1, nome.size() - 2);
-		i = procuraCandidato(nome);
-		if(i == -1) {
+		BSTItrIn<candidato*> it(candidatosGlobal);
+		it = procuraCandidato(nome);
+		if(it.isAtEnd()) {
 			break;
 		}
-		c.push_back(candidatosGlobal.at(i));
-		candidatosGlobal.at(i)->adicionaSessao(this);
+		c.push_back(it.retrieve());
+		it.retrieve()->adicionaSessao(this);
 	}
 
 	candidatos = c;

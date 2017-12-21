@@ -51,7 +51,8 @@ void menuCandidatos() {
 	cout << "+------------------------------------------------+\n";
 	cout << "| 1. Adicionar Candidato                         |\n";
 	cout << "| 2. Remover Candidato                           |\n";
-	cout << "| 3. Infomacao dos Candidatos                    |\n";
+	cout << "| 3. Alterar Candidato                           |\n";
+	cout << "| 4. Infomacao dos Candidatos                    |\n";
 	cout << "|                                                |\n";
 	cout << "| 8. Voltar                                      |\n";
 	cout << "+------------------------------------------------+\n\n";
@@ -71,6 +72,9 @@ void menuCandidatos() {
 			menuRemoveCandidato();
 			break;
 		case 3:
+			menuAlterarCandidato();
+			break;
+		case 4:
 			menuInfoCandidato();
 			break;
 		case 8:
@@ -294,13 +298,99 @@ void menuRemoveCandidatoNome() {
 	}
 }
 
+void menuAlterarCandidato() {
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Alterar Candidato                             |\n";
+		cout << "+------------------------------------------------+\n";
+		cout << "| 1. Procurar por Numero                         |\n";
+		cout << "| 2. Procurar por Nome                           |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		int opcao;
+		cout << "Opcao: ";
+		cin >> opcao;
+		if (cinTeste()) {
+			continue;
+		}
+		switch (opcao) {
+		case 1:
+			menuAlterarCandidatoNumero();
+			return;
+			break;
+		case 2:
+			menuAlterarCandidatoNome();
+			return;
+			break;
+		default:
+			break;
+		}
+
+		} while(1);
+}
+
+void menuAlterarCandidatoNumero() {
+
+	int numero;
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Alterar Candidato                             |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		cout << "Numero do candidato: ";
+		cin >> numero;
+		if (cinTeste()) {
+			continue;
+		}
+		break;
+
+	} while (1);
+
+	try {
+		alterarCandidato(numero);
+	} catch (candidatoNaoExiste &c) {
+		cout << c;
+		cin.ignore(1000, '\n');
+		cin.get();
+		return;
+	}
+}
+
+void menuAlterarCandidatoNome() {
+
+	string nome;
+	do {
+		cout << "\n\n\n\n\n+------------------------------------------------+\n";
+		cout << "|  Alterar Candidato                             |\n";
+		cout << "+------------------------------------------------+\n\n";
+
+		cout << "Nome: ";
+		cin.ignore(1000, '\n');
+		getline(cin,nome);
+		if (cinTeste()) {
+			continue;
+		}
+		break;
+
+	} while (1);
+
+	try {
+		alterarCandidato(nome);
+	} catch (candidatoNaoExiste &c) {
+		cout << c;
+		cin.get();
+		return;
+	}
+}
+
 void menuInfoCandidato() {
 	do {
 	cout << "\n\n\n\n\n+------------------------------------------------+\n";
 	cout << "|  Informacao Candidato                          |\n";
 	cout << "+------------------------------------------------+\n";
 	cout << "| 1. Procurar candidato por numero               |\n";
-	cout << "| 2. Todos os candidatos                         |\n";
+	cout << "| 2. Procurar por arte                           |\n";
+	cout << "| 3. Todos os candidatos                         |\n";
 	cout << "+------------------------------------------------+\n\n";
 
 	int opcao;
@@ -315,6 +405,10 @@ void menuInfoCandidato() {
 		return;
 		break;
 	case 2:
+		menuInfoCandidatosArte();
+		return;
+		break;
+	case 3:
 		menuInfoCandidatoTodos();
 		return;
 		break;
@@ -350,6 +444,9 @@ void menuInfoCandidatoNumero() {
 		cin.get();
 		return;
 	}
+	cin.ignore(1000, '\n');
+
+	cin.get();
 
 }
 
@@ -358,21 +455,52 @@ void menuInfoCandidatoTodos() {
 	cout << "|  Informacao Candidatos                         |\n";
 	cout << "+------------------------------------------------+\n\n";
 
-	if(candidatosGlobal.size() == 0) {
+	if(candidatosGlobal.isEmpty()) {
 		cout << "Ainda nao ha nenhum candidato...\n";
 		cin.ignore(1000, '\n');
 		cin.get();
 		return;
 	}
 
-	for (unsigned int i = 0; i < candidatosGlobal.size(); i++) {
-		infoCandidato(candidatosGlobal.at(i));
+	BSTItrIn<candidato*> it(candidatosGlobal);
+	while (!it.isAtEnd()) {
+		infoCandidato(it.retrieve());
+		it.advance();
 		cout << " ---- \n";;
 	}
 	cin.ignore(1000, '\n');
 	cin.get();
 	return;
 
+}
+
+void menuInfoCandidatosArte() {
+	cout << "\n\n\n\n\n+------------------------------------------------+\n";
+	cout << "|  Informacao Candidatos                         |\n";
+	cout << "+------------------------------------------------+\n\n";
+	cout << "Arte: ";
+	string arte;
+	cin.ignore(1000, '\n');
+	getline(cin, arte);
+
+	cout << endl;
+
+	int cnt = 0;
+	BSTItrIn<candidato*> it(candidatosGlobal);
+	while (!it.isAtEnd()) {
+		if(it.retrieve()->getArte() == arte) {
+			infoCandidato(it.retrieve());
+			cout << " ---- \n";
+			cnt++;
+		}
+		it.advance();
+	}
+
+	if(cnt == 0) {
+		cout << "Nao ha candidatos para a arte: " << arte << endl;
+	}
+	cin.get();
+	return;
 }
 
 void menuAdicionaJurado() {
