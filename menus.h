@@ -48,14 +48,34 @@ void menuRemoveCandidatoNumero();
 void menuRemoveCandidatoNome();
 
 /**
+ * @briefs display do menu para alterar a informacao de um candidato
+ */
+void menuAlterarCandidato();
+
+/**
+ * @brief display do menu para alterar um candidato com base no numero
+ */
+void menuAlterarCandidatoNumero();
+
+/**
+ * @brief display do menu para alterar um candidato com base no nome
+ */
+void menuAlterarCandidatoNome();
+
+/**
  * @brief display do menu para ver a informacao dos candidatos
  */
 void menuInfoCandidato();
 
 /**
- * @brief display do menu para procurar e ver a informacao de um candidato;
+ * @brief display do menu para procurar e ver a informacao de um candidato
  */
 void menuInfoCandidatoNumero();
+
+/**
+ * @brief display de todos os candidatos de uma arte perfomativa
+ */
+void menuInfoCandidatosArte();
 
 /**
  * @brief display do menu para ver a informacao de todos os candidatos

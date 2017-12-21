@@ -137,6 +137,11 @@ public:
 	 */
 	bool candidatoOcupado(vector<int> data);
 
+	/**
+	 * @brief overloado do operador < para a classe candidato
+	 */
+	bool operator < (const candidato* &c) const;
+
 };
 
 /**
