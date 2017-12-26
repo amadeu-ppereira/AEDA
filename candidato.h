@@ -5,6 +5,7 @@
 #include <vector>
 #include <sstream>
 #include <fstream>
+#include <utility>
 #include "sessao.h"
 using namespace std;
 
@@ -21,6 +22,7 @@ class candidato {
 	static int numeroInsc ; ///< variavel do tipo static para se atribuir um numero novo a cada candidato
 	const int numero; ///< numero do candidato
 	vector<sessao*> participacoes; ///< vetor com as sessoes em que o candidato participa
+	vector<pair<int [3], string> > indisponibilidades;
 public:
 
 	/**
@@ -41,8 +43,9 @@ public:
 	 * @param mes mes (data de nascimento) do candidato
 	 * @param ano ano (data de nascimento) do candidato
 	 * @param arte arte do candidato
+	 * @param indisp dias em que o candidato se encontra indisponivel e a razao
 	 */
-	candidato(string nome , string morada  , int dia , int mes , int ano, string arte);
+	candidato(string nome , string morada  , int dia , int mes , int ano, string arte, vector<pair<int[3], string> > indisp);
 
 	/**
 	 * @brief construtor da class candidato que recebe uma string (linha do ficheiro de texto referente a candidatos)
@@ -69,6 +72,12 @@ public:
 	vector<int> getDataNascimento() const;
 
 	/**
+	 *@brief funcao que devolve as indisponibilidades do candidato
+	 *@return vetor de pairs com as indisponibilidades em forma de array e a respetiva razao
+	 */
+	vector<pair<int [3], string> > getIndisponibilidades() const;
+
+	/**
 	 * @brief funcao que devolve a arte em que o candidato se considera mais apto
 	 *
 	 * @return arte performativa do candidato
@@ -87,7 +96,7 @@ public:
 	 *
 	 * @return vector<sessao*> sessoes do candidato
 	 */
-	vector <sessao*> getParticipacoes()  ;
+	vector <sessao*> getParticipacoes() const ;
 
 	/**
 	 * @brief altera nome do candidato

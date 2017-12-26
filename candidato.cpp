@@ -32,7 +32,7 @@ candidato::candidato() : numero(++numeroInsc){
 
 }
 
-candidato::candidato(string nome , string morada  , int dia , int mes , int ano,  string arte) :
+candidato::candidato(string nome , string morada  , int dia , int mes , int ano,  string arte, vector<pair<int[3],string> > indisp) :
 		numero(++numeroInsc)  {
 	this->nome = nome;
 	this->morada = morada;
@@ -40,6 +40,7 @@ candidato::candidato(string nome , string morada  , int dia , int mes , int ano,
 	this->mes = mes;
 	this->ano = ano;
 	this->arte = arte;
+	this->indisponibilidades = indisp;
 
 }
 
@@ -51,6 +52,23 @@ candidato::candidato(string info) :numero(++numeroInsc){
 	getline(ss, this->morada, ',');
 	this->morada = this->morada.substr(1, this->morada.size()-2);
 	ss >> this->dia>> virgula >> this->mes >> virgula >> this->ano >> virgula >> this->arte;
+
+	vector<pair<int[3],string> > indisp;
+	string temp;
+	while(getline(ss, temp, ';')) {
+		pair<int[3],string> a;
+		temp = temp.substr(1, temp.size() - 2);
+		stringstream i(temp);
+		i >> a.first[0] >> virgula >> a.first[1] >> virgula >> a.first[2] >> virgula;
+		string razao;
+		getline(i, razao);
+		razao = razao.substr(1, this->nome.size()-1);
+		a.second = razao;
+		indisp.push_back(a);
+	}
+
+	this->indisponibilidades = indisp;
+
 	ss.ignore('\n');
 }
 
@@ -89,9 +107,13 @@ int candidato::getNumero() const {
 	return numero;
 }
 
-vector<sessao*> candidato::getParticipacoes() {
+vector<sessao*> candidato::getParticipacoes() const {
 
 	return participacoes;
+}
+
+vector<pair<int[3],string> > candidato::getIndisponibilidades() const {
+	return indisponibilidades;
 }
 
 /////////// set functions ////////////
@@ -143,6 +165,13 @@ ostream & operator<<(ostream & o, const candidato * c) {
 
 ofstream & operator<<(ofstream & o, const candidato * c) {
 	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte();
+	if(c->getIndisponibilidades().size() > 0) {
+		o << " , ";
+		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
+			o << c->getIndisponibilidades().at(i).first[0] << " , " << c->getIndisponibilidades().at(i).first[1] << " , " << c->getIndisponibilidades().at(i).first[2] << " , ";
+			o << c->getIndisponibilidades().at(i).second << " ; ";
+		}
+	}
 	return o;
 }
 
