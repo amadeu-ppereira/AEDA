@@ -193,13 +193,47 @@ void menuAdicionaCandidato() {
 		} else {
 			break;
 		}
-
 	} while (1);
+
 	cout << "Arte: ";
-	cin.ignore(1000, '\n');;
+	cin.ignore(1000, '\n');
 	getline(cin, arte);
 
-	candidato *c = new candidato(nome, morada, dia, mes, ano, arte);
+	vector<pair<int[3],string>> indisp;
+	unsigned int n;
+
+	do {
+		cout << "Numero de dias em que se encontra indisponivel ? ";
+		cin >> n;
+		if (cinTeste()) {
+			cout << "Valor Invalido!\n";
+			continue;
+		} else {
+			break;
+		}
+	} while (1);
+
+	for (unsigned int i = 0; i < n; i++) {
+		do {
+			pair<int[3], string> a;
+			cout << "Dia " << i + 1 << " :";
+			cin >> a.first[0] >> a.first[1] >> a.first[2];
+			if (cinTeste()) {
+				cout << "Valor Invalido!\n";
+				continue;
+			} else {
+				cout << "Razao: ";
+				cin.ignore(1000, '\n');
+				getline(cin, a.second);
+
+				indisp.push_back(a);
+				break;
+			}
+		} while (1);
+	}
+
+
+	candidato *c = new candidato(nome, morada, dia, mes, ano, arte, indisp);
 
 	try {
 		adicionaCandidato(c);

@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
+#include <unordered_set>
 
 #include "BST.h"
 #include "candidato.h"

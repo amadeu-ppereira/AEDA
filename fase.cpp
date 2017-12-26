@@ -1,7 +1,7 @@
 #include "fase.h"
 #include "candidato.h"
-#include "funcoes.h"
 #include "BST.h"
+#include "funcoes.h"
 
 
 
