@@ -56,23 +56,18 @@ sessao::sessao(string info) {
 	juradosGlobal.at(i)->adicionaSessao(this);
 
 	jurados = j;
-	vector<pair <candidato*, bool> > c;
+
+	vector<candidato*> c;
 	while(getline(ss, nome, ',')) {
-		int desistiu;
 		nome = nome.substr(1, nome.size() - 2);
 		BSTItrIn<candidato*> it(candidatosGlobal);
 		it = procuraCandidato(nome);
 		if(it.isAtEnd()) {
 			break;
 		}
-		ss >> desistiu >> virgula;
-		bool d = (desistiu == 1) ? true : false;
+		c.push_back(it.retrieve());
 
-		pair<candidato*, bool> a(it.retrieve(), d);
-
-		c.push_back(a);
-		if(!d)
-			it.retrieve()->adicionaSessao(this);
+		it.retrieve()->adicionaSessao(this);
 	}
 
 	candidatos = c;
@@ -119,7 +114,7 @@ int sessao::getNumeroJurados() const {
 	return jurados.size();
 }
 
-vector<pair <candidato*, bool> > sessao::getCandidatos() const {
+vector<candidato*> sessao::getCandidatos() const {
 	return candidatos;
 }
 
@@ -128,11 +123,7 @@ vector<jurado*> sessao::getJurados() const {
 }
 
 void sessao::adicionaCandidato(candidato *c) {
-	pair<candidato*, bool> temp;
-	temp.first = c;
-	temp.second = false;
-
-	candidatos.push_back(temp);
+	candidatos.push_back(c);
 }
 
 void sessao::adicionaJurado(jurado* j) {
@@ -162,16 +153,10 @@ ostream & operator<<(ostream & o, const sessao * s) {
 	o << "Candidatos (numeros): ";
 	for(unsigned int i = 0;  i < s->getCandidatos().size(); i++) {
 		if(i == s->getCandidatos().size() - 1) {
-			if(s->getCandidatos().at(i).second)
-				o << s->getCandidatos().at(i).first->getNumero() << " (desistiu)" << "\n";
-			else
-				o << s->getCandidatos().at(i).first->getNumero() << "\n";
+			o << s->getCandidatos().at(i)->getNumero() << "\n";
 		}
 		else {
-			if(s->getCandidatos().at(i).second)
-				o << s->getCandidatos().at(i).first->getNumero() << " (desistiu)" << ", ";
-			else
-				o << s->getCandidatos().at(i).first->getNumero() << ", ";
+			o << s->getCandidatos().at(i)->getNumero() << ", ";
 		}
 	}
 	o << "Jurados: ";
@@ -202,11 +187,7 @@ ofstream & operator<<(ofstream & o, const sessao * s) {
 	}
 
 	for (unsigned int i = 0; i < s->getCandidatos().size(); i++) {
-		o << s->getCandidatos().at(i).first->getNome() << " , ";
-		if(s->getCandidatos().at(i).second)
-			o << "1" << " , ";
-		else
-			o << "0" << " , ";
+		o << s->getCandidatos().at(i)->getNome() << " , ";
 	}
 
 	return o;

@@ -720,6 +720,8 @@ void menuAdicionaSessao() {
 	}
 	menuAdicionaCandidatosSessao(s);
 
+	resetHashTable();
+
 
 }
 

@@ -76,7 +76,7 @@ void fase1::atribuiPontuacoes(){
 
 	for(unsigned int i = 0;i < s->getCandidatos().size(); i++) {
 		Classificacao cl;
-		cl.c = s->getCandidatos().at(i).first;
+		cl.c = s->getCandidatos().at(i);
 		float pontuacao;
 
 		cout << "\n _\\|/^      " << endl;
@@ -85,7 +85,7 @@ void fase1::atribuiPontuacoes(){
 		cout << "  /|\\ \n";
 		cout << "   |\n" ;
 		cout << "   LL\n";
-		cout << "\nCandidato n "<< s->getCandidatos()[i].first->getNumero() << "(" << s->getCandidatos()[i].first->getNome() << ")" << endl;
+		cout << "\nCandidato n "<< s->getCandidatos()[i]->getNumero() << "(" << s->getCandidatos()[i]->getNome() << ")" << endl;
 		cout << "-------------------\n";
 		cout << "Pontuacao do jurado 1 (principal): ";
 		cin >> pontuacao;

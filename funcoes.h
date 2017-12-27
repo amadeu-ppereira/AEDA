@@ -42,6 +42,10 @@ extern vector<fase2> fases2;
 extern HashTab indisponibilidades;
 
 
+/**
+ * @brief remove todos os participantes exceto os que desistiram
+ */
+void resetHashTable();
 
 /**
  * @brief verifica se houve erro com o cin

@@ -9,6 +9,18 @@ vector<fase2> fases2;
 HashTab indisponibilidades;
 
 
+void resetHashTable() {
+	for(HashTab::iterator it = indisponibilidades.begin(); it != indisponibilidades.end(); it++) {
+		pair<candidato*, string> p;
+		p = *it;
+		candidato* c = p.first;
+		if(!c->getDesistiu()) {
+			indisponibilidades.erase(p);
+			candidatosGlobal.insert(c);
+		}
+	}
+}
+
 int cinTeste() {
 	if (cin.fail()) {
 		cin.clear();
@@ -387,6 +399,7 @@ void alterarCandidato(int numero) {
 		string s = "";
 		p.first = temp;
 		p.second = s;
+		temp->setDesistiu(d);
 	}
 
 
@@ -468,6 +481,7 @@ void alterarCandidato(string nome) {
 		string s = "";
 		p.first = temp;
 		p.second = s;
+		temp->setDesistiu(d);
 	}
 
 	if (temp->getDesistiu())
@@ -647,7 +661,6 @@ void removeSessao(string generoArte,vector<int> data) {
 		}
 
 		sessaoGlobal.erase(sessaoGlobal.begin() + i);
-		delete temp;
 		cout << "Sessao removida com sucesso!\n";
 		cin.get();
 	}
@@ -670,13 +683,38 @@ vector<int> candidatosDisponiveis(sessao* s) {
 	BSTItrIn<candidato*> it(candidatosGlobal);
 
 	vector<int> numeros;
+
+	vector<BSTItrIn<candidato*> > its;
+
+
 	while(!it.isAtEnd()) {
+		int flag = 0;
 		if(it.retrieve()->getArte() == s->getGeneroArte() && !it.retrieve()->candidatoOcupado(s->getData())) {
-			cout << it.retrieve() << endl;
-			numeros.push_back(it.retrieve()->getNumero());
-			it.advance();
+			for(unsigned int i = 0; i < it.retrieve()->getIndisponibilidades().size(); i++) {
+				if(it.retrieve()->getIndisponibilidades().at(i).first[0] == s->getData()[0] && it.retrieve()->getIndisponibilidades().at(i).first[1] == s->getData()[1] && it.retrieve()->getIndisponibilidades().at(i).first[2] == s->getData()[2]) {
+					flag = 1;
+					its.push_back(it);
+					indisponibilidades.insert(make_pair(it.retrieve(), it.retrieve()->getIndisponibilidades().at(i).second));
+					//candidatosGlobal.remove(it.retrieve());
+					break;
+				}
+			}
+
+			if(flag == 0) {
+				cout << it.retrieve() << endl;
+				numeros.push_back(it.retrieve()->getNumero());
+			}
+
 		}
+		it.advance();
 	}
+
+	for(unsigned int i = 0; i < its.size(); i++) {
+		BSTItrIn<candidato*> x = its.at(i);
+		candidatosGlobal.remove(x.retrieve());
+	}
+
+
 
 	return numeros;
 }
