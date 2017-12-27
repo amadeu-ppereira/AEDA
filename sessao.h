@@ -3,10 +3,12 @@
 
 #include <string>
 #include <vector>
+//#include <unordered_set>
 #include <fstream>
 #include <sstream>
 #include "jurado.h"
 #include "fase.h"
+
 
 
 class candidato;
@@ -18,7 +20,7 @@ class candidato;
  */
 class sessao {
 	vector <jurado*> jurados ; ///< vetor com todos os jurados desta sessao
-	vector <candidato*> candidatos; ///< vetor com todos os candidatos desta sessao
+	vector <pair<candidato*, bool > > candidatos; ///< vetor com todos os candidatos desta sessao
 	string generoArte; ///< genero de arte perfomativa da sessao
 	int dia,mes,ano; ///< data da sessao
 	bool concluida; ///< indica se a sessao ja foi concluida (true se sim, false se nao)
@@ -84,7 +86,7 @@ public:
 	 *
 	 * @return candidatos da sessao
 	 */
-	 vector<candidato*> getCandidatos() const;
+	 vector<pair<candidato*, bool> > getCandidatos() const;
 
 	/**
 	 * @brief funcao que devolve os jurados de uma sessao

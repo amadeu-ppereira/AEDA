@@ -1,5 +1,5 @@
 #include "candidato.h"
-
+#include "funcoes.h"
 
 
 
@@ -55,19 +55,32 @@ candidato::candidato(string info) :numero(++numeroInsc){
 
 	vector<pair<int[3],string> > indisp;
 	string temp;
+	int flag = 1;
 	while(getline(ss, temp, ';')) {
+
 		pair<int[3],string> a;
-		temp = temp.substr(1, temp.size() - 2);
+
+		//para saber se é o primeiro e eliminar as virgula a mais
+		if(flag)
+			temp = temp.substr(3, temp.size() - 4);
+		else
+			temp = temp.substr(1, temp.size() - 2);
+
 		stringstream i(temp);
 		i >> a.first[0] >> virgula >> a.first[1] >> virgula >> a.first[2] >> virgula;
+
 		string razao;
 		getline(i, razao);
-		razao = razao.substr(1, this->nome.size()-1);
+		razao = razao.substr(1, razao.size()-1);
 		a.second = razao;
+
 		indisp.push_back(a);
+
+		flag = 0;
 	}
 
 	this->indisponibilidades = indisp;
+
 
 	ss.ignore('\n');
 }
@@ -141,7 +154,13 @@ void candidato::setData(vector<int> v){
 
 void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
+}
 
+void candidato::removeSessao(sessao* sessao) {
+	int i;
+	if((i = procuraSessao(sessao)) != -1) {
+		participacoes.erase(participacoes.begin() + i);
+	}
 }
 
 bool candidato::candidatoOcupado(vector<int> data) {
@@ -159,19 +178,34 @@ ostream & operator<<(ostream & o, const candidato * c) {
 	o << "Morada : " << c->getMorada() << endl;
 	o << "Data de Nascimento : " << c->getDataNascimento()[0] << "/" << c->getDataNascimento()[1] << "/" << c->getDataNascimento()[2] << endl;
 	o << "Arte : " << c->getArte() << endl;
+	if(c->getIndisponibilidades().size() > 0) {
+		o << "Indisponibilidades :\n";
+		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
+			o << c->getIndisponibilidades().at(i).first[0] << "/" << c->getIndisponibilidades().at(i).first[1] << "/" << c->getIndisponibilidades().at(i).first[2] << ": ";
+			o << c->getIndisponibilidades().at(i).second << endl;
+		}
+	}
 
 	return o;
 }
 
 ofstream & operator<<(ofstream & o, const candidato * c) {
+
 	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte();
+
 	if(c->getIndisponibilidades().size() > 0) {
 		o << " , ";
 		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
 			o << c->getIndisponibilidades().at(i).first[0] << " , " << c->getIndisponibilidades().at(i).first[1] << " , " << c->getIndisponibilidades().at(i).first[2] << " , ";
-			o << c->getIndisponibilidades().at(i).second << " ; ";
+			if(i == (c->getIndisponibilidades().size() - 1)) {
+				o << c->getIndisponibilidades().at(i).second << " ;";
+			}
+			else {
+				o << c->getIndisponibilidades().at(i).second << " ; ";
+			}
 		}
 	}
+
 	return o;
 }
 
