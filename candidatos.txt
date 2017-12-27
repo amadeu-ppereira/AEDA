@@ -1,6 +1,12 @@
+<<<<<<< HEAD
+Joao , viseu , 12 , 5 , 1998 , cantar , 0
+Carlos , algarve , 14 , 6 , 1976 , cantar , 0
+Pedro , portimao , 5 , 5 , 1965 , cantar
+=======
 Joao , viseu , 12 , 5 , 1998 , cantar
 Carlos , algarve , 14 , 6 , 1976 , cantar
 Pedro , faro , 5 , 5 , 1965 , magia
+>>>>>>> Amadeu
 Ricardo , lisboa , 2 , 6 , 1982 , cantar
 Antonio , braga , 1 , 2 , 1990 , dancar
 Marta , porto , 2 , 5 , 1988 , magia

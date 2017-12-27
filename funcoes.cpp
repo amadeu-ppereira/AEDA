@@ -6,6 +6,7 @@ vector<jurado*> juradosGlobal;
 vector<sessao*> sessaoGlobal;
 vector<fase1> fases1;
 vector<fase2> fases2;
+HashTab indisponibilidades;
 
 
 int cinTeste() {
@@ -27,7 +28,16 @@ int lerFicheiroCandidatos(){
 	string info;
 	while(getline(f, info)) {
 		candidato *c = new candidato(info);
-		candidatosGlobal.insert(c);
+
+		if(c->getDesistiu()) {
+			pair<candidato*, string> p;
+			p.first = c;
+			p.second = "";
+			indisponibilidades.insert(p);
+		}
+		else
+			candidatosGlobal.insert(c);
+
 	}
 
 	f.close();
@@ -114,6 +124,14 @@ int gravarFicheiroCandidatos() {
 		return 1;
 	}
 
+	HashTab::iterator it1;
+	for (it1 = indisponibilidades.begin(); it1 != indisponibilidades.end();
+			it1++) {
+		pair<candidato*, string> p;
+		p = *it1;
+		f << p.first << endl;
+	}
+
 	BSTItrIn<candidato*> it(candidatosGlobal);
 	BSTItrIn<candidato*> temp(candidatosGlobal);
 	temp.advance();
@@ -129,8 +147,12 @@ int gravarFicheiroCandidatos() {
 			it.advance();
 			temp.advance();
 		}
+<<<<<<< HEAD
+=======
 
+>>>>>>> Amadeu
 	}
+
 
 	f.close();
 	return 0;
@@ -349,8 +371,33 @@ void alterarCandidato(int numero) {
 		temp->setArte(arte);
 	}
 
+	pair<candidato*, string> p;
 
-	candidatosGlobal.insert(temp);
+	do {
+		cout << "Candidato desistiu ? (S/N) ";
+		cin >> opcao;
+		if (cinTeste())
+			continue;
+
+		if (opcao == 'S' || opcao == 'N') {
+			break;
+		}
+
+	} while (1);
+
+	if (opcao == 'S') {
+		bool d = true;
+		string s = "";
+		p.first = temp;
+		p.second = s;
+	}
+
+
+	if(temp->getDesistiu())
+		indisponibilidades.insert(p);
+	else
+		candidatosGlobal.insert(temp);
+
 }
 
 void alterarCandidato(string nome) {
@@ -405,7 +452,31 @@ void alterarCandidato(string nome) {
 		temp->setArte(arte);
 	}
 
-	candidatosGlobal.insert(temp);
+	pair<candidato*, string> p;
+
+	do {
+		cout << "Candidato desistiu ? (S/N) ";
+		cin >> opcao;
+		if (cinTeste())
+			continue;
+
+		if (opcao == 'S' || opcao == 'N') {
+			break;
+		}
+
+	} while (1);
+
+	if (opcao == 'S') {
+		bool d = true;
+		string s = "";
+		p.first = temp;
+		p.second = s;
+	}
+
+	if (temp->getDesistiu())
+		indisponibilidades.insert(p);
+	else
+		candidatosGlobal.insert(temp);
 }
 
 
@@ -606,6 +677,7 @@ vector<int> candidatosDisponiveis(sessao* s) {
 		if(it.retrieve()->getArte() == s->getGeneroArte() && !it.retrieve()->candidatoOcupado(s->getData())) {
 			cout << it.retrieve() << endl;
 			numeros.push_back(it.retrieve()->getNumero());
+			it.advance();
 		}
 	}
 

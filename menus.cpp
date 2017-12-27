@@ -1,3 +1,4 @@
+#include <utility>
 #include "menus.h"
 #include "funcoes.h"
 
@@ -199,7 +200,11 @@ void menuAdicionaCandidato() {
 	cin.ignore(1000, '\n');
 	getline(cin, arte);
 
+<<<<<<< HEAD
+	vector<pair<vector<int>,string>> indisp;
+=======
 	vector<pair<int[3],string> > indisp;
+>>>>>>> Amadeu
 	unsigned int n;
 
 	do {
@@ -215,13 +220,19 @@ void menuAdicionaCandidato() {
 
 	for (unsigned int i = 0; i < n; i++) {
 		do {
-			pair<int[3], string> a;
+			pair<vector<int>, string> a;
 			cout << "Dia " << i + 1 << " :";
-			cin >> a.first[0] >> a.first[1] >> a.first[2];
+			int n1, n2, n3;
+			cin >> n1 >> n2 >> n3;
 			if (cinTeste()) {
 				cout << "Valor Invalido!\n";
 				continue;
 			} else {
+				vector<int> dia;
+				dia.push_back(n1);
+				dia.push_back(n2);
+				dia.push_back(n3);
+				a.first = dia;
 				cout << "Razao: ";
 				cin.ignore(1000, '\n');
 				getline(cin, a.second);
@@ -500,8 +511,15 @@ void menuInfoCandidatoTodos() {
 	while (!it.isAtEnd()) {
 		infoCandidato(it.retrieve());
 		it.advance();
-		cout << " ---- \n";;
+		cout << " ---- \n";
 	}
+	for(HashTab::iterator it1 = indisponibilidades.begin(); it1 != indisponibilidades.end(); it1++) {
+		pair<candidato*, string> p = *(it1);
+		infoCandidato(p.first);
+		cout << " ---- \n";
+	}
+
+
 	cin.ignore(1000, '\n');
 	cin.get();
 	return;
