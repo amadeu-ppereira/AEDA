@@ -200,11 +200,9 @@ void menuAdicionaCandidato() {
 	cin.ignore(1000, '\n');
 	getline(cin, arte);
 
-<<<<<<< HEAD
+
 	vector<pair<vector<int>,string>> indisp;
-=======
-	vector<pair<int[3],string> > indisp;
->>>>>>> Amadeu
+
 	unsigned int n;
 
 	do {
