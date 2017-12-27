@@ -122,13 +122,14 @@ int gravarFicheiroCandidatos() {
 
 		if(temp.isAtEnd()) {
 			f << it.retrieve();
+			it.advance();
 		}
 		else {
 			f << it.retrieve() << endl;
+			it.advance();
+			temp.advance();
 		}
 
-		it.advance();
-		temp.advance();
 	}
 
 	f.close();
