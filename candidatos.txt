@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 Joao , viseu , 12 , 5 , 1998 , cantar , 0
 Carlos , algarve , 14 , 6 , 1976 , cantar , 0
 Pedro , portimao , 5 , 5 , 1965 , cantar
+=======
+Joao , viseu , 12 , 5 , 1998 , cantar
+Carlos , algarve , 14 , 6 , 1976 , cantar
+Pedro , faro , 5 , 5 , 1965 , magia
+>>>>>>> Amadeu
 Ricardo , lisboa , 2 , 6 , 1982 , cantar
 Antonio , braga , 1 , 2 , 1990 , dancar
 Marta , porto , 2 , 5 , 1988 , magia
@@ -8,6 +14,6 @@ Rui , porto , 5 , 2 , 1997 , cantar
 Raquel , viana do castelo , 23 , 4 , 2000 , dancar
 Maria Joao , faro , 30 , 1 , 1999 , dancar
 Mario , faro , 30 , 1 , 1999 , dancar
-Helena , lisboa , 2 , 10 , 1998 , cantar
-Bruna , chaves , 13 , 6 , 1899 , magia
-Nuno , porto , 12 , 12 , 1991 , dancar
+Andreia , porto , 18 , 12 , 1991 , cantar
+Helena , lisboa , 10 , 10 , 1993 , dancar
+qwert , asdf , 1 , 2 , 3 , zxcv , 1 , 2 , 3 , trabalho ; 2 , 3 , 4 , aulas ; 3 , 4 , 5 , aulas ;

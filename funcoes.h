@@ -6,7 +6,11 @@
 #include <sstream>
 #include <vector>
 #include <string>
+<<<<<<< HEAD
 #include <tr1/unordered_set>
+=======
+//#include <unordered_set>
+>>>>>>> Amadeu
 
 #include "BST.h"
 #include "candidato.h"

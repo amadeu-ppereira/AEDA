@@ -145,6 +145,11 @@ public:
 	void adicionaSessao(sessao* sessao);
 
 	/**
+	 * @brief remove uma sessao das participacoes do candidato
+	 */
+	void removeSessao(sessao* sessao);
+
+	/**
 	 * @brief overload do operador << para a classe candidato (ostream)
 	 */
 	friend ostream & operator<<(ostream & o, const candidato * c);

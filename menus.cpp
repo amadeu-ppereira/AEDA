@@ -200,7 +200,11 @@ void menuAdicionaCandidato() {
 	cin.ignore(1000, '\n');
 	getline(cin, arte);
 
+<<<<<<< HEAD
 	vector<pair<vector<int>,string>> indisp;
+=======
+	vector<pair<int[3],string> > indisp;
+>>>>>>> Amadeu
 	unsigned int n;
 
 	do {
@@ -822,7 +826,7 @@ int menuAdicionaJuradosSessao(sessao* s) {
 	cout << "|  Adicionar Jurados a Sessao                    |\n";
 	cout << "+------------------------------------------------+\n\n";
 
-	int nJurados = s->getNumeroJurados();
+	//int nJurados = s->getNumeroJurados();
 
 	cout << "Jurados disponiveis para a sessao:\n";
 

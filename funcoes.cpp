@@ -147,6 +147,10 @@ int gravarFicheiroCandidatos() {
 			it.advance();
 			temp.advance();
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> Amadeu
 	}
 
 

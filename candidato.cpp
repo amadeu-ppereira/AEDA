@@ -1,5 +1,5 @@
 #include "candidato.h"
-
+#include "funcoes.h"
 
 
 
@@ -59,14 +59,24 @@ candidato::candidato(string info) :numero(++numeroInsc){
 
 	vector<pair<vector<int>,string> > indisp;
 	string temp;
+<<<<<<< HEAD
 	//para saber se é o primeiro
 	int flag = 1;
 	while(getline(ss, temp, ';')) {
 		pair<vector<int>, string> a;
+=======
+	int flag = 1;
+	while(getline(ss, temp, ';')) {
+
+		pair<int[3],string> a;
+
+		//para saber se é o primeiro e eliminar as virgula a mais
+>>>>>>> Amadeu
 		if(flag)
 			temp = temp.substr(3, temp.size() - 4);
 		else
 			temp = temp.substr(1, temp.size() - 2);
+<<<<<<< HEAD
 		stringstream i(temp);
 		vector<int>dia;
 		int n;
@@ -77,16 +87,24 @@ candidato::candidato(string info) :numero(++numeroInsc){
 		i >> n >> virgula;
 		dia.push_back(n);
 		a.first=dia;
+=======
+
+		stringstream i(temp);
+		i >> a.first[0] >> virgula >> a.first[1] >> virgula >> a.first[2] >> virgula;
+
+>>>>>>> Amadeu
 		string razao;
 		getline(i, razao);
 		razao = razao.substr(1, razao.size()-1);
 		a.second = razao;
+
 		indisp.push_back(a);
 
 		flag = 0;
 	}
 
 	this->indisponibilidades = indisp;
+
 
 	ss.ignore('\n');
 }
@@ -168,7 +186,13 @@ void candidato::setDesistiu(bool d) {
 
 void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push_back(sessao);
+}
 
+void candidato::removeSessao(sessao* sessao) {
+	int i;
+	if((i = procuraSessao(sessao)) != -1) {
+		participacoes.erase(participacoes.begin() + i);
+	}
 }
 
 bool candidato::candidatoOcupado(vector<int> data) {
@@ -186,6 +210,7 @@ ostream & operator<<(ostream & o, const candidato * c) {
 	o << "Morada : " << c->getMorada() << endl;
 	o << "Data de Nascimento : " << c->getDataNascimento()[0] << "/" << c->getDataNascimento()[1] << "/" << c->getDataNascimento()[2] << endl;
 	o << "Arte : " << c->getArte() << endl;
+<<<<<<< HEAD
 	if (c->getIndisponibilidades().size() > 0) {
 		o << "Indisponibilidades:\n";
 		for (unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
@@ -198,23 +223,48 @@ ostream & operator<<(ostream & o, const candidato * c) {
 	if(c->getDesistiu()) {
 		o << "(desistiu)\n";
 	}
+=======
+	if(c->getIndisponibilidades().size() > 0) {
+		o << "Indisponibilidades :\n";
+		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
+			o << c->getIndisponibilidades().at(i).first[0] << "/" << c->getIndisponibilidades().at(i).first[1] << "/" << c->getIndisponibilidades().at(i).first[2] << ": ";
+			o << c->getIndisponibilidades().at(i).second << endl;
+		}
+	}
+>>>>>>> Amadeu
 
 	return o;
 }
 
 ofstream & operator<<(ofstream & o, const candidato * c) {
+<<<<<<< HEAD
 	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte() << " , " << c->getDesistiu();
+=======
+
+	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte();
+
+>>>>>>> Amadeu
 	if(c->getIndisponibilidades().size() > 0) {
 		o << " , ";
 		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
 			o << c->getIndisponibilidades().at(i).first[0] << " , " << c->getIndisponibilidades().at(i).first[1] << " , " << c->getIndisponibilidades().at(i).first[2] << " , ";
+<<<<<<< HEAD
 
 			if(i == c->getIndisponibilidades().size() - 1)
 				o << c->getIndisponibilidades().at(i).second << " ;";
 			else
 				o << c->getIndisponibilidades().at(i).second << " ; ";
+=======
+			if(i == (c->getIndisponibilidades().size() - 1)) {
+				o << c->getIndisponibilidades().at(i).second << " ;";
+			}
+			else {
+				o << c->getIndisponibilidades().at(i).second << " ; ";
+			}
+>>>>>>> Amadeu
 		}
 	}
+
 	return o;
 }
 
