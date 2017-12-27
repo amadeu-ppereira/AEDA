@@ -1,3 +1,3 @@
-1 , cantar , 1 , 2 , 3 , Marta , Pedro , Rui , Joao , 1 , Carlos , 0 , Pedro , 0 , Ricardo , 1 , Rui , 0 , Helena , 0 , 
-0 , magia , 1 , 2 , 3 , Jose , Alexandra , Miguel , Marta , 0 , 
-1 , dancar , 1 , 2 , 3 , Raquel , Maria , Bruno , Antonio , 0 , Raquel , 0 , Maria Joao , 0 , 
+1 , cantar , 1 , 2 , 3 , Marta , Pedro , Rui , Joao , Carlos , Pedro , Ricardo , Rui , Helena , 
+0 , magia , 1 , 2 , 3 , Jose , Alexandra , Miguel , Marta , 
+1 , dancar , 1 , 2 , 3 , Raquel , Maria , Bruno , Antonio , Raquel , Maria Joao , 
