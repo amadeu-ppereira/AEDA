@@ -6,7 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
-#include <unordered_set>
+#include <tr1/unordered_set>
 
 #include "BST.h"
 #include "candidato.h"
@@ -15,12 +15,31 @@
 #include "fase.h"
 
 
+struct h {
+	int operator() (const pair<candidato*, string> c) const
+	{
+		return c.first->getNumero();
+	}
+};
+
+struct eq {
+	bool operator() (const pair<candidato*, string> c1, const pair<candidato*, string> c2) const
+	{
+		return (c1.first->getNumero() == c2.first->getNumero());
+	}
+};
+
+
+typedef tr1::unordered_set<pair<candidato*, string>, h, eq> HashTab;
+
+
 extern candidato* notF;
 extern BST<candidato*> candidatosGlobal;
 extern vector<jurado*> juradosGlobal;
 extern vector<sessao*> sessaoGlobal;
 extern vector<fase1> fases1;
 extern vector<fase2> fases2;
+extern HashTab indisponibilidades;
 
 
 

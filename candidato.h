@@ -22,7 +22,8 @@ class candidato {
 	static int numeroInsc ; ///< variavel do tipo static para se atribuir um numero novo a cada candidato
 	const int numero; ///< numero do candidato
 	vector<sessao*> participacoes; ///< vetor com as sessoes em que o candidato participa
-	vector<pair<int [3], string> > indisponibilidades;
+	vector<pair<vector<int>, string> > indisponibilidades; ///<vetor de pares com as indisponibilidades e as respetivas razoes
+	bool desistiu;
 public:
 
 	/**
@@ -45,7 +46,7 @@ public:
 	 * @param arte arte do candidato
 	 * @param indisp dias em que o candidato se encontra indisponivel e a razao
 	 */
-	candidato(string nome , string morada  , int dia , int mes , int ano, string arte, vector<pair<int[3], string> > indisp);
+	candidato(string nome , string morada  , int dia , int mes , int ano, string arte, vector<pair<vector<int>, string> > indisp);
 
 	/**
 	 * @brief construtor da class candidato que recebe uma string (linha do ficheiro de texto referente a candidatos)
@@ -73,9 +74,9 @@ public:
 
 	/**
 	 *@brief funcao que devolve as indisponibilidades do candidato
-	 *@return vetor de pairs com as indisponibilidades em forma de array e a respetiva razao
+	 *@return vetor de pairs com as indisponibilidades em forma de vetor e a respetiva razao
 	 */
-	vector<pair<int [3], string> > getIndisponibilidades() const;
+	vector<pair<vector<int>, string> > getIndisponibilidades() const;
 
 	/**
 	 * @brief funcao que devolve a arte em que o candidato se considera mais apto
@@ -97,6 +98,13 @@ public:
 	 * @return vector<sessao*> sessoes do candidato
 	 */
 	vector <sessao*> getParticipacoes() const ;
+
+	/**
+	 * @brief funcao que devolve uma bool se o candidato desistiu
+	 *
+	 * @return bool true se desistiu, false se nao
+	 */
+	bool getDesistiu() const;
 
 	/**
 	 * @brief altera nome do candidato
@@ -122,6 +130,12 @@ public:
 	 * @param arte string com a arte a alterar
 	 */
 	void setArte(string arte);
+
+	/**
+	 * @brief altera se um candidato desisitiu
+	 * @param d bool para que se pretende alterar
+	 */
+	void setDesistiu(bool d);
 	/**
 	 * @brief adiciona um apontador de um objeto da class sessao ao vector participacoes do candidato
 	 *
