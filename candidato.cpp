@@ -2,8 +2,6 @@
 #include "funcoes.h"
 
 
-
-
 int candidato::numeroInsc = 0;
 
 std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c) {
@@ -96,7 +94,6 @@ candidato::candidato(string info) :numero(++numeroInsc){
 }
 
 candidato::~candidato() {
-	// TODO Auto-generated destructor stub
 }
 
 
@@ -130,8 +127,7 @@ int candidato::getNumero() const {
 	return numero;
 }
 
-vector<sessao*> candidato::getParticipacoes() const {
-
+priority_queue<sessao *> candidato::getParticipacoes() const {
 	return participacoes;
 }
 
@@ -171,23 +167,50 @@ void candidato::setDesistiu(bool d) {
 /////////////////////////////////////////
 
 void candidato::adicionaSessao(sessao* sessao){
-	participacoes.push_back(sessao);
+	participacoes.push(sessao);
 }
 
-void candidato::removeSessao(sessao* sessao) {
-	int i;
-	if((i = procuraSessao(sessao)) != -1) {
-		participacoes.erase(participacoes.begin() + i);
+
+void candidato::removeSessao(sessao* s){
+
+	vector<sessao*> aux;
+
+	while(!(participacoes.empty()))
+	{
+		if(participacoes.top()->getData()==s->getData())
+		{
+			participacoes.pop();
+			break;
+		}
+		aux.push_back(participacoes.top());
+		participacoes.pop();
 	}
+	while(aux.size()==0)
+	{
+		participacoes.push(aux[aux.size()-1]);
+	}
+
+
 }
 
 bool candidato::candidatoOcupado(vector<int> data) {
-	for(unsigned int i = 0; i < participacoes.size() ; i++) {
-		if(participacoes.at(i)->getData() == data) {
-			return true;
+	vector<sessao*> aux;
+
+	bool flag = false;
+
+	while (!(participacoes.empty())) {
+		if (participacoes.top()->getData() == data) {
+			flag = true;
+			break;
 		}
+		aux.push_back(participacoes.top());
+		participacoes.pop();
 	}
-	return false;
+	while (aux.size() == 0) {
+		participacoes.push(aux[aux.size() - 1]);
+	}
+
+	return flag;
 }
 
 ostream & operator<<(ostream & o, const candidato * c) {
@@ -233,21 +256,22 @@ ofstream & operator<<(ofstream & o, const candidato * c) {
 	return o;
 }
 
-bool candidato::operator < (const candidato* &c) const {
-	if(arte < c->getArte()) {
+bool candidato::operator<(const candidato c2) const{
+
+	if(arte < c2.getArte()) {
 		return true;
 	}
 
-	else if (arte == c->getArte()) {
-		if(ano > c->getDataNascimento()[2]) {
+	else if (arte == c2.getArte()) {
+		if(ano > c2.getDataNascimento()[2]) {
 			return true;
 		}
-		else if(ano == c->getDataNascimento()[2]) {
-			if(mes > c->getDataNascimento()[1]) {
+		else if(ano == c2.getDataNascimento()[2]) {
+			if(mes > c2.getDataNascimento()[1]) {
 				return true;
 			}
-			else if(mes == c->getDataNascimento()[1])
-				return dia > c->getDataNascimento()[0];
+			else if(mes == c2.getDataNascimento()[1])
+				return dia > c2.getDataNascimento()[0];
 			else {
 				return false;
 			}
@@ -259,4 +283,3 @@ bool candidato::operator < (const candidato* &c) const {
 
 	return false;
 }
-
