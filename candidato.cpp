@@ -170,26 +170,19 @@ void candidato::adicionaSessao(sessao* sessao){
 	participacoes.push(sessao);
 }
 
-
-void candidato::removeSessao(sessao* s){
-
+void candidato::removeSessao(sessao* s) {
 	vector<sessao*> aux;
-
-	while(!(participacoes.empty()))
-	{
-		if(participacoes.top()->getData()==s->getData())
-		{
+	while (!(participacoes.empty())) {
+		if (participacoes.top()->getData() == s->getData()) {
 			participacoes.pop();
 			break;
 		}
 		aux.push_back(participacoes.top());
 		participacoes.pop();
 	}
-	while(aux.size()==0)
-	{
+	while (aux.size() > 0) {
 		participacoes.push(aux[aux.size()-1]);
 	}
-
 
 }
 
@@ -206,8 +199,9 @@ bool candidato::candidatoOcupado(vector<int> data) {
 		aux.push_back(participacoes.top());
 		participacoes.pop();
 	}
-	while (aux.size() == 0) {
-		participacoes.push(aux[aux.size() - 1]);
+
+	while (aux.size() > 0) {
+		participacoes.push(aux[aux.size()-1]);
 	}
 
 	return flag;

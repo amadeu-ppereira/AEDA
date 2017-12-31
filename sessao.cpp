@@ -77,7 +77,6 @@ sessao::sessao(string info) {
 
 
 sessao::~sessao() {
-	// TODO Auto-generated destructor stub
 }
 
 void sessao::setArte(string generoArte)
@@ -194,25 +193,19 @@ ofstream & operator<<(ofstream & o, const sessao * s) {
 
 }
 
-bool sessao::operator< (const sessao *s) const
-{
-	if(this->ano > s->getData()[2])
-		return true;
-	else if(this->ano == s->getData()[2]){
-		if(this->mes > s->getData()[1])
-			return true;
-		else if(this->mes == s->getData()[1])
-		{
-			return (this->dia > s->getData()[0]);
-		}
 
+bool sessao::operator < (const sessao* &s) const
+{
+	if(this->ano>s->getData()[2])
+		return true;
+	if(this->ano==s->getData()[2]){
+		if(this->mes>s->getData()[1])
+			return true;
+		if(this->mes==s->getData()[1])
+		{
+			if(this->dia>s->getData()[0])
+				return true;
+		}
 	}
 	return false;
 }
-
-
-
-
-
-
-
