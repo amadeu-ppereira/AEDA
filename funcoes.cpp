@@ -21,6 +21,8 @@ void resetHashTable() {
 	}
 }
 
+
+
 int cinTeste() {
 	if (cin.fail()) {
 		cin.clear();

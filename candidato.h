@@ -6,6 +6,8 @@
 #include <sstream>
 #include <fstream>
 #include <utility>
+#include <queue>
+#include <stack>
 #include "sessao.h"
 using namespace std;
 
@@ -21,7 +23,7 @@ class candidato {
 	string arte; ///< arte perfomativa do candidato
 	static int numeroInsc ; ///< variavel do tipo static para se atribuir um numero novo a cada candidato
 	const int numero; ///< numero do candidato
-	vector<sessao*> participacoes; ///< vetor com as sessoes em que o candidato participa
+	priority_queue<sessao *> participacoes; ///< priority queue com as sessoes em que o candidato participa com prioridade de data mais recente
 	vector<pair<vector<int>, string> > indisponibilidades; ///<vetor de pares com as indisponibilidades e as respetivas razoes
 	bool desistiu;
 public:
@@ -95,9 +97,9 @@ public:
 	/**
 	 * @brief funcao que devolve um vector com as sessoes em que o candidato participou
 	 *
-	 * @return vector<sessao*> sessoes do candidato
+	 * @return priority queue com as participacoes do candidato
 	 */
-	vector <sessao*> getParticipacoes() const ;
+	priority_queue<sessao *> getParticipacoes() const ;
 
 	/**
 	 * @brief funcao que devolve uma bool se o candidato desistiu
@@ -138,7 +140,6 @@ public:
 	void setDesistiu(bool d);
 	/**
 	 * @brief adiciona um apontador de um objeto da class sessao ao vector participacoes do candidato
-	 *
 	 * @param sessao nova sessao a adicionar
 	 *
 	 */
@@ -146,6 +147,7 @@ public:
 
 	/**
 	 * @brief remove uma sessao das participacoes do candidato
+	 * @param sessao sessao a remover
 	 */
 	void removeSessao(sessao* sessao);
 
@@ -166,11 +168,13 @@ public:
 	bool candidatoOcupado(vector<int> data);
 
 	/**
-	 * @brief overloado do operador < para a classe candidato
+	 * @brief overload do operador < para a elementos da classe candidato
 	 */
-	bool operator < (const candidato* &c) const;
+	bool operator<(const candidato c2) const;
 
 };
+
+
 
 /**
  * @class candidatoNaoExiste
@@ -195,6 +199,9 @@ public:
 
 };
 
+/**
+ * @brief overload do operador<< para elementos da class candidatoNaoExiste
+ */
 std::ostream & operator<<(std::ostream &out, const candidatoNaoExiste &c);
 
 /**
@@ -213,6 +220,9 @@ public:
 
 };
 
+/**
+ * @brief overload do operador<< para elementos da class candidatoJaExiste
+ */
 std::ostream & operator<<(std::ostream &out, const candidatoJaExiste &c);
 
 /**
@@ -233,6 +243,9 @@ public:
 
 };
 
+/**
+ * @brief overload do operador<< para elementos da class candidatoOcupado
+ */
 std::ostream & operator<<(std::ostream &out, const candidatoOcupado &c);
 
 #endif /* SRC_CANDIDATO_H_ */
