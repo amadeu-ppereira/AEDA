@@ -127,11 +127,11 @@ public:
 	 * @brief overload do operador << para a classe sessao (fstream)
 	 */
 	friend ofstream & operator<<(ofstream & o, const sessao * s);
+
 	/**
 	 * @brief overload do operador < para a classe sessao
 	 */
-	bool operator< (const sessao *s) const;
-
+	bool operator < (const sessao* &s) const;
 
 };
 

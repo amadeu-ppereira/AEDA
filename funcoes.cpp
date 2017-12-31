@@ -658,6 +658,15 @@ void removeSessao(string generoArte,vector<int> data) {
 	} else {
 
 		sessao* temp = sessaoGlobal.at(i);
+
+		for(unsigned int i = 0; i < temp->getCandidatos().size(); i++) {
+			temp->getCandidatos().at(i)->removeSessao(temp);
+		}
+
+		for(unsigned int i = 0; i < temp->getJurados().size(); i++) {
+			temp->getJurados().at(i)->removeSessao(temp);
+		}
+
 		if(sessaoGlobal.at(i)->sessaoConcluida()) {
 			removeFases(sessaoGlobal.at(i));
 		}

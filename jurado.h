@@ -107,6 +107,12 @@ public:
 	void adicionaSessao(sessao* s);
 
 	/**
+	 * @brief funcao que remove uma sessao das sessoes do jurado
+	 * @param s sessao a remover
+	 */
+	void removeSessao(sessao* s);
+
+	/**
 	 * @brief overload do operador << para a classe jurado (ostream)
 	 */
 	friend ostream & operator<<(ostream & o, const jurado * j);

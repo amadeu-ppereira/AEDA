@@ -7,7 +7,6 @@
 #include <fstream>
 #include <utility>
 #include <queue>
-#include <stack>
 #include "sessao.h"
 using namespace std;
 
@@ -97,7 +96,11 @@ public:
 	/**
 	 * @brief funcao que devolve um vector com as sessoes em que o candidato participou
 	 *
+<<<<<<< master
 	 * @return priority queue com as participacoes do candidato
+=======
+	 * @return priority_queue com as sessoes do candidato
+>>>>>>> done
 	 */
 	priority_queue<sessao *> getParticipacoes() const ;
 
@@ -139,7 +142,8 @@ public:
 	 */
 	void setDesistiu(bool d);
 	/**
-	 * @brief adiciona um apontador de um objeto da class sessao ao vector participacoes do candidato
+	 * @brief adiciona um apontador de um objeto da class sessao as participacoes do candidato
+	 *
 	 * @param sessao nova sessao a adicionar
 	 *
 	 */

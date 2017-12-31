@@ -1,5 +1,6 @@
 #include "jurado.h"
 #include "sessao.h"
+#include "funcoes.h"
 
 
 jurado::jurado() {
@@ -110,6 +111,15 @@ vector<sessao*> jurado::getSessoes() const {
 
 void jurado::adicionaSessao(sessao* s) {
 	this->sessoes.push_back(s);
+}
+
+void jurado::removeSessao(sessao* s) {
+	for(unsigned int i = 0; i < sessoes.size(); i++) {
+		if(sessoes.at(i) == s) {
+			sessoes.erase(sessoes.begin()+i);
+			return;
+		}
+	}
 }
 
 bool jurado::juradoOcupado(vector<int> data) {
