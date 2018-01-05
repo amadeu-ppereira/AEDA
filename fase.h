@@ -7,7 +7,7 @@
 #include <vector>
 #include "jurado.h"
 #include "sessao.h"
-
+//#include "candidato.h"
 
 
 class candidato;

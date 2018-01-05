@@ -67,6 +67,12 @@ public:
 	 *	@param data vetor com dia mes e ano para alterar
 	 */
 	 void setData(vector<int> data);
+
+	 /**
+	  * @brief altera o vetor de candidatos
+	  * @param c novo vetor de candidatos
+	  */
+	 void setCandidatos(vector<candidato*> c);
 	 /**
 	  * @brief funcao que devolve num array a data(dia, mes, ano)
 	  *

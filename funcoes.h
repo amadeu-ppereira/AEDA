@@ -16,25 +16,25 @@
 
 
 struct h {
-	int operator() (const pair<candidato*, string> c) const
+	int operator() (const pair<candidato, string> c) const
 	{
-		return c.first->getNumero();
+		return c.first.getNumero();
 	}
 };
 
 struct eq {
-	bool operator() (const pair<candidato*, string> c1, const pair<candidato*, string> c2) const
+	bool operator() (const pair<candidato, string> c1, const pair<candidato, string> c2) const
 	{
-		return (c1.first->getNumero() == c2.first->getNumero());
+		return (c1.first.getNumero() == c2.first.getNumero());
 	}
 };
 
 
-typedef tr1::unordered_set<pair<candidato*, string>, h, eq> HashTab;
+typedef tr1::unordered_set<pair<candidato, string>, h, eq> HashTab;
 
 
-extern candidato* notF;
-extern BST<candidato*> candidatosGlobal;
+extern candidato notF;
+extern BST<candidato> candidatosGlobal;
 extern vector<jurado*> juradosGlobal;
 extern vector<sessao*> sessaoGlobal;
 extern vector<fase1> fases1;
@@ -111,7 +111,7 @@ void sair();
  * @brief adiciona um candidato
  * @param c objeto de um candidato
  */
-void adicionaCandidato(candidato *c);
+void adicionaCandidato(candidato c);
 
 /**
  * @brief remove um candidato
@@ -147,7 +147,7 @@ void infoCandidato(int numero);
  * @brief dá display da informacao do candidato
  * @param c candidato pretendido
  */
-void infoCandidato(candidato *c);
+void infoCandidato(candidato c);
 
 /**
  * @brief adiciona um jurado
@@ -172,21 +172,21 @@ void infoJurado(jurado *j);
  * @param c candidato a procurar
  * @return iterador
  */
-BSTItrIn<candidato*> procuraCandidato(candidato *c);
+BSTItrIn<candidato> procuraCandidato(candidato c);
 
 /**
  * @brief procura se o candidato se encontra no vetor global
  * @param numero numero do candidato a procurar
  * @return iterador
  */
-BSTItrIn<candidato*> procuraCandidato(int numero);
+BSTItrIn<candidato> procuraCandidato(int numero);
 
 /**
  * @brief procura se o candidato se encontra no vetor global
  * @param nome nome do candidato a procurar
  * @return iterador
  */
-BSTItrIn<candidato*> procuraCandidato(string nome);
+BSTItrIn<candidato> procuraCandidato(string nome);
 
 /**
  * @brief procura se o jurado se encontra no vetor global de jurados

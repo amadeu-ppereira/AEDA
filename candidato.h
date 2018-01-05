@@ -21,7 +21,7 @@ class candidato {
 	int dia, mes ,ano; ///< dia de nascimento do candidato
 	string arte; ///< arte perfomativa do candidato
 	static int numeroInsc ; ///< variavel do tipo static para se atribuir um numero novo a cada candidato
-	const int numero; ///< numero do candidato
+	int numero; ///< numero do candidato
 	priority_queue<sessao *> participacoes; ///< priority queue com as sessoes em que o candidato participa com prioridade de data mais recente
 	vector<pair<vector<int>, string> > indisponibilidades; ///<vetor de pares com as indisponibilidades e as respetivas razoes
 	bool desistiu;
@@ -96,11 +96,7 @@ public:
 	/**
 	 * @brief funcao que devolve um vector com as sessoes em que o candidato participou
 	 *
-<<<<<<< master
 	 * @return priority queue com as participacoes do candidato
-=======
-	 * @return priority_queue com as sessoes do candidato
->>>>>>> done
 	 */
 	priority_queue<sessao *> getParticipacoes() const ;
 
@@ -158,12 +154,12 @@ public:
 	/**
 	 * @brief overload do operador << para a classe candidato (ostream)
 	 */
-	friend ostream & operator<<(ostream & o, const candidato * c);
+	friend ostream & operator<<(ostream & o, const candidato & c);
 
 	/**
 	 * @brief overload do operador << para a classe candidato (fstream)
 	 */
-	friend ofstream & operator<<(ofstream & o, const candidato * c);
+	friend ofstream & operator<<(ofstream & o, const candidato & c);
 
 	/**
 	 * @brief verifica se o candidato ja tem alguma sessao naquele dia

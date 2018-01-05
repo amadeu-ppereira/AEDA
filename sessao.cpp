@@ -60,14 +60,14 @@ sessao::sessao(string info) {
 	vector<candidato*> c;
 	while(getline(ss, nome, ',')) {
 		nome = nome.substr(1, nome.size() - 2);
-		BSTItrIn<candidato*> it(candidatosGlobal);
+		BSTItrIn<candidato> it(candidatosGlobal);
 		it = procuraCandidato(nome);
 		if(it.isAtEnd()) {
 			break;
 		}
-		c.push_back(it.retrieve());
+		c.push_back(&it.retrieve());
 
-		it.retrieve()->adicionaSessao(this);
+		it.retrieve().adicionaSessao(this);
 	}
 
 	candidatos = c;
@@ -93,6 +93,10 @@ void sessao::setData(vector<int> data)
 
 void sessao::setConcluida(bool c) {
 	this->concluida = c;
+}
+
+void sessao::setCandidatos(vector<candidato*> c) {
+	this->candidatos = c;
 }
 
 vector<int> sessao::getData() const
@@ -178,15 +182,15 @@ bool sessao::sessaoConcluida() const {
 
 ofstream & operator<<(ofstream & o, const sessao * s) {
 	int flag = (s->sessaoConcluida()) ? 1 : 0;
-	o << flag << " , ";
+	o << flag;
 
-	o << s->getGeneroArte() << " , " << s->getData()[0] << " , " << s->getData()[1] << " , " << s->getData()[2] << " , ";
+	o << " , " << s->getGeneroArte() << " , " << s->getData()[0] << " , " << s->getData()[1] << " , " << s->getData()[2] << " , ";
 	for (unsigned int i = 0; i < s->getJurados().size(); i++) {
-		o << s->getJurados().at(i)->getNome() << " , ";
+		o << "" << s->getJurados().at(i)->getNome() << " , ";
 	}
 
 	for (unsigned int i = 0; i < s->getCandidatos().size(); i++) {
-		o << s->getCandidatos().at(i)->getNome() << " , ";
+		o << "" << s->getCandidatos().at(i)->getNome() << " , ";
 	}
 
 	return o;

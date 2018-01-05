@@ -23,7 +23,7 @@ std::ostream & operator<<(std::ostream &out, const candidatoOcupado &c) {
 	return out;
 }
 
-candidato::candidato() : numero(++numeroInsc){
+candidato::candidato(){
 	this-> dia = 0;
 	this->mes = 0;
 	this->ano = 0;
@@ -207,41 +207,41 @@ bool candidato::candidatoOcupado(vector<int> data) {
 	return flag;
 }
 
-ostream & operator<<(ostream & o, const candidato * c) {
-	o << "Numero : " << c->getNumero() << endl;
-	o << "Nome : " << c->getNome() << endl;
-	o << "Morada : " << c->getMorada() << endl;
-	o << "Data de Nascimento : " << c->getDataNascimento()[0] << "/" << c->getDataNascimento()[1] << "/" << c->getDataNascimento()[2] << endl;
-	o << "Arte : " << c->getArte() << endl;
-	if (c->getIndisponibilidades().size() > 0) {
+ostream & operator<<(ostream & o, const candidato & c) {
+	o << "Numero : " << c.getNumero() << endl;
+	o << "Nome : " << c.getNome() << endl;
+	o << "Morada : " << c.getMorada() << endl;
+	o << "Data de Nascimento : " << c.getDataNascimento()[0] << "/" << c.getDataNascimento()[1] << "/" << c.getDataNascimento()[2] << endl;
+	o << "Arte : " << c.getArte() << endl;
+	if (c.getIndisponibilidades().size() > 0) {
 		o << "Indisponibilidades:\n";
-		for (unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
-			o << c->getIndisponibilidades().at(i).first[0] << "/"
-					<< c->getIndisponibilidades().at(i).first[1] << "/"
-					<< c->getIndisponibilidades().at(i).first[2] << ": ";
-			o << c->getIndisponibilidades().at(i).second << endl;
+		for (unsigned int i = 0; i < c.getIndisponibilidades().size(); i++) {
+			o << c.getIndisponibilidades().at(i).first[0] << "/"
+					<< c.getIndisponibilidades().at(i).first[1] << "/"
+					<< c.getIndisponibilidades().at(i).first[2] << ": ";
+			o << c.getIndisponibilidades().at(i).second << endl;
 		}
 	}
-	if(c->getDesistiu()) {
+	if(c.getDesistiu()) {
 		o << "(desistiu)\n";
 	}
 
 	return o;
 }
 
-ofstream & operator<<(ofstream & o, const candidato * c) {
-	o << c->getNome() << " , " << c->getMorada() << " , " << c->getDataNascimento()[0] << " , " << c->getDataNascimento()[1] << " , " << c->getDataNascimento()[2] << " , " << c->getArte() << " , " << c->getDesistiu();
+ofstream & operator<<(ofstream & o, const candidato & c) {
+	o << c.getNome() << " , " << c.getMorada() << " , " << c.getDataNascimento()[0] << " , " << c.getDataNascimento()[1] << " , " << c.getDataNascimento()[2] << " , " << c.getArte() << " , " << c.getDesistiu();
 
-	if(c->getIndisponibilidades().size() > 0) {
+	if(c.getIndisponibilidades().size() > 0) {
 		o << " , ";
-		for(unsigned int i = 0; i < c->getIndisponibilidades().size(); i++) {
-			o << c->getIndisponibilidades().at(i).first[0] << " , " << c->getIndisponibilidades().at(i).first[1] << " , " << c->getIndisponibilidades().at(i).first[2] << " , ";
+		for(unsigned int i = 0; i < c.getIndisponibilidades().size(); i++) {
+			o << c.getIndisponibilidades().at(i).first[0] << " , " << c.getIndisponibilidades().at(i).first[1] << " , " << c.getIndisponibilidades().at(i).first[2] << " , ";
 
-			if(i == (c->getIndisponibilidades().size() - 1)) {
-				o << c->getIndisponibilidades().at(i).second << " ;";
+			if(i == (c.getIndisponibilidades().size() - 1)) {
+				o << c.getIndisponibilidades().at(i).second << " ;";
 			}
 			else {
-				o << c->getIndisponibilidades().at(i).second << " ; ";
+				o << c.getIndisponibilidades().at(i).second << " ; ";
 			}
 
 		}

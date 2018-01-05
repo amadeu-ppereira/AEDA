@@ -242,13 +242,12 @@ void menuAdicionaCandidato() {
 	}
 
 
-	candidato *c = new candidato(nome, morada, dia, mes, ano, arte, indisp);
+	candidato c = candidato(nome, morada, dia, mes, ano, arte, indisp);
 
 	try {
 		adicionaCandidato(c);
 	} catch (candidatoJaExiste &e) {
 		cout << e;
-		delete c;
 		cin.get();
 		return;
 	}
@@ -505,14 +504,14 @@ void menuInfoCandidatoTodos() {
 		return;
 	}
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 	while (!it.isAtEnd()) {
 		infoCandidato(it.retrieve());
 		it.advance();
 		cout << " ---- \n";
 	}
 	for(HashTab::iterator it1 = indisponibilidades.begin(); it1 != indisponibilidades.end(); it1++) {
-		pair<candidato*, string> p = *(it1);
+		pair<candidato, string> p = *(it1);
 		infoCandidato(p.first);
 		cout << " ---- \n";
 	}
@@ -536,9 +535,9 @@ void menuInfoCandidatosArte() {
 	cout << endl;
 
 	int cnt = 0;
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 	while (!it.isAtEnd()) {
-		if(it.retrieve()->getArte() == arte) {
+		if(it.retrieve().getArte() == arte) {
 			infoCandidato(it.retrieve());
 			cout << " ---- \n";
 			cnt++;
