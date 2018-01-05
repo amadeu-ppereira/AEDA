@@ -1,7 +1,7 @@
 #include "funcoes.h"
 
-candidato* notF = NULL;
-BST<candidato*> candidatosGlobal(notF);
+candidato notF = candidato();
+BST<candidato> candidatosGlobal(notF);
 vector<jurado*> juradosGlobal;
 vector<sessao*> sessaoGlobal;
 vector<fase1> fases1;
@@ -11,10 +11,10 @@ HashTab indisponibilidades;
 
 void resetHashTable() {
 	for(HashTab::iterator it = indisponibilidades.begin(); it != indisponibilidades.end(); it++) {
-		pair<candidato*, string> p;
+		pair<candidato, string> p;
 		p = *it;
-		candidato* c = p.first;
-		if(!c->getDesistiu()) {
+		candidato c = p.first;
+		if(!c.getDesistiu()) {
 			indisponibilidades.erase(p);
 			candidatosGlobal.insert(c);
 		}
@@ -41,10 +41,10 @@ int lerFicheiroCandidatos(){
 
 	string info;
 	while(getline(f, info)) {
-		candidato *c = new candidato(info);
+		candidato c = candidato(info);
 
-		if(c->getDesistiu()) {
-			pair<candidato*, string> p;
+		if(c.getDesistiu()) {
+			pair<candidato, string> p;
 			p.first = c;
 			p.second = "";
 			indisponibilidades.insert(p);
@@ -141,13 +141,13 @@ int gravarFicheiroCandidatos() {
 	HashTab::iterator it1;
 	for (it1 = indisponibilidades.begin(); it1 != indisponibilidades.end();
 			it1++) {
-		pair<candidato*, string> p;
+		pair<candidato, string> p;
 		p = *it1;
 		f << p.first << endl;
 	}
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
-	BSTItrIn<candidato*> temp(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
+	BSTItrIn<candidato> temp(candidatosGlobal);
 	temp.advance();
 
 	while(!it.isAtEnd()) {
@@ -283,14 +283,14 @@ void sair() {
 	}while(1);
 }
 
-void adicionaCandidato(candidato *c) {
+void adicionaCandidato(candidato c) {
 
 	if (!procuraCandidato(c).isAtEnd()) {
-		throw candidatoJaExiste(c->getNome());
+		throw candidatoJaExiste(c.getNome());
 	}
 	else {
 		candidatosGlobal.insert(c);
-		cout << "Candidato numero " << c->getNumero() << " (" << c->getNome() << ") adicionado!\n";
+		cout << "Candidato numero " << c.getNumero() << " (" << c.getNome() << ") adicionado!\n";
 		cin.get();
 	}
 }
@@ -298,16 +298,14 @@ void adicionaCandidato(candidato *c) {
 
 void removeCandidato(int numero) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	if ((it = procuraCandidato(numero)).isAtEnd()) {
 		throw candidatoNaoExiste(numero);
 	}
 
 	else {
-		candidato* temp = it.retrieve();
 		candidatosGlobal.remove(it.retrieve());
-		delete temp;
 		cout << "Candidato numero " << numero << " removido!\n";
 		cin.ignore(1000, '\n');;
 		cin.get();
@@ -316,15 +314,13 @@ void removeCandidato(int numero) {
 
 void removeCandidato(string nome) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	if ((it = procuraCandidato(nome)).isAtEnd()) {
 		throw candidatoNaoExiste(nome);
 	}
 	else {
-		candidato* temp = it.retrieve();
 		candidatosGlobal.remove(it.retrieve());
-		delete temp;
 		cout << "Candidato " << nome << " removido!\n";
 		cin.get();
 	}
@@ -332,13 +328,13 @@ void removeCandidato(string nome) {
 
 void alterarCandidato(int numero) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	if ((it = procuraCandidato(numero)).isAtEnd()) {
 		throw candidatoNaoExiste(numero);
 	}
 
-	candidato* temp = it.retrieve();
+	candidato temp = it.retrieve();
 	candidatosGlobal.remove(it.retrieve());
 
 	char opcao;
@@ -359,7 +355,7 @@ void alterarCandidato(int numero) {
 		cout << "Nova morada: ";
 		cin.ignore(1000, '\n');
 		getline(cin, morada);
-		temp->setMorada(morada);
+		temp.setMorada(morada);
 	}
 
 	do {
@@ -379,10 +375,10 @@ void alterarCandidato(int numero) {
 		cout << "Nova arte: ";
 		cin.ignore(1000, '\n');
 		getline(cin, arte);
-		temp->setArte(arte);
+		temp.setArte(arte);
 	}
 
-	pair<candidato*, string> p;
+	pair<candidato, string> p;
 
 	do {
 		cout << "Candidato desistiu ? (S/N) ";
@@ -397,16 +393,34 @@ void alterarCandidato(int numero) {
 	} while (1);
 
 	if (opcao == 'S') {
-		bool d = true;
 		string s = "";
 		p.first = temp;
 		p.second = s;
-		temp->setDesistiu(d);
+		temp.setDesistiu(true);
 	}
 
-
-	if(temp->getDesistiu())
+	bool flag = false;
+	if(temp.getDesistiu()) {
 		indisponibilidades.insert(p);
+		for(unsigned int i = 0; i < sessaoGlobal.size(); i++) {
+
+			vector<candidato*> c = sessaoGlobal.at(i)->getCandidatos();
+			if(!sessaoGlobal.at(i)->sessaoConcluida()) {
+
+				for(unsigned int j = 0 ; j < c.size(); j++) {
+					if(c.at(j)->getNome() == temp.getNome()) {
+						flag = true;
+						c.erase(c.begin() + j);
+						break;
+					}
+				}
+			}
+			if(flag) {
+				sessaoGlobal.at(i)->setCandidatos(c);
+				break;
+			}
+		}
+	}
 	else
 		candidatosGlobal.insert(temp);
 
@@ -414,13 +428,13 @@ void alterarCandidato(int numero) {
 
 void alterarCandidato(string nome) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	if ((it = procuraCandidato(nome)).isAtEnd()) {
 		throw candidatoNaoExiste(nome);
 	}
 
-	candidato* temp = it.retrieve();
+	candidato temp = it.retrieve();
 	candidatosGlobal.remove(it.retrieve());
 
 	char opcao;
@@ -441,7 +455,7 @@ void alterarCandidato(string nome) {
 		cout << "Nova morada: ";
 		cin.ignore(1000, '\n');
 		getline(cin, morada);
-		temp->setMorada(morada);
+		temp.setMorada(morada);
 	}
 
 	do {
@@ -461,10 +475,10 @@ void alterarCandidato(string nome) {
 		cout << "Nova arte: ";
 		cin.ignore(1000, '\n');
 		getline(cin, arte);
-		temp->setArte(arte);
+		temp.setArte(arte);
 	}
 
-	pair<candidato*, string> p;
+	pair<candidato, string> p;
 
 	do {
 		cout << "Candidato desistiu ? (S/N) ";
@@ -483,19 +497,41 @@ void alterarCandidato(string nome) {
 		string s = "";
 		p.first = temp;
 		p.second = s;
-		temp->setDesistiu(d);
+		temp.setDesistiu(d);
 	}
 
-	if (temp->getDesistiu())
+	bool flag = false;
+	if (temp.getDesistiu()) {
 		indisponibilidades.insert(p);
-	else
+		for (unsigned int i = 0; i < sessaoGlobal.size(); i++) {
+
+			vector<candidato*> c = sessaoGlobal.at(i)->getCandidatos();
+			if (!sessaoGlobal.at(i)->sessaoConcluida()) {
+
+				for (unsigned int j = 0; j < c.size(); j++) {
+					if (c.at(j)->getNome() == temp.getNome()) {
+						flag = true;
+						c.erase(c.begin() + j);
+						break;
+					}
+				}
+			}
+			if (flag) {
+				sessaoGlobal.at(i)->setCandidatos(c);
+				break;
+			}
+		}
+	}
+
+	else{
 		candidatosGlobal.insert(temp);
+	}
 }
 
 
 void infoCandidato(int numero) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	it= procuraCandidato(numero);
 	if (it.isAtEnd()) {
@@ -506,7 +542,7 @@ void infoCandidato(int numero) {
 
 }
 
-void infoCandidato(candidato *c) {
+void infoCandidato(candidato c) {
 
 	cout << c << endl;
 
@@ -558,12 +594,12 @@ void infoJurado(jurado *j) {
 
 }
 
-BSTItrIn<candidato*> procuraCandidato(candidato *c) {
+BSTItrIn<candidato> procuraCandidato(candidato c) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	while(! it.isAtEnd()) {
-		if (it.retrieve()->getNumero() == c->getNumero() && it.retrieve()->getNome() == c->getNome())
+		if (it.retrieve().getNumero() == c.getNumero() && it.retrieve().getNome() == c.getNome())
 			return it; // encontrou
 		it.advance();
 	}
@@ -572,12 +608,12 @@ BSTItrIn<candidato*> procuraCandidato(candidato *c) {
 
 }
 
-BSTItrIn<candidato*> procuraCandidato(int numero) {
+BSTItrIn<candidato> procuraCandidato(int numero) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	while(! it.isAtEnd()) {
-		if (it.retrieve()->getNumero() == numero)
+		if (it.retrieve().getNumero() == numero)
 			return it; // encontrou
 		it.advance();
 	}
@@ -585,12 +621,12 @@ BSTItrIn<candidato*> procuraCandidato(int numero) {
 	return it;
 }
 
-BSTItrIn<candidato*> procuraCandidato(string nome) {
+BSTItrIn<candidato> procuraCandidato(string nome) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	while(! it.isAtEnd()) {
-		if (it.retrieve()->getNome() == nome)
+		if (it.retrieve().getNome() == nome)
 			return it; // encontrou
 		it.advance();
 	}
@@ -691,37 +727,38 @@ void removeFases(sessao* s) {
 
 vector<int> candidatosDisponiveis(sessao* s) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	vector<int> numeros;
 
-	vector<BSTItrIn<candidato*> > its;
+	vector<BSTItrIn<candidato> > its;
 
 
 	while(!it.isAtEnd()) {
 		int flag = 0;
-		if(it.retrieve()->getArte() == s->getGeneroArte() && !it.retrieve()->candidatoOcupado(s->getData())) {
-			for(unsigned int i = 0; i < it.retrieve()->getIndisponibilidades().size(); i++) {
-				if(it.retrieve()->getIndisponibilidades().at(i).first[0] == s->getData()[0] && it.retrieve()->getIndisponibilidades().at(i).first[1] == s->getData()[1] && it.retrieve()->getIndisponibilidades().at(i).first[2] == s->getData()[2]) {
+		if(it.retrieve().getArte() == s->getGeneroArte()) {
+			for(unsigned int i = 0; i < it.retrieve().getIndisponibilidades().size(); i++) {
+				if(it.retrieve().getIndisponibilidades().at(i).first[0] == s->getData()[0] && it.retrieve().getIndisponibilidades().at(i).first[1] == s->getData()[1] && it.retrieve().getIndisponibilidades().at(i).first[2] == s->getData()[2]) {
 					flag = 1;
 					its.push_back(it);
-					indisponibilidades.insert(make_pair(it.retrieve(), it.retrieve()->getIndisponibilidades().at(i).second));
-					//candidatosGlobal.remove(it.retrieve());
+					indisponibilidades.insert(make_pair(it.retrieve(), it.retrieve().getIndisponibilidades().at(i).second));
 					break;
 				}
 			}
 
 			if(flag == 0) {
 				cout << it.retrieve() << endl;
-				numeros.push_back(it.retrieve()->getNumero());
+				numeros.push_back(it.retrieve().getNumero());
 			}
 
 		}
 		it.advance();
 	}
 
+
 	for(unsigned int i = 0; i < its.size(); i++) {
-		BSTItrIn<candidato*> x = its.at(i);
+		BSTItrIn<candidato> x = its.at(i);
 		candidatosGlobal.remove(x.retrieve());
 	}
 
@@ -745,15 +782,12 @@ vector<string> juradosDisponiveis(sessao* s) {
 
 void adicionaCandidatoSessao(int n, sessao* s) {
 
-	BSTItrIn<candidato*> it(candidatosGlobal);
+	BSTItrIn<candidato> it(candidatosGlobal);
 
 	it = procuraCandidato(n);
-	if(it.retrieve()->candidatoOcupado(s->getData())) {
-		throw candidatoOcupado(n, s->getData());
-	}
 
-	s->adicionaCandidato(it.retrieve());
-	it.retrieve()->adicionaSessao(s);
+	s->adicionaCandidato(&it.retrieve());
+	it.retrieve().adicionaSessao(s);
 	cout << "Candidato Adicionado!\n";
 
 

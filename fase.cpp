@@ -52,13 +52,13 @@ fase1::fase1(string info) : fase() {
 		nome = nome.substr(0, nome.size() - 1);
 		newss >> c1 >> virgula >> c2 >> virgula >> c3;
 
-		BSTItrIn<candidato*> it(candidatosGlobal);
+		BSTItrIn<candidato> it(candidatosGlobal);
 
 		it = procuraCandidato(nome);
 		if(it.isAtEnd()) {
 			break;
 		}
-		classif.c = it.retrieve();
+		classif.c = &it.retrieve();
 		classif.j1 = c1;
 		classif.j2 = c2;
 		classif.j3 = c3;
@@ -169,14 +169,14 @@ fase2::fase2(string info) : fase() {
 		nome = nome.substr(0, nome.size() - 1);
 		newss >> c1 >> virgula >> c2 >> virgula >> c3;
 
-		BSTItrIn<candidato*> it(candidatosGlobal);
+		BSTItrIn<candidato> it(candidatosGlobal);
 		it = procuraCandidato(nome);
 		if(it.isAtEnd()) {
 			break;
 		}
-		candidatos.push_back(it.retrieve());
+		candidatos.push_back(&it.retrieve());
 
-		classif.c = it.retrieve();
+		classif.c = &it.retrieve();
 		classif.j1 = c1;
 		classif.j2 = c2;
 		classif.j3 = c3;
