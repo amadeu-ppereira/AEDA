@@ -1,0 +1,173 @@
+\hypertarget{classfase1}{}\section{fase1 Class Reference}
+\label{classfase1}\index{fase1@{fase1}}
+
+
+subclasse da classe fase relativa a primeira fase  
+
+
+
+
+{\ttfamily \#include $<$fase.\+h$>$}
+
+
+
+Inheritance diagram for fase1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classfase1__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for fase1\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classfase1__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfase1_aa2bdac71181493e27b744862925c944b}{fase1} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em construtor da class \hyperlink{classfase1}{fase1} \end{DoxyCompactList}\item 
+\hyperlink{classfase1_a45c3a7c99c90a1c7079cf6045416b33c}{fase1} (string info)
+\begin{DoxyCompactList}\small\item\em construtor da class \hyperlink{classfase1}{fase1} \end{DoxyCompactList}\item 
+void \hyperlink{classfase1_ad4bd20d6f65510c72c6924cbd77b5af0}{atribui\+Pontuacoes} ()
+\begin{DoxyCompactList}\small\item\em funcao para atribuir as pontuacoes de um candidato \end{DoxyCompactList}\item 
+void \hyperlink{classfase1_a630facb1c550249547876d73e2e9c2c9}{ordena\+Pontuacoes} ()
+\begin{DoxyCompactList}\small\item\em ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{structClassificacao}{Classificacao} $>$ \hyperlink{classfase1_ab228229f675fb1581459b826f31d3d82}{get\+Classificacoes} () const 
+\begin{DoxyCompactList}\small\item\em devolve o vetor com as classificacoes \end{DoxyCompactList}\item 
+\hyperlink{classsessao}{sessao} $\ast$ \hyperlink{classfase1_aa6e3c8314c055f90cec3b0a033e5b54e}{get\+Sessao} ()
+\begin{DoxyCompactList}\small\item\em devolve a sessao correspondente a esta fase \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classfase1_a598506525641a0ba5d116c7d071e80a2}{operator$<$$<$} (ostream \&o, \hyperlink{classfase1}{fase1} f)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe \hyperlink{classfase1}{fase1} (ostream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+subclasse da classe fase relativa a primeira fase 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{fase1@{fase1}!fase1@{fase1}}
+\index{fase1@{fase1}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{fase1(sessao $\ast$s)}{fase1(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}fase1\+::fase1 (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase1_aa2bdac71181493e27b744862925c944b}{}\label{classfase1_aa2bdac71181493e27b744862925c944b}
+
+
+construtor da class \hyperlink{classfase1}{fase1} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & apontador para a sessao a que se pretende adicionar a primeira fase \\
+\hline
+\end{DoxyParams}
+\index{fase1@{fase1}!fase1@{fase1}}
+\index{fase1@{fase1}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{fase1(string info)}{fase1(string info)}}]{\setlength{\rightskip}{0pt plus 5cm}fase1\+::fase1 (
+\begin{DoxyParamCaption}
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase1_a45c3a7c99c90a1c7079cf6045416b33c}{}\label{classfase1_a45c3a7c99c90a1c7079cf6045416b33c}
+
+
+construtor da class \hyperlink{classfase1}{fase1} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & string com a informacao relativa à \hyperlink{classfase1}{fase1} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{fase1@{fase1}!atribui\+Pontuacoes@{atribui\+Pontuacoes}}
+\index{atribui\+Pontuacoes@{atribui\+Pontuacoes}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{atribui\+Pontuacoes()}{atribuiPontuacoes()}}]{\setlength{\rightskip}{0pt plus 5cm}void fase1\+::atribui\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase1_ad4bd20d6f65510c72c6924cbd77b5af0}{}\label{classfase1_ad4bd20d6f65510c72c6924cbd77b5af0}
+
+
+funcao para atribuir as pontuacoes de um candidato 
+
+
+
+Implements \hyperlink{classfase_af940cf6e1b3aaff1802f354d82d73208}{fase}.
+
+\index{fase1@{fase1}!get\+Classificacoes@{get\+Classificacoes}}
+\index{get\+Classificacoes@{get\+Classificacoes}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{get\+Classificacoes() const }{getClassificacoes() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Classificacao} $>$ fase1\+::get\+Classificacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase1_ab228229f675fb1581459b826f31d3d82}{}\label{classfase1_ab228229f675fb1581459b826f31d3d82}
+
+
+devolve o vetor com as classificacoes 
+
+\begin{DoxyReturn}{Returns}
+vetor com classificacoes 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classfase_a44cb191d58429a075bd3820e847c2823}{fase}.
+
+\index{fase1@{fase1}!get\+Sessao@{get\+Sessao}}
+\index{get\+Sessao@{get\+Sessao}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{get\+Sessao()}{getSessao()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sessao} $\ast$ fase1\+::get\+Sessao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase1_aa6e3c8314c055f90cec3b0a033e5b54e}{}\label{classfase1_aa6e3c8314c055f90cec3b0a033e5b54e}
+
+
+devolve a sessao correspondente a esta fase 
+
+\begin{DoxyReturn}{Returns}
+apontador para a sessa 
+\end{DoxyReturn}
+\index{fase1@{fase1}!ordena\+Pontuacoes@{ordena\+Pontuacoes}}
+\index{ordena\+Pontuacoes@{ordena\+Pontuacoes}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{ordena\+Pontuacoes()}{ordenaPontuacoes()}}]{\setlength{\rightskip}{0pt plus 5cm}void fase1\+::ordena\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase1_a630facb1c550249547876d73e2e9c2c9}{}\label{classfase1_a630facb1c550249547876d73e2e9c2c9}
+
+
+ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media 
+
+
+
+Implements \hyperlink{classfase_af0597909e632b43fb33f2b49f66280e1}{fase}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{fase1@{fase1}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!fase1@{fase1}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{{\bf fase1}}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classfase1_a598506525641a0ba5d116c7d071e80a2}{}\label{classfase1_a598506525641a0ba5d116c7d071e80a2}
+
+
+overload do operador $<$$<$ para a classe \hyperlink{classfase1}{fase1} (ostream) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8h}{fase.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8cpp}{fase.\+cpp}\end{DoxyCompactItemize}

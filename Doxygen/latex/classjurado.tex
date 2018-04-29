@@ -1,0 +1,356 @@
+\hypertarget{classjurado}{}\section{jurado Class Reference}
+\label{classjurado}\index{jurado@{jurado}}
+
+
+classe com as informacoes relativas a um jurado  
+
+
+
+
+{\ttfamily \#include $<$jurado.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classjurado_a9677e0aa464ceeb5b7ad73c6425f5aba}{jurado} ()
+\begin{DoxyCompactList}\small\item\em construtor de um objecto da class jurado \end{DoxyCompactList}\item 
+\hyperlink{classjurado_ac1743fdba044e673ef7d572763d3d23a}{jurado} (string nome, string morada, string telemovel, string arte)
+\begin{DoxyCompactList}\small\item\em construtor de um objecto da class jurado \end{DoxyCompactList}\item 
+\hyperlink{classjurado_a5e43e7112be419c57122dba488de3b46}{jurado} (string info)
+\begin{DoxyCompactList}\small\item\em construtor de um objeto da class jurado \end{DoxyCompactList}\item 
+\hyperlink{classjurado_abe6cb3aaffde689138379457ea881fa7}{$\sim$jurado} ()
+\begin{DoxyCompactList}\small\item\em destrutor de um objecto da class jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_a017b6f4965237e7bf8009a1bdbead43b}{set\+Nome} (string nome)
+\begin{DoxyCompactList}\small\item\em funcao que altera o nome do jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_a8dbe8d5f9d9d4bcc03c5e074068d98a7}{set\+Morada} (string morada)
+\begin{DoxyCompactList}\small\item\em funcao que altera a morada do jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_abb5ebbc58c0dc5379e47673d4695ac70}{set\+Telemovel} (string telemovel)
+\begin{DoxyCompactList}\small\item\em funcao que altera o telemovel do jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_a8e33ffaa864e0cbb645e65e0b571d000}{set\+Arte} (string arte)
+\begin{DoxyCompactList}\small\item\em funcao que altera a arte do jurado \end{DoxyCompactList}\item 
+string \hyperlink{classjurado_a02bb9270bf2d86644017814317546456}{get\+Nome} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve o nome do jurado \end{DoxyCompactList}\item 
+string \hyperlink{classjurado_ac5843b1f1e60196e5fa4697c5e6c897a}{get\+Morada} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve a morada do jurado \end{DoxyCompactList}\item 
+string \hyperlink{classjurado_aa48845847fcb0cf892c0f324ca95934f}{get\+Telemovel} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve o numero de telemovel do jurado \end{DoxyCompactList}\item 
+string \hyperlink{classjurado_a300946cb2a34dec4b688d76a002c6e3f}{get\+Arte} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve a arte do jurado \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classsessao}{sessao} $\ast$ $>$ \hyperlink{classjurado_a3bc8171a54abd5d01413fa12fb3b388a}{get\+Sessoes} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve as sessoes do jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_af6a351dce6c2e9dac755254bc4137b58}{set\+Sessoes} (vector$<$ \hyperlink{classsessao}{sessao} $\ast$ $>$ s)
+\begin{DoxyCompactList}\small\item\em funcao que adiciona as sessoes ao jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_a3c18c6b03f81ac8927571f9008307ab7}{adiciona\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em funcao que adiciona uma sessao às sessoes ao jurado \end{DoxyCompactList}\item 
+void \hyperlink{classjurado_adb3bd37bd370642bcdc4c8cb404ff9de}{remove\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em funcao que remove uma sessao das sessoes do jurado \end{DoxyCompactList}\item 
+bool \hyperlink{classjurado_a2cd7669a1f16ebe8cb1ac997dd82f8cc}{jurado\+Ocupado} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em verifica se o jurado ja tem alguma sessao naquele dia \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classjurado_afbbe037345e49122dbab2fd21278225d}{operator$<$$<$} (ostream \&o, const \hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe jurado (ostream) \end{DoxyCompactList}\item 
+ofstream \& \hyperlink{classjurado_a9778784aa84765cf798f6cfc59656ce2}{operator$<$$<$} (ofstream \&o, const \hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe jurado (fstream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe com as informacoes relativas a um jurado 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{jurado@{jurado}!jurado@{jurado}}
+\index{jurado@{jurado}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{jurado()}{jurado()}}]{\setlength{\rightskip}{0pt plus 5cm}jurado\+::jurado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a9677e0aa464ceeb5b7ad73c6425f5aba}{}\label{classjurado_a9677e0aa464ceeb5b7ad73c6425f5aba}
+
+
+construtor de um objecto da class jurado 
+
+\index{jurado@{jurado}!jurado@{jurado}}
+\index{jurado@{jurado}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{jurado(string nome, string morada, string telemovel, string arte)}{jurado(string nome, string morada, string telemovel, string arte)}}]{\setlength{\rightskip}{0pt plus 5cm}jurado\+::jurado (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{string}]{morada, }
+\item[{string}]{telemovel, }
+\item[{string}]{arte}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_ac1743fdba044e673ef7d572763d3d23a}{}\label{classjurado_ac1743fdba044e673ef7d572763d3d23a}
+
+
+construtor de um objecto da class jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado \\
+\hline
+{\em morada} & morada do jurado \\
+\hline
+{\em telemovel} & telemovel do jurado \\
+\hline
+{\em arte} & arte em que o jurado e especialista \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!jurado@{jurado}}
+\index{jurado@{jurado}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{jurado(string info)}{jurado(string info)}}]{\setlength{\rightskip}{0pt plus 5cm}jurado\+::jurado (
+\begin{DoxyParamCaption}
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a5e43e7112be419c57122dba488de3b46}{}\label{classjurado_a5e43e7112be419c57122dba488de3b46}
+
+
+construtor de um objeto da class jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & string com a informacao toda de um jurado \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!````~jurado@{$\sim$jurado}}
+\index{````~jurado@{$\sim$jurado}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{$\sim$jurado()}{~jurado()}}]{\setlength{\rightskip}{0pt plus 5cm}jurado\+::$\sim$jurado (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_abe6cb3aaffde689138379457ea881fa7}{}\label{classjurado_abe6cb3aaffde689138379457ea881fa7}
+
+
+destrutor de um objecto da class jurado 
+
+
+
+\subsection{Member Function Documentation}
+\index{jurado@{jurado}!adiciona\+Sessao@{adiciona\+Sessao}}
+\index{adiciona\+Sessao@{adiciona\+Sessao}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{adiciona\+Sessao(sessao $\ast$s)}{adicionaSessao(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::adiciona\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a3c18c6b03f81ac8927571f9008307ab7}{}\label{classjurado_a3c18c6b03f81ac8927571f9008307ab7}
+
+
+funcao que adiciona uma sessao às sessoes ao jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a adicionar \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!get\+Arte@{get\+Arte}}
+\index{get\+Arte@{get\+Arte}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{get\+Arte() const }{getArte() const }}]{\setlength{\rightskip}{0pt plus 5cm}string jurado\+::get\+Arte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classjurado_a300946cb2a34dec4b688d76a002c6e3f}{}\label{classjurado_a300946cb2a34dec4b688d76a002c6e3f}
+
+
+funcao que devolve a arte do jurado 
+
+\begin{DoxyReturn}{Returns}
+arte do jurado 
+\end{DoxyReturn}
+\index{jurado@{jurado}!get\+Morada@{get\+Morada}}
+\index{get\+Morada@{get\+Morada}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{get\+Morada() const }{getMorada() const }}]{\setlength{\rightskip}{0pt plus 5cm}string jurado\+::get\+Morada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classjurado_ac5843b1f1e60196e5fa4697c5e6c897a}{}\label{classjurado_ac5843b1f1e60196e5fa4697c5e6c897a}
+
+
+funcao que devolve a morada do jurado 
+
+\begin{DoxyReturn}{Returns}
+morada do jurado 
+\end{DoxyReturn}
+\index{jurado@{jurado}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{get\+Nome() const }{getNome() const }}]{\setlength{\rightskip}{0pt plus 5cm}string jurado\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classjurado_a02bb9270bf2d86644017814317546456}{}\label{classjurado_a02bb9270bf2d86644017814317546456}
+
+
+funcao que devolve o nome do jurado 
+
+\begin{DoxyReturn}{Returns}
+nome do jurado 
+\end{DoxyReturn}
+\index{jurado@{jurado}!get\+Sessoes@{get\+Sessoes}}
+\index{get\+Sessoes@{get\+Sessoes}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{get\+Sessoes() const }{getSessoes() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf sessao} $\ast$ $>$ jurado\+::get\+Sessoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classjurado_a3bc8171a54abd5d01413fa12fb3b388a}{}\label{classjurado_a3bc8171a54abd5d01413fa12fb3b388a}
+
+
+funcao que devolve as sessoes do jurado 
+
+\begin{DoxyReturn}{Returns}
+sessoes do jurado 
+\end{DoxyReturn}
+\index{jurado@{jurado}!get\+Telemovel@{get\+Telemovel}}
+\index{get\+Telemovel@{get\+Telemovel}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{get\+Telemovel() const }{getTelemovel() const }}]{\setlength{\rightskip}{0pt plus 5cm}string jurado\+::get\+Telemovel (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classjurado_aa48845847fcb0cf892c0f324ca95934f}{}\label{classjurado_aa48845847fcb0cf892c0f324ca95934f}
+
+
+funcao que devolve o numero de telemovel do jurado 
+
+\begin{DoxyReturn}{Returns}
+telemovel do jurado 
+\end{DoxyReturn}
+\index{jurado@{jurado}!jurado\+Ocupado@{jurado\+Ocupado}}
+\index{jurado\+Ocupado@{jurado\+Ocupado}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{jurado\+Ocupado(vector$<$ int $>$ data)}{juradoOcupado(vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}bool jurado\+::jurado\+Ocupado (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a2cd7669a1f16ebe8cb1ac997dd82f8cc}{}\label{classjurado_a2cd7669a1f16ebe8cb1ac997dd82f8cc}
+
+
+verifica se o jurado ja tem alguma sessao naquele dia 
+
+\begin{DoxyReturn}{Returns}
+true se sim, false se nao; 
+\end{DoxyReturn}
+\index{jurado@{jurado}!remove\+Sessao@{remove\+Sessao}}
+\index{remove\+Sessao@{remove\+Sessao}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{remove\+Sessao(sessao $\ast$s)}{removeSessao(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::remove\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_adb3bd37bd370642bcdc4c8cb404ff9de}{}\label{classjurado_adb3bd37bd370642bcdc4c8cb404ff9de}
+
+
+funcao que remove uma sessao das sessoes do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a remover \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!set\+Arte@{set\+Arte}}
+\index{set\+Arte@{set\+Arte}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{set\+Arte(string arte)}{setArte(string arte)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::set\+Arte (
+\begin{DoxyParamCaption}
+\item[{string}]{arte}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a8e33ffaa864e0cbb645e65e0b571d000}{}\label{classjurado_a8e33ffaa864e0cbb645e65e0b571d000}
+
+
+funcao que altera a arte do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arte} & arte do jurado \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!set\+Morada@{set\+Morada}}
+\index{set\+Morada@{set\+Morada}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{set\+Morada(string morada)}{setMorada(string morada)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::set\+Morada (
+\begin{DoxyParamCaption}
+\item[{string}]{morada}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a8dbe8d5f9d9d4bcc03c5e074068d98a7}{}\label{classjurado_a8dbe8d5f9d9d4bcc03c5e074068d98a7}
+
+
+funcao que altera a morada do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em morada} & morada do jurado \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{set\+Nome(string nome)}{setNome(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::set\+Nome (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_a017b6f4965237e7bf8009a1bdbead43b}{}\label{classjurado_a017b6f4965237e7bf8009a1bdbead43b}
+
+
+funcao que altera o nome do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!set\+Sessoes@{set\+Sessoes}}
+\index{set\+Sessoes@{set\+Sessoes}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{set\+Sessoes(vector$<$ sessao $\ast$ $>$ s)}{setSessoes(vector< sessao * > s)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::set\+Sessoes (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf sessao} $\ast$ $>$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_af6a351dce6c2e9dac755254bc4137b58}{}\label{classjurado_af6a351dce6c2e9dac755254bc4137b58}
+
+
+funcao que adiciona as sessoes ao jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & vetor de sessoes a adicionar \\
+\hline
+\end{DoxyParams}
+\index{jurado@{jurado}!set\+Telemovel@{set\+Telemovel}}
+\index{set\+Telemovel@{set\+Telemovel}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{set\+Telemovel(string telemovel)}{setTelemovel(string telemovel)}}]{\setlength{\rightskip}{0pt plus 5cm}void jurado\+::set\+Telemovel (
+\begin{DoxyParamCaption}
+\item[{string}]{telemovel}
+\end{DoxyParamCaption}
+)}\hypertarget{classjurado_abb5ebbc58c0dc5379e47673d4695ac70}{}\label{classjurado_abb5ebbc58c0dc5379e47673d4695ac70}
+
+
+funcao que altera o telemovel do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em telemovel} & telemovel do jurado \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{jurado@{jurado}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{const {\bf jurado} $\ast$}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classjurado_afbbe037345e49122dbab2fd21278225d}{}\label{classjurado_afbbe037345e49122dbab2fd21278225d}
+
+
+overload do operador $<$$<$ para a classe jurado (ostream) 
+
+\index{jurado@{jurado}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!jurado@{jurado}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{o, }
+\item[{const {\bf jurado} $\ast$}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classjurado_a9778784aa84765cf798f6cfc59656ce2}{}\label{classjurado_a9778784aa84765cf798f6cfc59656ce2}
+
+
+overload do operador $<$$<$ para a classe jurado (fstream) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{jurado_8h}{jurado.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{jurado_8cpp}{jurado.\+cpp}\end{DoxyCompactItemize}

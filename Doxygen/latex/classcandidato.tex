@@ -1,0 +1,426 @@
+\hypertarget{classcandidato}{}\section{candidato Class Reference}
+\label{classcandidato}\index{candidato@{candidato}}
+
+
+classe com as informacoes relativas a um candidato  
+
+
+
+
+{\ttfamily \#include $<$candidato.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcandidato_a3748841c39881c84ed68836994180930}{candidato} ()
+\begin{DoxyCompactList}\small\item\em constructor da class candidato (inicializa dia mes e ano a zero) \end{DoxyCompactList}\item 
+\hyperlink{classcandidato_a3b209d1da7568dbb3854fbecb6368ab8}{$\sim$candidato} ()
+\begin{DoxyCompactList}\small\item\em destrutor de um objecto da class candidato \end{DoxyCompactList}\item 
+\hyperlink{classcandidato_a2a4ed15dbc5e3047c5dc57324fac73d0}{candidato} (string nome, string morada, int dia, int mes, int ano, string arte, vector$<$ pair$<$ vector$<$ int $>$, string $>$ $>$ indisp)
+\begin{DoxyCompactList}\small\item\em construtor de um objecto da class candidato \end{DoxyCompactList}\item 
+\hyperlink{classcandidato_af7638b8776045e7015c07a848bc9991b}{candidato} (string info)
+\begin{DoxyCompactList}\small\item\em construtor da class candidato que recebe uma string (linha do ficheiro de texto referente a candidatos) \end{DoxyCompactList}\item 
+string \hyperlink{classcandidato_a7957f630ffa6a8ebb53d7d49a484cdb0}{get\+Nome} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve o nome do candidato \end{DoxyCompactList}\item 
+string \hyperlink{classcandidato_ae62bf91f25150db0c78f69b966f4545a}{get\+Morada} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve a morada do candidato \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classcandidato_a0f5795cf0f0d5fc7844ffff30476a9aa}{get\+Data\+Nascimento} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve um vector de int com a data de nascimento do candidato (dia mes ano) \end{DoxyCompactList}\item 
+vector$<$ pair$<$ vector$<$ int $>$, string $>$ $>$ \hyperlink{classcandidato_a0e4f09123b2158963634cf42695a8e6f}{get\+Indisponibilidades} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve as indisponibilidades do candidato \end{DoxyCompactList}\item 
+string \hyperlink{classcandidato_ad111af25051e3eefd77f81c528423fc0}{get\+Arte} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve a arte em que o candidato se considera mais apto \end{DoxyCompactList}\item 
+int \hyperlink{classcandidato_ab2d533767a7b78d4c4f0c29fb5aad3ab}{get\+Numero} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve o numero de inscricao do candidato \end{DoxyCompactList}\item 
+priority\+\_\+queue$<$ \hyperlink{classsessao}{sessao} $\ast$ $>$ \hyperlink{classcandidato_acc36e35588dc83bb81ab67721c851d08}{get\+Participacoes} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve um vector com as sessoes em que o candidato participou \end{DoxyCompactList}\item 
+bool \hyperlink{classcandidato_a348b126294752dd6ae5efab72fd15265}{get\+Desistiu} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve uma bool se o candidato desistiu \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_ab3ec398c44b2fbb96671db2a9ab6115d}{set\+Nome} (string nome)
+\begin{DoxyCompactList}\small\item\em altera nome do candidato \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a6bb51b1239e988201502a9f0a2ec27b5}{set\+Morada} (string morada)
+\begin{DoxyCompactList}\small\item\em altera morada do candidato \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a644101f4e5c21eb9a7e99c5b2870e0e0}{set\+Data} (vector$<$ int $>$ v)
+\begin{DoxyCompactList}\small\item\em altera data de nascimento ( dia mes ano) do candidato \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a715b39c52b6811b6607c711a37ee526d}{set\+Arte} (string arte)
+\begin{DoxyCompactList}\small\item\em altera arte do candidato \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a1e2533bef3ab1c4dd1f8d95f3940bb46}{set\+Desistiu} (bool d)
+\begin{DoxyCompactList}\small\item\em altera se um candidato desisitiu \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a1e9453dc3d082a27d45efee32d8ac397}{adiciona\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$\hyperlink{classsessao}{sessao})
+\begin{DoxyCompactList}\small\item\em adiciona um apontador de um objeto da class sessao as participacoes do candidato \end{DoxyCompactList}\item 
+void \hyperlink{classcandidato_a5ccd7e9263c7caeb4dac72e7d2db57be}{remove\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$\hyperlink{classsessao}{sessao})
+\begin{DoxyCompactList}\small\item\em remove uma sessao das participacoes do candidato \end{DoxyCompactList}\item 
+bool \hyperlink{classcandidato_aa92f67d09b7cd0449ce2b005267188b9}{candidato\+Ocupado} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em verifica se o candidato ja tem alguma sessao naquele dia \end{DoxyCompactList}\item 
+bool \hyperlink{classcandidato_a1fd8d1cc3fca3d6bb7eb336e149a85e0}{operator$<$} (const \hyperlink{classcandidato}{candidato} c2) const 
+\begin{DoxyCompactList}\small\item\em overload do operador $<$ para a elementos da classe candidato \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classcandidato_a8b349878e0149761fba4bccf3c7d5148}{operator$<$$<$} (ostream \&o, const \hyperlink{classcandidato}{candidato} \&c)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe candidato (ostream) \end{DoxyCompactList}\item 
+ofstream \& \hyperlink{classcandidato_ad86b8f19b641b7c48c5c695a8f15f9a2}{operator$<$$<$} (ofstream \&o, const \hyperlink{classcandidato}{candidato} \&c)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe candidato (fstream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe com as informacoes relativas a um candidato 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{candidato@{candidato}!candidato@{candidato}}
+\index{candidato@{candidato}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{candidato()}{candidato()}}]{\setlength{\rightskip}{0pt plus 5cm}candidato\+::candidato (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a3748841c39881c84ed68836994180930}{}\label{classcandidato_a3748841c39881c84ed68836994180930}
+
+
+constructor da class candidato (inicializa dia mes e ano a zero) 
+
+\index{candidato@{candidato}!````~candidato@{$\sim$candidato}}
+\index{````~candidato@{$\sim$candidato}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{$\sim$candidato()}{~candidato()}}]{\setlength{\rightskip}{0pt plus 5cm}candidato\+::$\sim$candidato (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a3b209d1da7568dbb3854fbecb6368ab8}{}\label{classcandidato_a3b209d1da7568dbb3854fbecb6368ab8}
+
+
+destrutor de um objecto da class candidato 
+
+\index{candidato@{candidato}!candidato@{candidato}}
+\index{candidato@{candidato}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{candidato(string nome, string morada, int dia, int mes, int ano, string arte, vector$<$ pair$<$ vector$<$ int $>$, string $>$ $>$ indisp)}{candidato(string nome, string morada, int dia, int mes, int ano, string arte, vector< pair< vector< int >, string > > indisp)}}]{\setlength{\rightskip}{0pt plus 5cm}candidato\+::candidato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{string}]{morada, }
+\item[{int}]{dia, }
+\item[{int}]{mes, }
+\item[{int}]{ano, }
+\item[{string}]{arte, }
+\item[{vector$<$ pair$<$ vector$<$ int $>$, string $>$ $>$}]{indisp}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a2a4ed15dbc5e3047c5dc57324fac73d0}{}\label{classcandidato_a2a4ed15dbc5e3047c5dc57324fac73d0}
+
+
+construtor de um objecto da class candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do candidato \\
+\hline
+{\em morada} & morada do candidato \\
+\hline
+{\em dia} & dia (data de nascimento)do candidato \\
+\hline
+{\em mes} & mes (data de nascimento) do candidato \\
+\hline
+{\em ano} & ano (data de nascimento) do candidato \\
+\hline
+{\em arte} & arte do candidato \\
+\hline
+{\em indisp} & dias em que o candidato se encontra indisponivel e a razao \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!candidato@{candidato}}
+\index{candidato@{candidato}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{candidato(string info)}{candidato(string info)}}]{\setlength{\rightskip}{0pt plus 5cm}candidato\+::candidato (
+\begin{DoxyParamCaption}
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_af7638b8776045e7015c07a848bc9991b}{}\label{classcandidato_af7638b8776045e7015c07a848bc9991b}
+
+
+construtor da class candidato que recebe uma string (linha do ficheiro de texto referente a candidatos) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & string que contem informacao sobre os membros do candidato \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{candidato@{candidato}!adiciona\+Sessao@{adiciona\+Sessao}}
+\index{adiciona\+Sessao@{adiciona\+Sessao}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{adiciona\+Sessao(sessao $\ast$sessao)}{adicionaSessao(sessao *sessao)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::adiciona\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{sessao}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a1e9453dc3d082a27d45efee32d8ac397}{}\label{classcandidato_a1e9453dc3d082a27d45efee32d8ac397}
+
+
+adiciona um apontador de um objeto da class sessao as participacoes do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sessao} & nova sessao a adicionar \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!candidato\+Ocupado@{candidato\+Ocupado}}
+\index{candidato\+Ocupado@{candidato\+Ocupado}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{candidato\+Ocupado(vector$<$ int $>$ data)}{candidatoOcupado(vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}bool candidato\+::candidato\+Ocupado (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_aa92f67d09b7cd0449ce2b005267188b9}{}\label{classcandidato_aa92f67d09b7cd0449ce2b005267188b9}
+
+
+verifica se o candidato ja tem alguma sessao naquele dia 
+
+\begin{DoxyReturn}{Returns}
+true se sim, false se nao; 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Arte@{get\+Arte}}
+\index{get\+Arte@{get\+Arte}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Arte() const }{getArte() const }}]{\setlength{\rightskip}{0pt plus 5cm}string candidato\+::get\+Arte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_ad111af25051e3eefd77f81c528423fc0}{}\label{classcandidato_ad111af25051e3eefd77f81c528423fc0}
+
+
+funcao que devolve a arte em que o candidato se considera mais apto 
+
+\begin{DoxyReturn}{Returns}
+arte performativa do candidato 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Data\+Nascimento@{get\+Data\+Nascimento}}
+\index{get\+Data\+Nascimento@{get\+Data\+Nascimento}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Data\+Nascimento() const }{getDataNascimento() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ candidato\+::get\+Data\+Nascimento (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_a0f5795cf0f0d5fc7844ffff30476a9aa}{}\label{classcandidato_a0f5795cf0f0d5fc7844ffff30476a9aa}
+
+
+funcao que devolve um vector de int com a data de nascimento do candidato (dia mes ano) 
+
+\begin{DoxyReturn}{Returns}
+vector$<$int$>$ dia mes ano 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Desistiu@{get\+Desistiu}}
+\index{get\+Desistiu@{get\+Desistiu}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Desistiu() const }{getDesistiu() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool candidato\+::get\+Desistiu (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_a348b126294752dd6ae5efab72fd15265}{}\label{classcandidato_a348b126294752dd6ae5efab72fd15265}
+
+
+funcao que devolve uma bool se o candidato desistiu 
+
+\begin{DoxyReturn}{Returns}
+bool true se desistiu, false se nao 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Indisponibilidades@{get\+Indisponibilidades}}
+\index{get\+Indisponibilidades@{get\+Indisponibilidades}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Indisponibilidades() const }{getIndisponibilidades() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ pair$<$ vector$<$ int $>$, string $>$ $>$ candidato\+::get\+Indisponibilidades (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_a0e4f09123b2158963634cf42695a8e6f}{}\label{classcandidato_a0e4f09123b2158963634cf42695a8e6f}
+
+
+funcao que devolve as indisponibilidades do candidato 
+
+\begin{DoxyReturn}{Returns}
+vetor de pairs com as indisponibilidades em forma de vetor e a respetiva razao 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Morada@{get\+Morada}}
+\index{get\+Morada@{get\+Morada}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Morada() const }{getMorada() const }}]{\setlength{\rightskip}{0pt plus 5cm}string candidato\+::get\+Morada (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_ae62bf91f25150db0c78f69b966f4545a}{}\label{classcandidato_ae62bf91f25150db0c78f69b966f4545a}
+
+
+funcao que devolve a morada do candidato 
+
+\begin{DoxyReturn}{Returns}
+morada do candidato 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Nome@{get\+Nome}}
+\index{get\+Nome@{get\+Nome}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Nome() const }{getNome() const }}]{\setlength{\rightskip}{0pt plus 5cm}string candidato\+::get\+Nome (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_a7957f630ffa6a8ebb53d7d49a484cdb0}{}\label{classcandidato_a7957f630ffa6a8ebb53d7d49a484cdb0}
+
+
+funcao que devolve o nome do candidato 
+
+\begin{DoxyReturn}{Returns}
+nome do candidato 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Numero@{get\+Numero}}
+\index{get\+Numero@{get\+Numero}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Numero() const }{getNumero() const }}]{\setlength{\rightskip}{0pt plus 5cm}int candidato\+::get\+Numero (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_ab2d533767a7b78d4c4f0c29fb5aad3ab}{}\label{classcandidato_ab2d533767a7b78d4c4f0c29fb5aad3ab}
+
+
+funcao que devolve o numero de inscricao do candidato 
+
+\begin{DoxyReturn}{Returns}
+numero de inscricao do candidato 
+\end{DoxyReturn}
+\index{candidato@{candidato}!get\+Participacoes@{get\+Participacoes}}
+\index{get\+Participacoes@{get\+Participacoes}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{get\+Participacoes() const }{getParticipacoes() const }}]{\setlength{\rightskip}{0pt plus 5cm}priority\+\_\+queue$<$ {\bf sessao} $\ast$ $>$ candidato\+::get\+Participacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_acc36e35588dc83bb81ab67721c851d08}{}\label{classcandidato_acc36e35588dc83bb81ab67721c851d08}
+
+
+funcao que devolve um vector com as sessoes em que o candidato participou 
+
+\begin{DoxyReturn}{Returns}
+priority queue com as participacoes do candidato 
+\end{DoxyReturn}
+\index{candidato@{candidato}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{operator$<$(const candidato c2) const }{operator<(const candidato c2) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool candidato\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf candidato}}]{c2}
+\end{DoxyParamCaption}
+) const}\hypertarget{classcandidato_a1fd8d1cc3fca3d6bb7eb336e149a85e0}{}\label{classcandidato_a1fd8d1cc3fca3d6bb7eb336e149a85e0}
+
+
+overload do operador $<$ para a elementos da classe candidato 
+
+\index{candidato@{candidato}!remove\+Sessao@{remove\+Sessao}}
+\index{remove\+Sessao@{remove\+Sessao}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{remove\+Sessao(sessao $\ast$sessao)}{removeSessao(sessao *sessao)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::remove\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{sessao}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a5ccd7e9263c7caeb4dac72e7d2db57be}{}\label{classcandidato_a5ccd7e9263c7caeb4dac72e7d2db57be}
+
+
+remove uma sessao das participacoes do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sessao} & sessao a remover \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!set\+Arte@{set\+Arte}}
+\index{set\+Arte@{set\+Arte}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{set\+Arte(string arte)}{setArte(string arte)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::set\+Arte (
+\begin{DoxyParamCaption}
+\item[{string}]{arte}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a715b39c52b6811b6607c711a37ee526d}{}\label{classcandidato_a715b39c52b6811b6607c711a37ee526d}
+
+
+altera arte do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arte} & string com a arte a alterar \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{set\+Data(vector$<$ int $>$ v)}{setData(vector< int > v)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{v}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a644101f4e5c21eb9a7e99c5b2870e0e0}{}\label{classcandidato_a644101f4e5c21eb9a7e99c5b2870e0e0}
+
+
+altera data de nascimento ( dia mes ano) do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em v} & vector que contem o dia mes e ano (nesta sequencia) \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!set\+Desistiu@{set\+Desistiu}}
+\index{set\+Desistiu@{set\+Desistiu}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{set\+Desistiu(bool d)}{setDesistiu(bool d)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::set\+Desistiu (
+\begin{DoxyParamCaption}
+\item[{bool}]{d}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a1e2533bef3ab1c4dd1f8d95f3940bb46}{}\label{classcandidato_a1e2533bef3ab1c4dd1f8d95f3940bb46}
+
+
+altera se um candidato desisitiu 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & bool para que se pretende alterar \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!set\+Morada@{set\+Morada}}
+\index{set\+Morada@{set\+Morada}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{set\+Morada(string morada)}{setMorada(string morada)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::set\+Morada (
+\begin{DoxyParamCaption}
+\item[{string}]{morada}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_a6bb51b1239e988201502a9f0a2ec27b5}{}\label{classcandidato_a6bb51b1239e988201502a9f0a2ec27b5}
+
+
+altera morada do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em morada} & string com a morada para alterar \\
+\hline
+\end{DoxyParams}
+\index{candidato@{candidato}!set\+Nome@{set\+Nome}}
+\index{set\+Nome@{set\+Nome}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{set\+Nome(string nome)}{setNome(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void candidato\+::set\+Nome (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{classcandidato_ab3ec398c44b2fbb96671db2a9ab6115d}{}\label{classcandidato_ab3ec398c44b2fbb96671db2a9ab6115d}
+
+
+altera nome do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & string com o nome para alterar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{candidato@{candidato}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{const {\bf candidato} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classcandidato_a8b349878e0149761fba4bccf3c7d5148}{}\label{classcandidato_a8b349878e0149761fba4bccf3c7d5148}
+
+
+overload do operador $<$$<$ para a classe candidato (ostream) 
+
+\index{candidato@{candidato}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!candidato@{candidato}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{o, }
+\item[{const {\bf candidato} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classcandidato_ad86b8f19b641b7c48c5c695a8f15f9a2}{}\label{classcandidato_ad86b8f19b641b7c48c5c695a8f15f9a2}
+
+
+overload do operador $<$$<$ para a classe candidato (fstream) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{candidato_8h}{candidato.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{candidato_8cpp}{candidato.\+cpp}\end{DoxyCompactItemize}

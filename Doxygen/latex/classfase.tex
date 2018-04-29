@@ -1,0 +1,118 @@
+\hypertarget{classfase}{}\section{fase Class Reference}
+\label{classfase}\index{fase@{fase}}
+
+
+classe abstrata relativa as varia fases de uma sessao  
+
+
+
+
+{\ttfamily \#include $<$fase.\+h$>$}
+
+
+
+Inheritance diagram for fase\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=180pt]{classfase__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfase_aa083a44106dfc979915f9e9ffb78f206}{fase} ()
+\begin{DoxyCompactList}\small\item\em construtor da classe fase \end{DoxyCompactList}\item 
+virtual \hyperlink{classfase_a84ce4001850cdcf2c001feb38bc65a47}{$\sim$fase} ()
+\begin{DoxyCompactList}\small\item\em destrutor da classe fase \end{DoxyCompactList}\item 
+virtual void \hyperlink{classfase_af940cf6e1b3aaff1802f354d82d73208}{atribui\+Pontuacoes} ()=0
+\begin{DoxyCompactList}\small\item\em metodo virtual para a atribuicao das pontuacoes numa fase \end{DoxyCompactList}\item 
+virtual void \hyperlink{classfase_af0597909e632b43fb33f2b49f66280e1}{ordena\+Pontuacoes} ()=0
+\begin{DoxyCompactList}\small\item\em metodo virtual para ordenar as classificacoes dos candidatos (da maior para a menor) \end{DoxyCompactList}\item 
+virtual vector$<$ \hyperlink{structClassificacao}{Classificacao} $>$ \hyperlink{classfase_a44cb191d58429a075bd3820e847c2823}{get\+Classificacoes} () const =0
+\begin{DoxyCompactList}\small\item\em metodo virtual que devolve as classificacoes dos candidatos duma certa fase \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe abstrata relativa as varia fases de uma sessao 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{fase@{fase}!fase@{fase}}
+\index{fase@{fase}!fase@{fase}}
+\subsubsection[{\texorpdfstring{fase()}{fase()}}]{\setlength{\rightskip}{0pt plus 5cm}fase\+::fase (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase_aa083a44106dfc979915f9e9ffb78f206}{}\label{classfase_aa083a44106dfc979915f9e9ffb78f206}
+
+
+construtor da classe fase 
+
+\index{fase@{fase}!````~fase@{$\sim$fase}}
+\index{````~fase@{$\sim$fase}!fase@{fase}}
+\subsubsection[{\texorpdfstring{$\sim$fase()}{~fase()}}]{\setlength{\rightskip}{0pt plus 5cm}fase\+::$\sim$fase (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase_a84ce4001850cdcf2c001feb38bc65a47}{}\label{classfase_a84ce4001850cdcf2c001feb38bc65a47}
+
+
+destrutor da classe fase 
+
+
+
+\subsection{Member Function Documentation}
+\index{fase@{fase}!atribui\+Pontuacoes@{atribui\+Pontuacoes}}
+\index{atribui\+Pontuacoes@{atribui\+Pontuacoes}!fase@{fase}}
+\subsubsection[{\texorpdfstring{atribui\+Pontuacoes()=0}{atribuiPontuacoes()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void fase\+::atribui\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classfase_af940cf6e1b3aaff1802f354d82d73208}{}\label{classfase_af940cf6e1b3aaff1802f354d82d73208}
+
+
+metodo virtual para a atribuicao das pontuacoes numa fase 
+
+
+
+Implemented in \hyperlink{classfase2_a8088339c7740a9bdb0d26c270036a885}{fase2}, and \hyperlink{classfase1_ad4bd20d6f65510c72c6924cbd77b5af0}{fase1}.
+
+\index{fase@{fase}!get\+Classificacoes@{get\+Classificacoes}}
+\index{get\+Classificacoes@{get\+Classificacoes}!fase@{fase}}
+\subsubsection[{\texorpdfstring{get\+Classificacoes() const =0}{getClassificacoes() const =0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual vector$<${\bf Classificacao}$>$ fase\+::get\+Classificacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classfase_a44cb191d58429a075bd3820e847c2823}{}\label{classfase_a44cb191d58429a075bd3820e847c2823}
+
+
+metodo virtual que devolve as classificacoes dos candidatos duma certa fase 
+
+\begin{DoxyReturn}{Returns}
+vetor com as classificacoes 
+\end{DoxyReturn}
+
+
+Implemented in \hyperlink{classfase2_a9ce60146eeac9f5862e1eb5c87191418}{fase2}, and \hyperlink{classfase1_ab228229f675fb1581459b826f31d3d82}{fase1}.
+
+\index{fase@{fase}!ordena\+Pontuacoes@{ordena\+Pontuacoes}}
+\index{ordena\+Pontuacoes@{ordena\+Pontuacoes}!fase@{fase}}
+\subsubsection[{\texorpdfstring{ordena\+Pontuacoes()=0}{ordenaPontuacoes()=0}}]{\setlength{\rightskip}{0pt plus 5cm}virtual void fase\+::ordena\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [pure virtual]}}\hypertarget{classfase_af0597909e632b43fb33f2b49f66280e1}{}\label{classfase_af0597909e632b43fb33f2b49f66280e1}
+
+
+metodo virtual para ordenar as classificacoes dos candidatos (da maior para a menor) 
+
+
+
+Implemented in \hyperlink{classfase2_a072c622b806ec59bedf3588a5886a153}{fase2}, and \hyperlink{classfase1_a630facb1c550249547876d73e2e9c2c9}{fase1}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8h}{fase.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8cpp}{fase.\+cpp}\end{DoxyCompactItemize}

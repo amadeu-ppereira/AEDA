@@ -1,0 +1,801 @@
+\hypertarget{funcoes_8cpp}{}\section{/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/funcoes.cpp File Reference}
+\label{funcoes_8cpp}\index{/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/funcoes.\+cpp@{/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/funcoes.\+cpp}}
+{\ttfamily \#include \char`\"{}funcoes.\+h\char`\"{}}\\*
+Include dependency graph for funcoes.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{funcoes_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{funcoes_8cpp_a35728269fe38e432b3dd133e78b1fd55}{reset\+Hash\+Table} ()
+\begin{DoxyCompactList}\small\item\em remove todos os participantes exceto os que desistiram \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a03e271bb3bedf66f73cad262e700e837}{cin\+Teste} ()
+\begin{DoxyCompactList}\small\item\em verifica se houve erro com o cin \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a7335042b18e3855974159d4d08c7a7c2}{ler\+Ficheiro\+Candidatos} ()
+\begin{DoxyCompactList}\small\item\em lê o ficheiro e guarda a informacao dos candidatos no vetor global \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a80dac83ba60f597f6db8e22bc77a4de5}{ler\+Ficheiro\+Jurados} ()
+\begin{DoxyCompactList}\small\item\em lê o ficheiro e guarda a informacao dos jurados no vetor global \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_aa7a3938e939446fca96abf52819ec5aa}{ler\+Ficheiro\+Sessoes} ()
+\begin{DoxyCompactList}\small\item\em lê o ficheiro e guarda a informacao das sessoes no vetor global \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a527d2f397f0c48b910095588a4c9187f}{ler\+Ficheiros} ()
+\begin{DoxyCompactList}\small\item\em abre e lê a informacao de todos os ficheiros \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_aedd438ee191a5d0073b0df5cebee5c06}{gravar\+Ficheiro\+Candidatos} ()
+\begin{DoxyCompactList}\small\item\em grava o vetor global de candidatos no ficheiro \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a26b225e88f861652f753c3c302918fb9}{gravar\+Ficheiro\+Jurados} ()
+\begin{DoxyCompactList}\small\item\em grava o vetor global de jurados no ficheiro \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a3dbb90e9800c11416d6aae34fd3efd09}{gravar\+Ficheiro\+Sessoes} ()
+\begin{DoxyCompactList}\small\item\em grava o vetor global de sessoes no ficheiro \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_af65e43314768eb1b18c8ea72b7db53c0}{gravar\+Ficheiros} ()
+\begin{DoxyCompactList}\small\item\em grava os vetores globais nos ficheiros respetivos \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a26ac37d614dfa527c7b053d7cad26950}{sair} ()
+\begin{DoxyCompactList}\small\item\em guarda informacao nos ficheiros e sair do programa \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_ad766ed2d22fd7718188d925c228c0500}{adiciona\+Candidato} (\hyperlink{classcandidato}{candidato} c)
+\begin{DoxyCompactList}\small\item\em adiciona um candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a38b128fc1a8cf5839e81d632909177e2}{remove\+Candidato} (int numero)
+\begin{DoxyCompactList}\small\item\em remove um candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a6ae25de891ba5684070171585c468c58}{remove\+Candidato} (string nome)
+\begin{DoxyCompactList}\small\item\em remove um candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a3f9ae6c2a2f873eafba5dcf2a90812db}{alterar\+Candidato} (int numero)
+\begin{DoxyCompactList}\small\item\em altera as informacoes de um candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a17e7c5e32e7e7498dbb912bf9e834e61}{alterar\+Candidato} (string nome)
+\begin{DoxyCompactList}\small\item\em altera as informacoes de um candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a0eaa629e9fa2d0a368034d9d51755926}{info\+Candidato} (int numero)
+\begin{DoxyCompactList}\small\item\em dá display da informacao do candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_aad9e9cc84f293130064cf9484adff5ac}{info\+Candidato} (\hyperlink{classcandidato}{candidato} c)
+\begin{DoxyCompactList}\small\item\em dá display da informacao do candidato \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_aed1a3b47f489be1e24c3b3173ae3ca77}{adiciona\+Jurado} (\hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em adiciona um jurado \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a977fecb61bbc152ce7760ba950b0a3eb}{remove\+Jurado} (string nome)
+\begin{DoxyCompactList}\small\item\em remove um jurado \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_ab228dd12131d805687f5efc999be740d}{info\+Jurado} (string nome)
+\begin{DoxyCompactList}\small\item\em dá display da informacao do jurado \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a6d5358f6ddfef6e930f443c71dcd7deb}{info\+Jurado} (\hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em dá display da informacao dos jurados \end{DoxyCompactList}\item 
+\hyperlink{classBSTItrIn}{B\+S\+T\+Itr\+In}$<$ \hyperlink{classcandidato}{candidato} $>$ \hyperlink{funcoes_8cpp_a0b55c14ba666b441a4c6f0dd0509fbfa}{procura\+Candidato} (\hyperlink{classcandidato}{candidato} c)
+\begin{DoxyCompactList}\small\item\em procura se o candidato se encontra no vetor global \end{DoxyCompactList}\item 
+\hyperlink{classBSTItrIn}{B\+S\+T\+Itr\+In}$<$ \hyperlink{classcandidato}{candidato} $>$ \hyperlink{funcoes_8cpp_aa96b384c150d783ed651baaba395e163}{procura\+Candidato} (int numero)
+\begin{DoxyCompactList}\small\item\em procura se o candidato se encontra no vetor global \end{DoxyCompactList}\item 
+\hyperlink{classBSTItrIn}{B\+S\+T\+Itr\+In}$<$ \hyperlink{classcandidato}{candidato} $>$ \hyperlink{funcoes_8cpp_a428152cfce79ff13931b60019771e87e}{procura\+Candidato} (string nome)
+\begin{DoxyCompactList}\small\item\em procura se o candidato se encontra no vetor global \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_ae538da495cdcf7c84535390216211e8f}{procura\+Jurado} (\hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em procura se o jurado se encontra no vetor global de jurados \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_aa63ed5266b677ed47f735e26e5be010e}{procura\+Jurado} (string nome)
+\begin{DoxyCompactList}\small\item\em procura se o jurado se encontra no vetor global de jurados \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a950f2dc53b3249b8665c1b0d673b0926}{procura\+Sessao} (string genero\+Arte, vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em procura se a sessao se encontra no vetor global de sessoes \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a28991002c5dfdf06508b236d60709d92}{procura\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em procura se a sessao se encontra no vetor global de sessoes \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_ac8fe930867cdb0d85a9d1d1aa045da6f}{adiciona\+Sessao} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em adiciona uma nova sessao ao vetor global sessoes \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a1c106f754a83de93d9aedd564d768437}{remove\+Sessao} (string genero\+Arte, vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em remove uma sessao do vetor global de sessoes \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a62b097f473c1a672a3fdf1555d32350f}{remove\+Fases} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em remove as fases de uma sessao \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{funcoes_8cpp_abf7dc8ccb49b447a01758b49417be421}{candidatos\+Disponiveis} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em da display de todos os candidatos disponiveis para uma sessao \end{DoxyCompactList}\item 
+vector$<$ string $>$ \hyperlink{funcoes_8cpp_a0405cae70c2d8ef83f45114e549f8231}{jurados\+Disponiveis} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em da display de todos os jurados disponiveis para uma sessao \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a78b13210272a9a59830544851d9b955e}{adiciona\+Candidato\+Sessao} (int n, \hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em adiciona um candidato a uma sessao \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a157d29cdc4b75416540f6a577cb8a2e1}{adiciona\+Jurado\+Sessao} (string nome, \hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em adiciona um jurado a uma sessao \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_a0d910f3431d1acf2a513ed93c336699e}{display\+Info\+Sessao} (string arte, vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em dá display das informacoes de uma sessao \end{DoxyCompactList}\item 
+void \hyperlink{funcoes_8cpp_ab6074f9624a6827c4a74e48cd114f12a}{comecar\+Sessao} (string arte, vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em esta funcao permite a atribuicao de pontos a cada candidato de uma sessao (para ambas as fases) mostrando no fim o vencedor tambem adiciona aos vetores globais as novas fases \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a6d8972b532c33ef140f35dc19f476caa}{procura\+Fase1} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em procura se a sessao ja tem uma \hyperlink{classfase1}{fase1} \end{DoxyCompactList}\item 
+int \hyperlink{funcoes_8cpp_a1f254fcf857e05f9adbd28e2c144ac14}{procura\+Fase2} (\hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em procura se a sessao ja tem uma \hyperlink{classfase2}{fase2} \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classcandidato}{candidato} \hyperlink{funcoes_8cpp_a4577f0625a9cb11baf4f0c481fc463c5}{notF} = \hyperlink{classcandidato}{candidato}()
+\item 
+\hyperlink{classBST}{B\+ST}$<$ \hyperlink{classcandidato}{candidato} $>$ \hyperlink{funcoes_8cpp_a84f115e3fbf17c018b4746eb95ac1b5a}{candidatos\+Global} (\hyperlink{funcoes_8h_a4577f0625a9cb11baf4f0c481fc463c5}{notF})
+\item 
+vector$<$ \hyperlink{classjurado}{jurado} $\ast$ $>$ \hyperlink{funcoes_8cpp_ae9435e6e661379e8e415046d02a346fa}{jurados\+Global}
+\item 
+vector$<$ \hyperlink{classsessao}{sessao} $\ast$ $>$ \hyperlink{funcoes_8cpp_a8d719244453f7f8ffad19bbf9a61379e}{sessao\+Global}
+\item 
+vector$<$ \hyperlink{classfase1}{fase1} $>$ \hyperlink{funcoes_8cpp_a6c049f7ef530d38d2ec88ab69c691ec9}{fases1}
+\item 
+vector$<$ \hyperlink{classfase2}{fase2} $>$ \hyperlink{funcoes_8cpp_a8dbf01c38737187aa4a624bfa435940f}{fases2}
+\item 
+\hyperlink{funcoes_8h_ac8c2773477a4703c8516077e593542b6}{Hash\+Tab} \hyperlink{funcoes_8cpp_ac7f4b498c121dea87209cfe06252a444}{indisponibilidades}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!adiciona\+Candidato@{adiciona\+Candidato}}
+\index{adiciona\+Candidato@{adiciona\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{adiciona\+Candidato(candidato c)}{adicionaCandidato(candidato c)}}]{\setlength{\rightskip}{0pt plus 5cm}void adiciona\+Candidato (
+\begin{DoxyParamCaption}
+\item[{{\bf candidato}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_ad766ed2d22fd7718188d925c228c0500}{}\label{funcoes_8cpp_ad766ed2d22fd7718188d925c228c0500}
+
+
+adiciona um candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & objeto de um candidato \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!adiciona\+Candidato\+Sessao@{adiciona\+Candidato\+Sessao}}
+\index{adiciona\+Candidato\+Sessao@{adiciona\+Candidato\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{adiciona\+Candidato\+Sessao(int n, sessao $\ast$s)}{adicionaCandidatoSessao(int n, sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void adiciona\+Candidato\+Sessao (
+\begin{DoxyParamCaption}
+\item[{int}]{n, }
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a78b13210272a9a59830544851d9b955e}{}\label{funcoes_8cpp_a78b13210272a9a59830544851d9b955e}
+
+
+adiciona um candidato a uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & numero do candidato \\
+\hline
+{\em s} & sessao a adicionar \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!adiciona\+Jurado@{adiciona\+Jurado}}
+\index{adiciona\+Jurado@{adiciona\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{adiciona\+Jurado(jurado $\ast$j)}{adicionaJurado(jurado *j)}}]{\setlength{\rightskip}{0pt plus 5cm}void adiciona\+Jurado (
+\begin{DoxyParamCaption}
+\item[{{\bf jurado} $\ast$}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aed1a3b47f489be1e24c3b3173ae3ca77}{}\label{funcoes_8cpp_aed1a3b47f489be1e24c3b3173ae3ca77}
+
+
+adiciona um jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & objeto de um jurado \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!adiciona\+Jurado\+Sessao@{adiciona\+Jurado\+Sessao}}
+\index{adiciona\+Jurado\+Sessao@{adiciona\+Jurado\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{adiciona\+Jurado\+Sessao(string nome, sessao $\ast$s)}{adicionaJuradoSessao(string nome, sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void adiciona\+Jurado\+Sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{nome, }
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a157d29cdc4b75416540f6a577cb8a2e1}{}\label{funcoes_8cpp_a157d29cdc4b75416540f6a577cb8a2e1}
+
+
+adiciona um jurado a uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado \\
+\hline
+{\em s} & sessao a adicionar \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!adiciona\+Sessao@{adiciona\+Sessao}}
+\index{adiciona\+Sessao@{adiciona\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{adiciona\+Sessao(sessao $\ast$s)}{adicionaSessao(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void adiciona\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_ac8fe930867cdb0d85a9d1d1aa045da6f}{}\label{funcoes_8cpp_ac8fe930867cdb0d85a9d1d1aa045da6f}
+
+
+adiciona uma nova sessao ao vetor global sessoes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a adicionar \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!alterar\+Candidato@{alterar\+Candidato}}
+\index{alterar\+Candidato@{alterar\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{alterar\+Candidato(int numero)}{alterarCandidato(int numero)}}]{\setlength{\rightskip}{0pt plus 5cm}void alterar\+Candidato (
+\begin{DoxyParamCaption}
+\item[{int}]{numero}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a3f9ae6c2a2f873eafba5dcf2a90812db}{}\label{funcoes_8cpp_a3f9ae6c2a2f873eafba5dcf2a90812db}
+
+
+altera as informacoes de um candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & numero do candidato a alterar \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!alterar\+Candidato@{alterar\+Candidato}}
+\index{alterar\+Candidato@{alterar\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{alterar\+Candidato(string nome)}{alterarCandidato(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void alterar\+Candidato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a17e7c5e32e7e7498dbb912bf9e834e61}{}\label{funcoes_8cpp_a17e7c5e32e7e7498dbb912bf9e834e61}
+
+
+altera as informacoes de um candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do candidato a alterar \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!candidatos\+Disponiveis@{candidatos\+Disponiveis}}
+\index{candidatos\+Disponiveis@{candidatos\+Disponiveis}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{candidatos\+Disponiveis(sessao $\ast$s)}{candidatosDisponiveis(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$int$>$ candidatos\+Disponiveis (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_abf7dc8ccb49b447a01758b49417be421}{}\label{funcoes_8cpp_abf7dc8ccb49b447a01758b49417be421}
+
+
+da display de todos os candidatos disponiveis para uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a analisar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector com os numeros de todos os candidatos disponiveis 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!cin\+Teste@{cin\+Teste}}
+\index{cin\+Teste@{cin\+Teste}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{cin\+Teste()}{cinTeste()}}]{\setlength{\rightskip}{0pt plus 5cm}int cin\+Teste (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a03e271bb3bedf66f73cad262e700e837}{}\label{funcoes_8cpp_a03e271bb3bedf66f73cad262e700e837}
+
+
+verifica se houve erro com o cin 
+
+\begin{DoxyReturn}{Returns}
+0 nao houve erro, 1 se houve erro 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!comecar\+Sessao@{comecar\+Sessao}}
+\index{comecar\+Sessao@{comecar\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{comecar\+Sessao(string arte, vector$<$ int $>$ data)}{comecarSessao(string arte, vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}void comecar\+Sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{arte, }
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_ab6074f9624a6827c4a74e48cd114f12a}{}\label{funcoes_8cpp_ab6074f9624a6827c4a74e48cd114f12a}
+
+
+esta funcao permite a atribuicao de pontos a cada candidato de uma sessao (para ambas as fases) mostrando no fim o vencedor tambem adiciona aos vetores globais as novas fases 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arte} & a arte da sessao \\
+\hline
+{\em data} & a data da sessao \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!display\+Info\+Sessao@{display\+Info\+Sessao}}
+\index{display\+Info\+Sessao@{display\+Info\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{display\+Info\+Sessao(string arte, vector$<$ int $>$ data)}{displayInfoSessao(string arte, vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}void display\+Info\+Sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{arte, }
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a0d910f3431d1acf2a513ed93c336699e}{}\label{funcoes_8cpp_a0d910f3431d1acf2a513ed93c336699e}
+
+
+dá display das informacoes de uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em arte} & arte da sessao \\
+\hline
+{\em data} & data da sessao \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!gravar\+Ficheiro\+Candidatos@{gravar\+Ficheiro\+Candidatos}}
+\index{gravar\+Ficheiro\+Candidatos@{gravar\+Ficheiro\+Candidatos}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{gravar\+Ficheiro\+Candidatos()}{gravarFicheiroCandidatos()}}]{\setlength{\rightskip}{0pt plus 5cm}int gravar\+Ficheiro\+Candidatos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aedd438ee191a5d0073b0df5cebee5c06}{}\label{funcoes_8cpp_aedd438ee191a5d0073b0df5cebee5c06}
+
+
+grava o vetor global de candidatos no ficheiro 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!gravar\+Ficheiro\+Jurados@{gravar\+Ficheiro\+Jurados}}
+\index{gravar\+Ficheiro\+Jurados@{gravar\+Ficheiro\+Jurados}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{gravar\+Ficheiro\+Jurados()}{gravarFicheiroJurados()}}]{\setlength{\rightskip}{0pt plus 5cm}int gravar\+Ficheiro\+Jurados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a26b225e88f861652f753c3c302918fb9}{}\label{funcoes_8cpp_a26b225e88f861652f753c3c302918fb9}
+
+
+grava o vetor global de jurados no ficheiro 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!gravar\+Ficheiros@{gravar\+Ficheiros}}
+\index{gravar\+Ficheiros@{gravar\+Ficheiros}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{gravar\+Ficheiros()}{gravarFicheiros()}}]{\setlength{\rightskip}{0pt plus 5cm}int gravar\+Ficheiros (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_af65e43314768eb1b18c8ea72b7db53c0}{}\label{funcoes_8cpp_af65e43314768eb1b18c8ea72b7db53c0}
+
+
+grava os vetores globais nos ficheiros respetivos 
+
+\begin{DoxyReturn}{Returns}
+0 se nao houver erro, 1 se houver erro 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!gravar\+Ficheiro\+Sessoes@{gravar\+Ficheiro\+Sessoes}}
+\index{gravar\+Ficheiro\+Sessoes@{gravar\+Ficheiro\+Sessoes}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{gravar\+Ficheiro\+Sessoes()}{gravarFicheiroSessoes()}}]{\setlength{\rightskip}{0pt plus 5cm}int gravar\+Ficheiro\+Sessoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a3dbb90e9800c11416d6aae34fd3efd09}{}\label{funcoes_8cpp_a3dbb90e9800c11416d6aae34fd3efd09}
+
+
+grava o vetor global de sessoes no ficheiro 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!info\+Candidato@{info\+Candidato}}
+\index{info\+Candidato@{info\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{info\+Candidato(int numero)}{infoCandidato(int numero)}}]{\setlength{\rightskip}{0pt plus 5cm}void info\+Candidato (
+\begin{DoxyParamCaption}
+\item[{int}]{numero}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a0eaa629e9fa2d0a368034d9d51755926}{}\label{funcoes_8cpp_a0eaa629e9fa2d0a368034d9d51755926}
+
+
+dá display da informacao do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & numero do candidato \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!info\+Candidato@{info\+Candidato}}
+\index{info\+Candidato@{info\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{info\+Candidato(candidato c)}{infoCandidato(candidato c)}}]{\setlength{\rightskip}{0pt plus 5cm}void info\+Candidato (
+\begin{DoxyParamCaption}
+\item[{{\bf candidato}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aad9e9cc84f293130064cf9484adff5ac}{}\label{funcoes_8cpp_aad9e9cc84f293130064cf9484adff5ac}
+
+
+dá display da informacao do candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & candidato pretendido \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!info\+Jurado@{info\+Jurado}}
+\index{info\+Jurado@{info\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{info\+Jurado(string nome)}{infoJurado(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void info\+Jurado (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_ab228dd12131d805687f5efc999be740d}{}\label{funcoes_8cpp_ab228dd12131d805687f5efc999be740d}
+
+
+dá display da informacao do jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!info\+Jurado@{info\+Jurado}}
+\index{info\+Jurado@{info\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{info\+Jurado(jurado $\ast$j)}{infoJurado(jurado *j)}}]{\setlength{\rightskip}{0pt plus 5cm}void info\+Jurado (
+\begin{DoxyParamCaption}
+\item[{{\bf jurado} $\ast$}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a6d5358f6ddfef6e930f443c71dcd7deb}{}\label{funcoes_8cpp_a6d5358f6ddfef6e930f443c71dcd7deb}
+
+
+dá display da informacao dos jurados 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & objecto de um jurado \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!jurados\+Disponiveis@{jurados\+Disponiveis}}
+\index{jurados\+Disponiveis@{jurados\+Disponiveis}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{jurados\+Disponiveis(sessao $\ast$s)}{juradosDisponiveis(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$string$>$ jurados\+Disponiveis (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a0405cae70c2d8ef83f45114e549f8231}{}\label{funcoes_8cpp_a0405cae70c2d8ef83f45114e549f8231}
+
+
+da display de todos os jurados disponiveis para uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a analisar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector com os nomes de todos os jurados disponiveis 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!ler\+Ficheiro\+Candidatos@{ler\+Ficheiro\+Candidatos}}
+\index{ler\+Ficheiro\+Candidatos@{ler\+Ficheiro\+Candidatos}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{ler\+Ficheiro\+Candidatos()}{lerFicheiroCandidatos()}}]{\setlength{\rightskip}{0pt plus 5cm}int ler\+Ficheiro\+Candidatos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a7335042b18e3855974159d4d08c7a7c2}{}\label{funcoes_8cpp_a7335042b18e3855974159d4d08c7a7c2}
+
+
+lê o ficheiro e guarda a informacao dos candidatos no vetor global 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!ler\+Ficheiro\+Jurados@{ler\+Ficheiro\+Jurados}}
+\index{ler\+Ficheiro\+Jurados@{ler\+Ficheiro\+Jurados}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{ler\+Ficheiro\+Jurados()}{lerFicheiroJurados()}}]{\setlength{\rightskip}{0pt plus 5cm}int ler\+Ficheiro\+Jurados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a80dac83ba60f597f6db8e22bc77a4de5}{}\label{funcoes_8cpp_a80dac83ba60f597f6db8e22bc77a4de5}
+
+
+lê o ficheiro e guarda a informacao dos jurados no vetor global 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!ler\+Ficheiros@{ler\+Ficheiros}}
+\index{ler\+Ficheiros@{ler\+Ficheiros}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{ler\+Ficheiros()}{lerFicheiros()}}]{\setlength{\rightskip}{0pt plus 5cm}int ler\+Ficheiros (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a527d2f397f0c48b910095588a4c9187f}{}\label{funcoes_8cpp_a527d2f397f0c48b910095588a4c9187f}
+
+
+abre e lê a informacao de todos os ficheiros 
+
+\begin{DoxyReturn}{Returns}
+0 se nao houver erro, 1 se houve algum erro 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!ler\+Ficheiro\+Sessoes@{ler\+Ficheiro\+Sessoes}}
+\index{ler\+Ficheiro\+Sessoes@{ler\+Ficheiro\+Sessoes}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{ler\+Ficheiro\+Sessoes()}{lerFicheiroSessoes()}}]{\setlength{\rightskip}{0pt plus 5cm}int ler\+Ficheiro\+Sessoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aa7a3938e939446fca96abf52819ec5aa}{}\label{funcoes_8cpp_aa7a3938e939446fca96abf52819ec5aa}
+
+
+lê o ficheiro e guarda a informacao das sessoes no vetor global 
+
+\begin{DoxyReturn}{Returns}
+0 se sucesso, 1 se endereço invalido 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Candidato@{procura\+Candidato}}
+\index{procura\+Candidato@{procura\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Candidato(candidato c)}{procuraCandidato(candidato c)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T\+Itr\+In}$<${\bf candidato}$>$ procura\+Candidato (
+\begin{DoxyParamCaption}
+\item[{{\bf candidato}}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a0b55c14ba666b441a4c6f0dd0509fbfa}{}\label{funcoes_8cpp_a0b55c14ba666b441a4c6f0dd0509fbfa}
+
+
+procura se o candidato se encontra no vetor global 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & candidato a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+iterador 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Candidato@{procura\+Candidato}}
+\index{procura\+Candidato@{procura\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Candidato(int numero)}{procuraCandidato(int numero)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T\+Itr\+In}$<${\bf candidato}$>$ procura\+Candidato (
+\begin{DoxyParamCaption}
+\item[{int}]{numero}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aa96b384c150d783ed651baaba395e163}{}\label{funcoes_8cpp_aa96b384c150d783ed651baaba395e163}
+
+
+procura se o candidato se encontra no vetor global 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & numero do candidato a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+iterador 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Candidato@{procura\+Candidato}}
+\index{procura\+Candidato@{procura\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Candidato(string nome)}{procuraCandidato(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+S\+T\+Itr\+In}$<${\bf candidato}$>$ procura\+Candidato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a428152cfce79ff13931b60019771e87e}{}\label{funcoes_8cpp_a428152cfce79ff13931b60019771e87e}
+
+
+procura se o candidato se encontra no vetor global 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do candidato a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+iterador 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Fase1@{procura\+Fase1}}
+\index{procura\+Fase1@{procura\+Fase1}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Fase1(sessao $\ast$s)}{procuraFase1(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Fase1 (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a6d8972b532c33ef140f35dc19f476caa}{}\label{funcoes_8cpp_a6d8972b532c33ef140f35dc19f476caa}
+
+
+procura se a sessao ja tem uma \hyperlink{classfase1}{fase1} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice da fase se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Fase2@{procura\+Fase2}}
+\index{procura\+Fase2@{procura\+Fase2}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Fase2(sessao $\ast$s)}{procuraFase2(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Fase2 (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a1f254fcf857e05f9adbd28e2c144ac14}{}\label{funcoes_8cpp_a1f254fcf857e05f9adbd28e2c144ac14}
+
+
+procura se a sessao ja tem uma \hyperlink{classfase2}{fase2} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice da fase se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Jurado@{procura\+Jurado}}
+\index{procura\+Jurado@{procura\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Jurado(jurado $\ast$j)}{procuraJurado(jurado *j)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Jurado (
+\begin{DoxyParamCaption}
+\item[{{\bf jurado} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_ae538da495cdcf7c84535390216211e8f}{}\label{funcoes_8cpp_ae538da495cdcf7c84535390216211e8f}
+
+
+procura se o jurado se encontra no vetor global de jurados 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & jurado a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Jurado@{procura\+Jurado}}
+\index{procura\+Jurado@{procura\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Jurado(string nome)}{procuraJurado(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Jurado (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_aa63ed5266b677ed47f735e26e5be010e}{}\label{funcoes_8cpp_aa63ed5266b677ed47f735e26e5be010e}
+
+
+procura se o jurado se encontra no vetor global de jurados 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Sessao@{procura\+Sessao}}
+\index{procura\+Sessao@{procura\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Sessao(string genero\+Arte, vector$<$ int $>$ data)}{procuraSessao(string generoArte, vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{genero\+Arte, }
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a950f2dc53b3249b8665c1b0d673b0926}{}\label{funcoes_8cpp_a950f2dc53b3249b8665c1b0d673b0926}
+
+
+procura se a sessao se encontra no vetor global de sessoes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & genero\+Arte é o genero de arte da sessao pretendida \\
+\hline
+{\em data} & é da data da sessao \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!procura\+Sessao@{procura\+Sessao}}
+\index{procura\+Sessao@{procura\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{procura\+Sessao(sessao $\ast$s)}{procuraSessao(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}int procura\+Sessao (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a28991002c5dfdf06508b236d60709d92}{}\label{funcoes_8cpp_a28991002c5dfdf06508b236d60709d92}
+
+
+procura se a sessao se encontra no vetor global de sessoes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao a procurar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+indice se existir , -\/1 caso contrário 
+\end{DoxyReturn}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!remove\+Candidato@{remove\+Candidato}}
+\index{remove\+Candidato@{remove\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{remove\+Candidato(int numero)}{removeCandidato(int numero)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Candidato (
+\begin{DoxyParamCaption}
+\item[{int}]{numero}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a38b128fc1a8cf5839e81d632909177e2}{}\label{funcoes_8cpp_a38b128fc1a8cf5839e81d632909177e2}
+
+
+remove um candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em numero} & numero do candidato a remover \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!remove\+Candidato@{remove\+Candidato}}
+\index{remove\+Candidato@{remove\+Candidato}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{remove\+Candidato(string nome)}{removeCandidato(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Candidato (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a6ae25de891ba5684070171585c468c58}{}\label{funcoes_8cpp_a6ae25de891ba5684070171585c468c58}
+
+
+remove um candidato 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do candidato a remover \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!remove\+Fases@{remove\+Fases}}
+\index{remove\+Fases@{remove\+Fases}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{remove\+Fases(sessao $\ast$s)}{removeFases(sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Fases (
+\begin{DoxyParamCaption}
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a62b097f473c1a672a3fdf1555d32350f}{}\label{funcoes_8cpp_a62b097f473c1a672a3fdf1555d32350f}
+
+
+remove as fases de uma sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & sessao \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!remove\+Jurado@{remove\+Jurado}}
+\index{remove\+Jurado@{remove\+Jurado}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{remove\+Jurado(string nome)}{removeJurado(string nome)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Jurado (
+\begin{DoxyParamCaption}
+\item[{string}]{nome}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a977fecb61bbc152ce7760ba950b0a3eb}{}\label{funcoes_8cpp_a977fecb61bbc152ce7760ba950b0a3eb}
+
+
+remove um jurado 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nome} & nome do jurado a remover \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!remove\+Sessao@{remove\+Sessao}}
+\index{remove\+Sessao@{remove\+Sessao}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{remove\+Sessao(string genero\+Arte, vector$<$ int $>$ data)}{removeSessao(string generoArte, vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}void remove\+Sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{genero\+Arte, }
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a1c106f754a83de93d9aedd564d768437}{}\label{funcoes_8cpp_a1c106f754a83de93d9aedd564d768437}
+
+
+remove uma sessao do vetor global de sessoes 
+
+
+\begin{DoxyParams}{Parameters}
+{\em genero\+Arte} & generto de arte da sessao a remover \\
+\hline
+{\em data} & vetor com a data (dia,mes,ano) a remover \\
+\hline
+\end{DoxyParams}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!reset\+Hash\+Table@{reset\+Hash\+Table}}
+\index{reset\+Hash\+Table@{reset\+Hash\+Table}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{reset\+Hash\+Table()}{resetHashTable()}}]{\setlength{\rightskip}{0pt plus 5cm}void reset\+Hash\+Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a35728269fe38e432b3dd133e78b1fd55}{}\label{funcoes_8cpp_a35728269fe38e432b3dd133e78b1fd55}
+
+
+remove todos os participantes exceto os que desistiram 
+
+\index{funcoes.\+cpp@{funcoes.\+cpp}!sair@{sair}}
+\index{sair@{sair}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{sair()}{sair()}}]{\setlength{\rightskip}{0pt plus 5cm}void sair (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{funcoes_8cpp_a26ac37d614dfa527c7b053d7cad26950}{}\label{funcoes_8cpp_a26ac37d614dfa527c7b053d7cad26950}
+
+
+guarda informacao nos ficheiros e sair do programa 
+
+
+
+\subsection{Variable Documentation}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!candidatos\+Global@{candidatos\+Global}}
+\index{candidatos\+Global@{candidatos\+Global}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{candidatos\+Global}{candidatosGlobal}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf B\+ST}$<${\bf candidato}$>$ candidatos\+Global({\bf notF})}\hypertarget{funcoes_8cpp_a84f115e3fbf17c018b4746eb95ac1b5a}{}\label{funcoes_8cpp_a84f115e3fbf17c018b4746eb95ac1b5a}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!fases1@{fases1}}
+\index{fases1@{fases1}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{fases1}{fases1}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf fase1}$>$ fases1}\hypertarget{funcoes_8cpp_a6c049f7ef530d38d2ec88ab69c691ec9}{}\label{funcoes_8cpp_a6c049f7ef530d38d2ec88ab69c691ec9}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!fases2@{fases2}}
+\index{fases2@{fases2}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{fases2}{fases2}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf fase2}$>$ fases2}\hypertarget{funcoes_8cpp_a8dbf01c38737187aa4a624bfa435940f}{}\label{funcoes_8cpp_a8dbf01c38737187aa4a624bfa435940f}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!indisponibilidades@{indisponibilidades}}
+\index{indisponibilidades@{indisponibilidades}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{indisponibilidades}{indisponibilidades}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Hash\+Tab} indisponibilidades}\hypertarget{funcoes_8cpp_ac7f4b498c121dea87209cfe06252a444}{}\label{funcoes_8cpp_ac7f4b498c121dea87209cfe06252a444}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!jurados\+Global@{jurados\+Global}}
+\index{jurados\+Global@{jurados\+Global}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{jurados\+Global}{juradosGlobal}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf jurado}$\ast$$>$ jurados\+Global}\hypertarget{funcoes_8cpp_ae9435e6e661379e8e415046d02a346fa}{}\label{funcoes_8cpp_ae9435e6e661379e8e415046d02a346fa}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!notF@{notF}}
+\index{notF@{notF}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{notF}{notF}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf candidato} notF = {\bf candidato}()}\hypertarget{funcoes_8cpp_a4577f0625a9cb11baf4f0c481fc463c5}{}\label{funcoes_8cpp_a4577f0625a9cb11baf4f0c481fc463c5}
+\index{funcoes.\+cpp@{funcoes.\+cpp}!sessao\+Global@{sessao\+Global}}
+\index{sessao\+Global@{sessao\+Global}!funcoes.\+cpp@{funcoes.\+cpp}}
+\subsubsection[{\texorpdfstring{sessao\+Global}{sessaoGlobal}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<${\bf sessao}$\ast$$>$ sessao\+Global}\hypertarget{funcoes_8cpp_a8d719244453f7f8ffad19bbf9a61379e}{}\label{funcoes_8cpp_a8d719244453f7f8ffad19bbf9a61379e}

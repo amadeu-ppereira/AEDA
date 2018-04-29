@@ -1,0 +1,189 @@
+\hypertarget{classfase2}{}\section{fase2 Class Reference}
+\label{classfase2}\index{fase2@{fase2}}
+
+
+subclasse da classe fase relativa a segunda fase  
+
+
+
+
+{\ttfamily \#include $<$fase.\+h$>$}
+
+
+
+Inheritance diagram for fase2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classfase2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for fase2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=121pt]{classfase2__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classfase2_a35257f931f3c049ce109f8420a4947ce}{fase2} (\hyperlink{classfase1}{fase1} f, \hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em construtor da class \hyperlink{classfase2}{fase2} que passa a segunda fase os 5 melhores classificados da primeiara fase \end{DoxyCompactList}\item 
+\hyperlink{classfase2_a50efc3d5d2b81385069e7db490088dd4}{fase2} (string info)
+\begin{DoxyCompactList}\small\item\em construtor da class \hyperlink{classfase1}{fase1} \end{DoxyCompactList}\item 
+void \hyperlink{classfase2_a072c622b806ec59bedf3588a5886a153}{ordena\+Pontuacoes} ()
+\begin{DoxyCompactList}\small\item\em ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media \end{DoxyCompactList}\item 
+void \hyperlink{classfase2_a53f1281d38b661b21ec3954b41ea4945}{display\+Vencedor} ()
+\begin{DoxyCompactList}\small\item\em funcao que da display do vencedor e da sua pontuacao \end{DoxyCompactList}\item 
+void \hyperlink{classfase2_a8088339c7740a9bdb0d26c270036a885}{atribui\+Pontuacoes} ()
+\begin{DoxyCompactList}\small\item\em funcao para atribuir as pontuacoes de um candidato \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{structClassificacao}{Classificacao} $>$ \hyperlink{classfase2_a9ce60146eeac9f5862e1eb5c87191418}{get\+Classificacoes} () const 
+\begin{DoxyCompactList}\small\item\em devolve o vetor com as classificacoes \end{DoxyCompactList}\item 
+\hyperlink{classsessao}{sessao} $\ast$ \hyperlink{classfase2_acef38bb05864322911031659dab18adf}{get\+Sessao} ()
+\begin{DoxyCompactList}\small\item\em devolve a sessao correspondente a esta fase \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classfase2_a1fcb0da80eaeea4bf75c01e9472bd189}{operator$<$$<$} (ostream \&o, \hyperlink{classfase2}{fase2} f)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe \hyperlink{classfase2}{fase2} (ostream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+subclasse da classe fase relativa a segunda fase 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{fase2@{fase2}!fase2@{fase2}}
+\index{fase2@{fase2}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{fase2(fase1 f, sessao $\ast$s)}{fase2(fase1 f, sessao *s)}}]{\setlength{\rightskip}{0pt plus 5cm}fase2\+::fase2 (
+\begin{DoxyParamCaption}
+\item[{{\bf fase1}}]{f, }
+\item[{{\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase2_a35257f931f3c049ce109f8420a4947ce}{}\label{classfase2_a35257f931f3c049ce109f8420a4947ce}
+
+
+construtor da class \hyperlink{classfase2}{fase2} que passa a segunda fase os 5 melhores classificados da primeiara fase 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & primeirafase correspondente \\
+\hline
+{\em s} & apontador para a sessao a que se pretende adicionar a segunda fase \\
+\hline
+\end{DoxyParams}
+\index{fase2@{fase2}!fase2@{fase2}}
+\index{fase2@{fase2}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{fase2(string info)}{fase2(string info)}}]{\setlength{\rightskip}{0pt plus 5cm}fase2\+::fase2 (
+\begin{DoxyParamCaption}
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase2_a50efc3d5d2b81385069e7db490088dd4}{}\label{classfase2_a50efc3d5d2b81385069e7db490088dd4}
+
+
+construtor da class \hyperlink{classfase1}{fase1} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & string com a informacao relativa à \hyperlink{classfase1}{fase1} \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{fase2@{fase2}!atribui\+Pontuacoes@{atribui\+Pontuacoes}}
+\index{atribui\+Pontuacoes@{atribui\+Pontuacoes}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{atribui\+Pontuacoes()}{atribuiPontuacoes()}}]{\setlength{\rightskip}{0pt plus 5cm}void fase2\+::atribui\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase2_a8088339c7740a9bdb0d26c270036a885}{}\label{classfase2_a8088339c7740a9bdb0d26c270036a885}
+
+
+funcao para atribuir as pontuacoes de um candidato 
+
+
+
+Implements \hyperlink{classfase_af940cf6e1b3aaff1802f354d82d73208}{fase}.
+
+\index{fase2@{fase2}!display\+Vencedor@{display\+Vencedor}}
+\index{display\+Vencedor@{display\+Vencedor}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{display\+Vencedor()}{displayVencedor()}}]{\setlength{\rightskip}{0pt plus 5cm}void fase2\+::display\+Vencedor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase2_a53f1281d38b661b21ec3954b41ea4945}{}\label{classfase2_a53f1281d38b661b21ec3954b41ea4945}
+
+
+funcao que da display do vencedor e da sua pontuacao 
+
+\index{fase2@{fase2}!get\+Classificacoes@{get\+Classificacoes}}
+\index{get\+Classificacoes@{get\+Classificacoes}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{get\+Classificacoes() const }{getClassificacoes() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf Classificacao} $>$ fase2\+::get\+Classificacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase2_a9ce60146eeac9f5862e1eb5c87191418}{}\label{classfase2_a9ce60146eeac9f5862e1eb5c87191418}
+
+
+devolve o vetor com as classificacoes 
+
+\begin{DoxyReturn}{Returns}
+vetor com classificacoes 
+\end{DoxyReturn}
+
+
+Implements \hyperlink{classfase_a44cb191d58429a075bd3820e847c2823}{fase}.
+
+\index{fase2@{fase2}!get\+Sessao@{get\+Sessao}}
+\index{get\+Sessao@{get\+Sessao}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{get\+Sessao()}{getSessao()}}]{\setlength{\rightskip}{0pt plus 5cm}{\bf sessao} $\ast$ fase2\+::get\+Sessao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classfase2_acef38bb05864322911031659dab18adf}{}\label{classfase2_acef38bb05864322911031659dab18adf}
+
+
+devolve a sessao correspondente a esta fase 
+
+\begin{DoxyReturn}{Returns}
+apontador para a sessa 
+\end{DoxyReturn}
+\index{fase2@{fase2}!ordena\+Pontuacoes@{ordena\+Pontuacoes}}
+\index{ordena\+Pontuacoes@{ordena\+Pontuacoes}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{ordena\+Pontuacoes()}{ordenaPontuacoes()}}]{\setlength{\rightskip}{0pt plus 5cm}void fase2\+::ordena\+Pontuacoes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classfase2_a072c622b806ec59bedf3588a5886a153}{}\label{classfase2_a072c622b806ec59bedf3588a5886a153}
+
+
+ordena as varias classificacoes de cada candidato de ordem decrescente tendo como base a media 
+
+
+
+Implements \hyperlink{classfase_af0597909e632b43fb33f2b49f66280e1}{fase}.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\index{fase2@{fase2}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!fase2@{fase2}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{{\bf fase2}}]{f}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classfase2_a1fcb0da80eaeea4bf75c01e9472bd189}{}\label{classfase2_a1fcb0da80eaeea4bf75c01e9472bd189}
+
+
+overload do operador $<$$<$ para a classe \hyperlink{classfase2}{fase2} (ostream) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8h}{fase.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{fase_8cpp}{fase.\+cpp}\end{DoxyCompactItemize}

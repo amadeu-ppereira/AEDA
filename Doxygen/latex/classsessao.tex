@@ -1,0 +1,345 @@
+\hypertarget{classsessao}{}\section{sessao Class Reference}
+\label{classsessao}\index{sessao@{sessao}}
+
+
+classe com as informacoes relativas a uma sessao  
+
+
+
+
+{\ttfamily \#include $<$sessao.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classsessao_aeffd6315e32e04d53e0ae43b531bf185}{sessao} ()
+\begin{DoxyCompactList}\small\item\em constructor da class sessao (inicializa dia mes e ano a zero) \end{DoxyCompactList}\item 
+\hyperlink{classsessao_aa0c4f133563230ae0f975a3214134362}{$\sim$sessao} ()
+\begin{DoxyCompactList}\small\item\em destrutor da class sessao \end{DoxyCompactList}\item 
+\hyperlink{classsessao_af1c11649ff608dbc4d51e5189be9cec5}{sessao} (string info)
+\begin{DoxyCompactList}\small\item\em construtor da class sessao \end{DoxyCompactList}\item 
+\hyperlink{classsessao_a289b712ee7876adb7a838796e9bd5cb3}{sessao} (string genero\+Arte, vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em constructor da class sessao \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_a0924c2db7776396e07bdfe9e0f39d05f}{set\+Arte} (string genero\+Arte)
+\begin{DoxyCompactList}\small\item\em altera o genero de arte da sessao \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_ad9af167622260d3b9804d926aade4249}{set\+Concluida} (bool c)
+\begin{DoxyCompactList}\small\item\em altera se a sessao ja foi concluida \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_a7c9a1eaba24458e7b70053cc0d9f6dc4}{set\+Data} (vector$<$ int $>$ data)
+\begin{DoxyCompactList}\small\item\em altera data da sessao \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_a1802bcff6720bf14b6387ef9d7943f6c}{set\+Candidatos} (vector$<$ \hyperlink{classcandidato}{candidato} $\ast$ $>$ c)
+\begin{DoxyCompactList}\small\item\em altera o vetor de candidatos \end{DoxyCompactList}\item 
+vector$<$ int $>$ \hyperlink{classsessao_aa9da748eb3886e40295893379ac500fd}{get\+Data} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve num array a data(dia, mes, ano) \end{DoxyCompactList}\item 
+string \hyperlink{classsessao_a31a5d1fe361cab689d81f4fd96baae91}{get\+Genero\+Arte} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve o genero de arte de uma sessao \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classcandidato}{candidato} $\ast$ $>$ \hyperlink{classsessao_aaeb774f071377658f957f909d29bf0c8}{get\+Candidatos} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve os candidatos de uma sessao \end{DoxyCompactList}\item 
+vector$<$ \hyperlink{classjurado}{jurado} $\ast$ $>$ \hyperlink{classsessao_a6e384ba6e74b654bee58ccff5ed241fe}{get\+Jurados} () const 
+\begin{DoxyCompactList}\small\item\em funcao que devolve os jurados de uma sessao \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_a48c51d6f1f2f8c948a0a227336de1d12}{adiciona\+Candidato} (\hyperlink{classcandidato}{candidato} $\ast$c)
+\begin{DoxyCompactList}\small\item\em adiciona um candidato a sessao \end{DoxyCompactList}\item 
+void \hyperlink{classsessao_a0eee24076fd8c1e474e1868abb9d166d}{adiciona\+Jurado} (\hyperlink{classjurado}{jurado} $\ast$j)
+\begin{DoxyCompactList}\small\item\em adiciona um jurado a sessao \end{DoxyCompactList}\item 
+int \hyperlink{classsessao_a247360575defbe2733ed6293a6d90a0d}{get\+Numero\+Jurados} () const 
+\begin{DoxyCompactList}\small\item\em diz quantos jurados tem a sessao \end{DoxyCompactList}\item 
+bool \hyperlink{classsessao_ab9e1e5203a930bcbf8ec4233972e6676}{sessao\+Concluida} () const 
+\begin{DoxyCompactList}\small\item\em diz se a sessao ja for concluida \end{DoxyCompactList}\item 
+bool \hyperlink{classsessao_ac7da1ba482dc3a5b65f4ad3915a2420e}{operator$<$} (const \hyperlink{classsessao}{sessao} $\ast$\&s) const 
+\begin{DoxyCompactList}\small\item\em overload do operador $<$ para a classe sessao \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classsessao_a442be9403858cf93de76510cccc64496}{operator$<$$<$} (ostream \&o, const \hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe sessao (ostream) \end{DoxyCompactList}\item 
+ofstream \& \hyperlink{classsessao_ac46d6bce5998eb1597ae5866c39938c5}{operator$<$$<$} (ofstream \&o, const \hyperlink{classsessao}{sessao} $\ast$s)
+\begin{DoxyCompactList}\small\item\em overload do operador $<$$<$ para a classe sessao (fstream) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+classe com as informacoes relativas a uma sessao 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{sessao@{sessao}!sessao@{sessao}}
+\index{sessao@{sessao}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{sessao()}{sessao()}}]{\setlength{\rightskip}{0pt plus 5cm}sessao\+::sessao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_aeffd6315e32e04d53e0ae43b531bf185}{}\label{classsessao_aeffd6315e32e04d53e0ae43b531bf185}
+
+
+constructor da class sessao (inicializa dia mes e ano a zero) 
+
+\index{sessao@{sessao}!````~sessao@{$\sim$sessao}}
+\index{````~sessao@{$\sim$sessao}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{$\sim$sessao()}{~sessao()}}]{\setlength{\rightskip}{0pt plus 5cm}sessao\+::$\sim$sessao (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_aa0c4f133563230ae0f975a3214134362}{}\label{classsessao_aa0c4f133563230ae0f975a3214134362}
+
+
+destrutor da class sessao 
+
+\index{sessao@{sessao}!sessao@{sessao}}
+\index{sessao@{sessao}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{sessao(string info)}{sessao(string info)}}]{\setlength{\rightskip}{0pt plus 5cm}sessao\+::sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{info}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_af1c11649ff608dbc4d51e5189be9cec5}{}\label{classsessao_af1c11649ff608dbc4d51e5189be9cec5}
+
+
+construtor da class sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em info} & string com toda a informacao acerca de uma sessao \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!sessao@{sessao}}
+\index{sessao@{sessao}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{sessao(string genero\+Arte, vector$<$ int $>$ data)}{sessao(string generoArte, vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}sessao\+::sessao (
+\begin{DoxyParamCaption}
+\item[{string}]{genero\+Arte, }
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a289b712ee7876adb7a838796e9bd5cb3}{}\label{classsessao_a289b712ee7876adb7a838796e9bd5cb3}
+
+
+constructor da class sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em genero\+Arte} & genero de arte da sessao \\
+\hline
+{\em data} & dia,mes,ano da sessao ,respetivamente \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\index{sessao@{sessao}!adiciona\+Candidato@{adiciona\+Candidato}}
+\index{adiciona\+Candidato@{adiciona\+Candidato}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{adiciona\+Candidato(candidato $\ast$c)}{adicionaCandidato(candidato *c)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::adiciona\+Candidato (
+\begin{DoxyParamCaption}
+\item[{{\bf candidato} $\ast$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a48c51d6f1f2f8c948a0a227336de1d12}{}\label{classsessao_a48c51d6f1f2f8c948a0a227336de1d12}
+
+
+adiciona um candidato a sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & candidato a adicionar \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!adiciona\+Jurado@{adiciona\+Jurado}}
+\index{adiciona\+Jurado@{adiciona\+Jurado}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{adiciona\+Jurado(jurado $\ast$j)}{adicionaJurado(jurado *j)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::adiciona\+Jurado (
+\begin{DoxyParamCaption}
+\item[{{\bf jurado} $\ast$}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a0eee24076fd8c1e474e1868abb9d166d}{}\label{classsessao_a0eee24076fd8c1e474e1868abb9d166d}
+
+
+adiciona um jurado a sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em j} & jurado a adicionar \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!get\+Candidatos@{get\+Candidatos}}
+\index{get\+Candidatos@{get\+Candidatos}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{get\+Candidatos() const }{getCandidatos() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf candidato} $\ast$ $>$ sessao\+::get\+Candidatos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_aaeb774f071377658f957f909d29bf0c8}{}\label{classsessao_aaeb774f071377658f957f909d29bf0c8}
+
+
+funcao que devolve os candidatos de uma sessao 
+
+\begin{DoxyReturn}{Returns}
+candidatos da sessao 
+\end{DoxyReturn}
+\index{sessao@{sessao}!get\+Data@{get\+Data}}
+\index{get\+Data@{get\+Data}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{get\+Data() const }{getData() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ int $>$ sessao\+::get\+Data (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_aa9da748eb3886e40295893379ac500fd}{}\label{classsessao_aa9da748eb3886e40295893379ac500fd}
+
+
+funcao que devolve num array a data(dia, mes, ano) 
+
+\begin{DoxyReturn}{Returns}
+vetor de int\textquotesingle{}s com a data 
+\end{DoxyReturn}
+\index{sessao@{sessao}!get\+Genero\+Arte@{get\+Genero\+Arte}}
+\index{get\+Genero\+Arte@{get\+Genero\+Arte}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{get\+Genero\+Arte() const }{getGeneroArte() const }}]{\setlength{\rightskip}{0pt plus 5cm}string sessao\+::get\+Genero\+Arte (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_a31a5d1fe361cab689d81f4fd96baae91}{}\label{classsessao_a31a5d1fe361cab689d81f4fd96baae91}
+
+
+funcao que devolve o genero de arte de uma sessao 
+
+\begin{DoxyReturn}{Returns}
+genero\+Arte da sessao 
+\end{DoxyReturn}
+\index{sessao@{sessao}!get\+Jurados@{get\+Jurados}}
+\index{get\+Jurados@{get\+Jurados}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{get\+Jurados() const }{getJurados() const }}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ {\bf jurado} $\ast$ $>$ sessao\+::get\+Jurados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_a6e384ba6e74b654bee58ccff5ed241fe}{}\label{classsessao_a6e384ba6e74b654bee58ccff5ed241fe}
+
+
+funcao que devolve os jurados de uma sessao 
+
+\begin{DoxyReturn}{Returns}
+jurados da sessao 
+\end{DoxyReturn}
+\index{sessao@{sessao}!get\+Numero\+Jurados@{get\+Numero\+Jurados}}
+\index{get\+Numero\+Jurados@{get\+Numero\+Jurados}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{get\+Numero\+Jurados() const }{getNumeroJurados() const }}]{\setlength{\rightskip}{0pt plus 5cm}int sessao\+::get\+Numero\+Jurados (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_a247360575defbe2733ed6293a6d90a0d}{}\label{classsessao_a247360575defbe2733ed6293a6d90a0d}
+
+
+diz quantos jurados tem a sessao 
+
+\begin{DoxyReturn}{Returns}
+numero de jurados 
+\end{DoxyReturn}
+\index{sessao@{sessao}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{operator$<$(const sessao $\ast$\&s) const }{operator<(const sessao *&s) const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sessao\+::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf sessao} $\ast$\&}]{s}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_ac7da1ba482dc3a5b65f4ad3915a2420e}{}\label{classsessao_ac7da1ba482dc3a5b65f4ad3915a2420e}
+
+
+overload do operador $<$ para a classe sessao 
+
+\index{sessao@{sessao}!sessao\+Concluida@{sessao\+Concluida}}
+\index{sessao\+Concluida@{sessao\+Concluida}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{sessao\+Concluida() const }{sessaoConcluida() const }}]{\setlength{\rightskip}{0pt plus 5cm}bool sessao\+::sessao\+Concluida (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const}\hypertarget{classsessao_ab9e1e5203a930bcbf8ec4233972e6676}{}\label{classsessao_ab9e1e5203a930bcbf8ec4233972e6676}
+
+
+diz se a sessao ja for concluida 
+
+\begin{DoxyReturn}{Returns}
+valor da variavel concluida 
+\end{DoxyReturn}
+\index{sessao@{sessao}!set\+Arte@{set\+Arte}}
+\index{set\+Arte@{set\+Arte}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{set\+Arte(string genero\+Arte)}{setArte(string generoArte)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::set\+Arte (
+\begin{DoxyParamCaption}
+\item[{string}]{genero\+Arte}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a0924c2db7776396e07bdfe9e0f39d05f}{}\label{classsessao_a0924c2db7776396e07bdfe9e0f39d05f}
+
+
+altera o genero de arte da sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em genero\+Arte} & generto de arte da sessao \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!set\+Candidatos@{set\+Candidatos}}
+\index{set\+Candidatos@{set\+Candidatos}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{set\+Candidatos(vector$<$ candidato $\ast$ $>$ c)}{setCandidatos(vector< candidato * > c)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::set\+Candidatos (
+\begin{DoxyParamCaption}
+\item[{vector$<$ {\bf candidato} $\ast$ $>$}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a1802bcff6720bf14b6387ef9d7943f6c}{}\label{classsessao_a1802bcff6720bf14b6387ef9d7943f6c}
+
+
+altera o vetor de candidatos 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & novo vetor de candidatos \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!set\+Concluida@{set\+Concluida}}
+\index{set\+Concluida@{set\+Concluida}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{set\+Concluida(bool c)}{setConcluida(bool c)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::set\+Concluida (
+\begin{DoxyParamCaption}
+\item[{bool}]{c}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_ad9af167622260d3b9804d926aade4249}{}\label{classsessao_ad9af167622260d3b9804d926aade4249}
+
+
+altera se a sessao ja foi concluida 
+
+
+\begin{DoxyParams}{Parameters}
+{\em c} & valor para alterar \\
+\hline
+\end{DoxyParams}
+\index{sessao@{sessao}!set\+Data@{set\+Data}}
+\index{set\+Data@{set\+Data}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{set\+Data(vector$<$ int $>$ data)}{setData(vector< int > data)}}]{\setlength{\rightskip}{0pt plus 5cm}void sessao\+::set\+Data (
+\begin{DoxyParamCaption}
+\item[{vector$<$ int $>$}]{data}
+\end{DoxyParamCaption}
+)}\hypertarget{classsessao_a7c9a1eaba24458e7b70053cc0d9f6dc4}{}\label{classsessao_a7c9a1eaba24458e7b70053cc0d9f6dc4}
+
+
+altera data da sessao 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & vetor com dia mes e ano para alterar \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{sessao@{sessao}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{o, }
+\item[{const {\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classsessao_a442be9403858cf93de76510cccc64496}{}\label{classsessao_a442be9403858cf93de76510cccc64496}
+
+
+overload do operador $<$$<$ para a classe sessao (ostream) 
+
+\index{sessao@{sessao}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!sessao@{sessao}}
+\subsubsection[{\texorpdfstring{operator$<$$<$}{operator<<}}]{\setlength{\rightskip}{0pt plus 5cm}ofstream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ofstream \&}]{o, }
+\item[{const {\bf sessao} $\ast$}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classsessao_ac46d6bce5998eb1597ae5866c39938c5}{}\label{classsessao_ac46d6bce5998eb1597ae5866c39938c5}
+
+
+overload do operador $<$$<$ para a classe sessao (fstream) 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{sessao_8h}{sessao.\+h}\item 
+/home/amadeu/\+F\+E\+U\+P/\+A\+E\+D\+A\+\_\+\+Proj1/\hyperlink{sessao_8cpp}{sessao.\+cpp}\end{DoxyCompactItemize}
